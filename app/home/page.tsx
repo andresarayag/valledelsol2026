@@ -1,12 +1,12 @@
 import Header from '../components/Header'; 
 import Hero from '../components/Hero';
+import HighlightsCarousel from '../components/HighlightsCarousel';
 import LocationSection from '../components/LocationSection';
-import ParallaxCTA from '../components/ParallaxCTA';
 import ContactSection from '../components/ContactSection';
 import Footer from '../components/Footer';
 import Booking from '../components/Booking';
 import Experiences from '../components/Experiences';
-import Highlights from '../components/Highlights';
+import GalleryFilter from '../components/GalleryFilter';
 import { FeatureBlock, SocialLink } from '../components/types';
 
 // Data configuration
@@ -81,6 +81,7 @@ export default function Home() {
             "Hospitalidad"
           ]}
         />
+        <HighlightsCarousel />
 
         {/* Booking */}
         <Booking />
@@ -88,22 +89,14 @@ export default function Home() {
         {/* Experiences */}
         <Experiences />
 
-        {/* Highlights */}
-        <Highlights />
-
+        <GalleryFilter />
+        
+        {/* Contact */}
+        <ContactSection />
 
         {/* Location */}
         <LocationSection />
 
-        {/* CTA */}
-        <ParallaxCTA
-          text="Déjate enamorar por la tranquilidad y el encanto de Valle del Sol."
-          buttonText="Cotiza tu evento"
-          buttonHref="/cotiza-tu-evento"
-        />
-
-        {/* Contact */}
-        <ContactSection />
 
       </main>
 

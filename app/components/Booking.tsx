@@ -4,64 +4,65 @@ import Link from 'next/link';
 
 export default function Booking() {
   return (
-    <section className="relative -mt-20 z-20">
-      
-      <div className="max-w-7xl mx-auto px-4">
-        
-        {/* CONTENEDOR RELATIVO */}
-        <div className="relative">
+    <section className="relative w-full h-[70vh] md:h-[80vh] flex items-center">
 
-          {/* CARD AZUL */}
-          <div className="bg-[#0098DA] rounded-3xl shadow-2xl overflow-hidden">
-            
-            <div className="grid md:grid-cols-2 items-center">
+      {/* IMAGEN DE FONDO */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{ backgroundImage: "url('/images/relajacion.jpeg')" }}
+      />
 
-              {/* TEXTO */}
-              <div className="p-8 md:p-12 flex flex-col justify-center">
-                
-                <h2 className="text-3xl md:text-5xl font-bold text-white leading-tight">
-                  Bienvenidos a Valle del Sol
-                </h2>
+      {/* OVERLAY (oscuro hacia la izquierda) */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
-                <p className="text-white/90 mt-4 text-lg md:text-xl max-w-md">
-                  Una escapada llena de Naturaleza y Cultura
-                </p>
+      {/* CONTENEDOR */}
+      <div className="relative z-10 w-full max-w-6xl mx-auto px-6">
 
-                <Link href="/reservas">
-                  <button className="mt-8 bg-white text-[#0098DA] hover:bg-gray-100 px-8 py-3 rounded-full text-sm font-semibold transition transform hover:scale-105 shadow-md">
-                    Reservar ahora
-                  </button>
-                </Link>
+        <div className="flex">
+          
+          {/* CONTENIDO IZQUIERDA */}
+          <div className="w-full md:w-1/2 text-white text-left">
 
-              </div>
+            <p className="text-sm tracking-widest uppercase text-white/70 mb-4">
+              Valle del Sol
+            </p>
 
-              {/* ESPACIO VACÍO PARA BALANCE */}
-              <div />
+            <h2 className="text-4xl md:text-6xl font-semibold leading-tight">
+              Un refugio natural para desconectarte del mundo
+            </h2>
 
-            </div>
-          </div>
+            <p className="mt-6 text-lg md:text-xl text-white/90 leading-relaxed">
+              Vive una experiencia única rodeado de naturaleza, tranquilidad y paisajes que invitan a detener el tiempo.
+            </p>
 
-          {/* VIDEO FLOATING (FUERA DE LA CARD) */}
-          <div className="absolute right-12 md:right-20 top-1/2 -translate-y-1/2">
-  
-  <div className="w-[240px] md:w-[280px] aspect-[9/16]">
-  
-              <video
-                src="/videos/bienvenida.mp4"
-                autoPlay
-                muted
-                loop
-                playsInline
-                className="w-full h-full object-contain rounded-2xl shadow-2xl"
-              />
+            {/* BOTONES */}
+            <div className="mt-10 flex gap-4 flex-wrap">
+
+              {/* BOTÓN PRINCIPAL */}
+              <Link href="/reservas">
+                <button className="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full text-sm font-semibold transition">
+                  Reservar ahora
+                </button>
+              </Link>
+
+              {/* BOTÓN SECUNDARIO */}
+              <Link href="/experiencias">
+                <button className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full text-sm font-medium transition">
+                  Explorar experiencias
+                </button>
+              </Link>
 
             </div>
 
           </div>
+
+          {/* COLUMNA VACÍA */}
+          <div className="hidden md:block md:w-1/2" />
 
         </div>
 
       </div>
+
     </section>
   );
 }

@@ -26,7 +26,7 @@ const experiences = [
 
 export default function Experiences() {
   return (
-    <section className="pt-24 pb-8 bg-white">
+    <section className="pt-24 pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Subtítulo */}
