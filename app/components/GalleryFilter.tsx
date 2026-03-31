@@ -14,25 +14,25 @@ const items = [
     title: 'Piscinas',
     image: '/images/galeria/piscinas.jpg',
     description:
-      'Disfruta de refrescantes piscinas para adultos y niños, ideales para relajarse y compartir en familia. Vive momentos únicos en un entorno pensado para el descanso y la experiencia.',
+      'Disfruta de refrescantes piscinas para adultos y niños, ideales para relajarse y compartir en familia.',
   },
   {
     title: 'Habitaciones',
     image: '/images/galeria/habitaciones.jpg',
     description:
-      'Relájate en habitaciones diseñadas para brindar calidez, comodidad y descanso. Vive momentos únicos en un entorno acogedor pensado para desconectarte y recargar energías.',
+      'Relájate en habitaciones diseñadas para brindar calidez, comodidad y descanso.',
   },
   {
     title: 'Comida Chilena',
     image: '/images/galeria/comida.jpeg',
     description:
-      'Descubre lo mejor de la comida chilena con platos tradicionales llenos de sabor y tradición. Vive momentos únicos en un entorno donde la gastronomía es parte de la experiencia.',
+      'Descubre lo mejor de la comida chilena con platos tradicionales llenos de sabor.',
   },
   {
     title: 'Eventos Corporativos',
     image: '/images/galeria/eventos-corporativos.jpeg',
     description:
-      'Realiza eventos corporativos, aniversarios, matrimonios y graduaciones en un entorno único. Vive momentos especiales en espacios diseñados para celebrar y conectar.',
+      'Realiza eventos corporativos, matrimonios y celebraciones en un entorno único.',
   },
 ];
 
@@ -60,7 +60,7 @@ export default function GalleryFilter() {
       onMouseLeave={() => setPaused(false)}
     >
 
-      {/* IMAGEN ANIMADA */}
+      {/* IMAGEN */}
       <AnimatePresence mode="wait">
         <motion.div
           key={current.image}
@@ -73,22 +73,22 @@ export default function GalleryFilter() {
         />
       </AnimatePresence>
 
-      {/* OVERLAY PRO */}
+      {/* OVERLAY */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent" />
 
       {/* CONTENIDO */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
 
-        {/* MENÚ */}
-        <div className="flex flex-wrap gap-6 mb-12 text-white text-sm md:text-base font-medium">
+        {/* 🔥 MENÚ MEJORADO */}
+        <div className="flex flex-wrap gap-4 mb-12">
           {items.map((item, index) => (
             <button
               key={index}
               onClick={() => setActive(index)}
-              className={`transition ${
+              className={`px-5 py-2 rounded-full text-sm md:text-base font-medium transition-all backdrop-blur-md border ${
                 active === index
-                  ? 'border-b-2 border-white pb-1'
-                  : 'opacity-70 hover:opacity-100'
+                  ? 'bg-white text-black border-white shadow-lg scale-105'
+                  : 'bg-white/10 text-white border-white/20 hover:bg-white/20 hover:scale-105'
               }`}
             >
               {item.title}
@@ -96,7 +96,7 @@ export default function GalleryFilter() {
           ))}
         </div>
 
-        {/* TEXTO ANIMADO */}
+        {/* TEXTO */}
         <AnimatePresence mode="wait">
           <motion.div
             key={current.title}
@@ -121,7 +121,7 @@ export default function GalleryFilter() {
 
             {/* TÍTULO */}
             <motion.h2
-              className="text-4xl md:text-6xl font-semibold leading-tight"
+              className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight"
               variants={{
                 hidden: { opacity: 0, y: 40 },
                 visible: { opacity: 1, y: 0 },

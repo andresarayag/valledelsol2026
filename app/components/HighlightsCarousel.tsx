@@ -6,35 +6,35 @@ import Image from 'next/image';
 const highlights = [
   {
     text: '24.000 m2 de espacio y áreas verdes',
-    icon: '/images/iconos/areas-verdes.svg',
+    icon: '/images/iconos/areas-verdes.png',
   },
   {
     text: 'Tinajas con vista a los jardines',
-    icon: '/images/iconos/tinajas.svg',
+    icon: '/images/iconos/tinajas.png',
   },
   {
     text: 'Piscinas para adultos y niños',
-    icon: '/images/iconos/piscinas.svg',
+    icon: '/images/iconos/piscinas.png',
   },
   {
     text: 'Restaurant de comida típica chilena',
-    icon: '/images/iconos/comida.svg',
+    icon: '/images/iconos/empanadas.png',
   },
   {
     text: 'Amplios salones de eventos',
-    icon: '/images/iconos/eventos.svg',
+    icon: '/images/iconos/eventos.png',
   },
   {
     text: 'Cancha de volleyball',
-    icon: '/images/iconos/volleyball.svg',
+    icon: '/images/iconos/volleyball.png',
   },
   {
     text: 'Cancha de fútbol',
-    icon: '/images/iconos/futbol.svg',
+    icon: '/images/iconos/futbol.png',
   },
   {
     text: 'Cancha de tenis',
-    icon: '/images/iconos/tenis.svg',
+    icon: '/images/iconos/tenis.png',
   },
 ];
 
@@ -98,18 +98,18 @@ export default function HighlightsCarousel() {
                 {highlights.map((item, i) => (
                   <div
                     key={i}
-                    className="w-1/4 flex-shrink-0 flex flex-col items-center text-center px-4 group"
+                    className="w-1/4 flex-shrink-0 flex flex-col items-center text-center px-4 group transition-all duration-300 hover:-translate-y-1"
                   >
 
                     {/* ICONO */}
-                    <div className="w-20 h-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-md transition">
+                    <div className="w-20 h-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#FBB03B] group-hover:shadow-xl">
 
                       <Image
                         src={item.icon}
                         alt={item.text}
                         width={36}
                         height={36}
-                        className="transition duration-300 group-hover:brightness-0 group-hover:invert"
+                        className="transition-transform duration-300 group-hover:scale-110"
                       />
 
                     </div>

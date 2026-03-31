@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Montserrat, Geist_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-montserrat",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 const geistMono = Geist_Mono({
@@ -14,7 +15,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Valle del Sol - Complejo Turístico Quillón",
-  description: "Descubre en Valle del sol la Magia de la Naturaleza, Relajación y hospitalidad. Cabañas, restaurante, eventos y más en Quillón.",
+  description:
+    "Descubre en Valle del sol la Magia de la Naturaleza, Relajación y hospitalidad. Cabañas, restaurante, eventos y más en Quillón.",
 };
 
 export default function RootLayout({
@@ -23,10 +25,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+    <html lang="es" className={montserrat.variable}>
+      <body className={`${geistMono.variable} font-sans antialiased`}>
         {children}
       </body>
     </html>
