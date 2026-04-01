@@ -7,17 +7,17 @@ const slides = [
   {
     title: 'Convenios con empresas',
     text: 'Ofrecemos planes especiales para empresas que buscan entregar beneficios reales a sus colaboradores. Accede a tarifas preferenciales, experiencias personalizadas y un entorno ideal para el descanso.',
-    image: '/images/convenios.jpg',
+    image: '/images/convenios.jpeg',
   },
   {
     title: 'Programas para Tour Operadores',
     text: 'Trabajamos junto a tour operadores para crear experiencias únicas en Valle del Sol. Diseñamos programas flexibles, atractivos y con alto valor agregado.',
-    image: '/images/tour-operadores.jpg',
+    image: '/images/tour-operadores.jpeg',
   },
   {
     title: 'Beneficios para Colegios',
     text: 'Programas ideales para giras de estudio y actividades educativas en un entorno seguro, natural y enriquecedor.',
-    image: '/images/colegios.jpg',
+    image: '/images/colegios.jpeg',
   },
 ];
 
@@ -59,6 +59,17 @@ export default function ContactSection() {
     <section className="bg-[#f5f5f5] py-24">
       <div className="max-w-6xl mx-auto px-6">
 
+        {/* 🔥 TÍTULO SECCIÓN */}
+        <div className="mb-16 text-left">
+  <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
+    EXCLUSIVAS <span className="font-bold">PROMOCIONES</span>
+  </h2>
+
+  <p className="mt-4 text-lg text-gray-600">
+    Accede a tarifas preferentes
+  </p>
+</div>
+
         {/* SLIDER */}
         <div
           onTouchStart={handleTouchStart}
@@ -89,9 +100,9 @@ export default function ContactSection() {
 
                 {/* TEXTO */}
                 <div>
-                  <h2 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
+                  <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
                     {slide.title}
-                  </h2>
+                  </h3>
 
                   <p className="text-gray-600 text-lg leading-relaxed mb-6">
                     {slide.text}

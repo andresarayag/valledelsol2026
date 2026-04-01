@@ -1,5 +1,5 @@
 'use client';
-
+import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
 
@@ -41,7 +41,7 @@ const highlights = [
 export default function HighlightsCarousel() {
   const [index, setIndex] = useState(0);
 
-  const visibleItems = 4;
+  const visibleItems = 3; // 🔥 CAMBIO
   const maxIndex = highlights.length - visibleItems;
 
   useEffect(() => {
@@ -65,15 +65,20 @@ export default function HighlightsCarousel() {
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
 
         {/* TEXTO */}
-        <div>
+        <motion.div
+          initial={{ opacity: 0, x: -120 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        >
           <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-            Lo que nos <span className="font-semibold text-gray-900">destaca</span>
+            LO QUE NOS <span className="font-semibold text-gray-900">DESTACA</span>
           </h2>
 
           <p className="mt-4 text-lg text-gray-600">
             Beneficios a su alcance
           </p>
-        </div>
+        </motion.div>
 
         {/* CARRUSEL */}
         <div>
@@ -85,21 +90,23 @@ export default function HighlightsCarousel() {
             </button>
 
             {/* VIEWPORT */}
-            <div className="overflow-hidden w-full">
+            <div className="overflow-x-hidden overflow-y-visible w-full pt-6">
+              {/* 🔥 pt-6 evita corte superior */}
 
               {/* TRACK */}
               <div
-                className="flex transition-transform duration-700 ease-in-out"
-                style={{
-                  transform: `translateX(-${index * 25}%)`,
-                  width: `${(highlights.length / visibleItems) * 100}%`,
-                }}
-              >
-                {highlights.map((item, i) => (
-                  <div
-                    key={i}
-                    className="w-1/4 flex-shrink-0 flex flex-col items-center text-center px-4 group transition-all duration-300 hover:-translate-y-1"
-                  >
+  className="flex transition-transform duration-700 ease-in-out"
+  style={{
+    transform: `translateX(-${index * (100 / highlights.length)}%)`,
+    width: `${highlights.length * (100 / visibleItems)}%`,
+  }}
+>
+  {highlights.map((item, i) => (
+    <div
+      key={i}
+      style={{ width: `${100 / highlights.length}%` }}
+      className="flex-shrink-0 flex flex-col items-center text-center px-4 group transition-all duration-300 hover:-translate-y-2"
+    >
 
                     {/* ICONO */}
                     <div className="w-20 h-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#FBB03B] group-hover:shadow-xl">
