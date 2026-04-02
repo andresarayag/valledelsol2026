@@ -1,5 +1,7 @@
 'use client';
 
+import { motion } from 'framer-motion';
+
 export default function LocationSection() {
   return (
     <section className="relative py-24 overflow-hidden">
@@ -18,8 +20,14 @@ export default function LocationSection() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT - TEXT */}
-          <div className="space-y-6 text-white animate-fade-in">
+          {/* LEFT - TEXT (ANIMADO) */}
+          <motion.div
+            className="space-y-6 text-white"
+            initial={{ opacity: 0, x: -120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: '-100px' }}
+            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          >
 
             <div>
               <p className="text-sm tracking-widest text-white/70 mb-2">
@@ -63,10 +71,16 @@ export default function LocationSection() {
               </a>
 
             </div>
-          </div>
+          </motion.div>
 
-          {/* RIGHT - MAP */}
-          <div className="relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-white/10 animate-fade-in-delay">
+          {/* RIGHT - MAP (ANIMADO CON DELAY) */}
+          <motion.div
+            className="relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
+            initial={{ opacity: 0, x: 120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: false, margin: '-100px' }}
+            transition={{ duration: 1.4, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
+          >
             <iframe
               src="https://maps.google.com/maps?q=complejo%20turistico%20valle%20del%20sol%20quill%C3%B3n&t=m&z=14&output=embed&iwloc=near"
               title="complejo turistico valle del sol quillón"
@@ -74,7 +88,7 @@ export default function LocationSection() {
               loading="lazy"
               referrerPolicy="no-referrer-when-downgrade"
             />
-          </div>
+          </motion.div>
 
         </div>
       </div>

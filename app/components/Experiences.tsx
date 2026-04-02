@@ -42,40 +42,36 @@ export default function Experiences() {
     <section className="pt-24 pb-24 bg-white">
       <div className="max-w-7xl mx-auto px-6">
 
-        {/* 🔥 SUBTÍTULO ANIMADO PREMIUM */}
+        {/* SUBTÍTULO */}
         <motion.div
-  className="mb-12"
-  initial={{ opacity: 0, x: -120 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: false, margin: '-100px' }}
-  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
->
-  <p className="text-gray-600 text-2xl md:text-3xl max-w-2xl leading-snug tracking-tight">
-    Descubre{' '}
-    <span className="font-semibold inline-block">
-      experiencias únicas
-    </span>
-    <br />
-    en un entorno natural{' '}
-    <span className="font-semibold inline-block">
-      incomparable
-    </span>
-  </p>
-</motion.div>
+          className="mb-12"
+          initial={{ opacity: 0, x: -120 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <p className="text-gray-600 text-2xl md:text-3xl max-w-2xl leading-snug tracking-tight">
+            Descubre{' '}
+            <span className="font-semibold inline-block">
+              experiencias únicas
+            </span>
+            <br />
+            en un entorno natural{' '}
+            <span className="font-semibold inline-block">
+              incomparable
+            </span>
+          </p>
+        </motion.div>
 
-        {/* GRID */}
-        <div className="grid md:grid-cols-6 gap-8">
+        {/* 🔥 FILA ÚNICA RESPONSIVE */}
+        <div className="flex gap-6 overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible">
 
-          {/* FILA 1 */}
-          {experiences.slice(0, 3).map((item, index) => (
-            <Link key={index} href={item.href} className="block md:col-span-2">
-              <Card item={item} />
-            </Link>
-          ))}
-
-          {/* FILA 2 */}
-          {experiences.slice(3).map((item, index) => (
-            <Link key={index} href={item.href} className="block md:col-span-3">
+          {experiences.map((item, index) => (
+            <Link
+              key={index}
+              href={item.href}
+              className="min-w-[260px] md:min-w-0 block"
+            >
               <Card item={item} />
             </Link>
           ))}
@@ -90,7 +86,7 @@ export default function Experiences() {
 /* CARD */
 function Card({ item }: { item: any }) {
   return (
-    <div className="relative h-[420px] rounded-2xl overflow-hidden group cursor-pointer">
+    <div className="relative h-[360px] md:h-[420px] rounded-2xl overflow-hidden group cursor-pointer">
 
       {/* Imagen */}
       <Image
@@ -104,10 +100,10 @@ function Card({ item }: { item: any }) {
       <div className="absolute inset-0 bg-black/40 group-hover:bg-black/50 transition duration-500" />
 
       {/* Contenido */}
-      <div className="absolute inset-0 flex flex-col justify-end p-8">
+      <div className="absolute inset-0 flex flex-col justify-end p-6 md:p-8">
 
         <div className="transform transition-all duration-500 group-hover:-translate-y-6">
-          <h3 className="text-white text-3xl font-semibold">
+          <h3 className="text-white text-2xl md:text-3xl font-semibold">
             {item.title}
           </h3>
 

@@ -2,6 +2,7 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
+import { motion } from 'framer-motion'; // 👈 IMPORTANTE
 
 const slides = [
   {
@@ -59,16 +60,22 @@ export default function ContactSection() {
     <section className="bg-[#f5f5f5] py-24">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* 🔥 TÍTULO SECCIÓN */}
-        <div className="mb-16 text-left">
-  <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
-    EXCLUSIVAS <span className="font-bold">PROMOCIONES</span>
-  </h2>
+        {/* 🔥 TÍTULO ANIMADO */}
+        <motion.div
+          className="mb-16 text-left"
+          initial={{ opacity: 0, x: -120 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
+            PROGRAMAS <span className="font-bold">EXCLUSIVOS</span>
+          </h2>
 
-  <p className="mt-4 text-lg text-gray-600">
-    Accede a tarifas preferentes
-  </p>
-</div>
+          <p className="mt-4 text-lg text-gray-600">
+            Accede a tarifas preferentes
+          </p>
+        </motion.div>
 
         {/* SLIDER */}
         <div

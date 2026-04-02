@@ -100,18 +100,18 @@ export default function Hero({
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
 
           <a
-            href="/cabanas"
-            className="bg-white text-black px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition"
-          >
-            Ver Cabañas
-          </a>
+  href="/cabanas"
+  className="bg-white text-black px-8 py-3 rounded-full text-sm font-semibold transition hover:bg-gray-200 hover:scale-105 hover:shadow-xl"
+>
+  Ver Cabañas
+</a>
 
-          <a
-            href="/cotiza-tu-evento"
-            className="border border-white px-6 py-3 rounded-lg font-semibold hover:bg-white hover:text-black transition"
-          >
-            Cotizar Evento
-          </a>
+<a
+  href="/cotiza-tu-evento"
+  className="border border-white px-8 py-3 rounded-full text-sm font-medium transition hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
+>
+  Cotizar Evento
+</a>
 
         </div>
 

@@ -23,16 +23,22 @@ const items = [
       'Relájate en habitaciones diseñadas para brindar calidez, comodidad y descanso.',
   },
   {
-    title: 'Comida Chilena',
+    title: 'Comida Típica',
     image: '/images/galeria/comida.jpeg',
     description:
       'Descubre lo mejor de la comida chilena con platos tradicionales llenos de sabor.',
   },
   {
-    title: 'Eventos Corporativos',
-    image: '/images/galeria/eventos-corporativos.jpeg',
+    title: 'Tinajas',
+    image: '/images/galeria/tinajas.jpg',
     description:
-      'Realiza eventos corporativos, matrimonios y celebraciones en un entorno único.',
+      'Disfruta el relajo en las cálidas aguas de nuestras tinajas.',
+  },
+  {
+    title: 'Canchas',
+    image: '/images/galeria/canchas.jpg',
+    description:
+      'Disfruta de nuestras canchas deportivas en un entorno natural ideal para compartir, competir y vivir momentos activos al aire libre.',
   },
 ];
 
