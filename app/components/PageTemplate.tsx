@@ -73,7 +73,7 @@ export default function PageTemplate({
 
               {/* 👇 USO DIRECTO DE CABINCARD (SIN PROPS RAROS) */}
               {cards.map((item) => (
-                <CabinCard key={item.id} cabin={item} />
+                <div key={item.id}>{item.title}</div>
               ))}
 
             </div>
