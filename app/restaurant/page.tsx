@@ -1,11 +1,13 @@
+'use client';
+
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import ParallaxHero from '../components/ParallaxHero';
 import HorizontalGallery from '../components/HorizontalGallery';
 import TwoColumnSection from '../components/TwoColumnSection';
 import FoodMenu from '../components/FoodMenu';
 import Image from 'next/image';
 import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { SocialLink, MenuItem } from '../components/types';
 
 const socialLinks: SocialLink[] = [
@@ -35,44 +37,37 @@ const restaurantGalleryImages = [
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/4497900C-2782-40DB-A962-B38470044A37_1_102_o-e1725501882844.jpeg',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/1000028807-min.jpg',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/20240824_215030157_iOS-min-e1724725751972.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/4C300B8E-3BC1-4A2E-8636-6751CE884315_1_105_c.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/IMG_7985-min.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/5E0EA33A-A400-428B-9178-AEC50E3B0636.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/IMG_7953-min.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/IMG_8030-min.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/IMG_7944.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/20240825_162638964_iOS-min.jpg',
 ];
 
 const foodMenuItems: MenuItem[] = [
   {
     title: 'Ceviche Rapa Nui',
     description:
-      'Dados de pescado fresco marinado con cebolla morada, pimentones, sésamo, palta, y camarón bañado en una salsa de mango. Servido con tostadas.',
+      'Dados de pescado fresco marinado con cebolla morada, pimentones, sésamo, palta y camarón en salsa de mango.',
     price: '$10.900',
   },
   {
     title: 'Brochetas de Mariscos Kawésqar',
     description:
-      'Brochetas de machas, camarón, pimentón y cebolla, asadas a la perfección y servidas sobre pancitos de varas',
+      'Brochetas de machas, camarón, pimentón y cebolla, asadas y servidas sobre pancitos de varas.',
     price: '$9.900',
   },
   {
     title: 'Chupe de Jaiba Pehuenche',
     description:
-      'Guiso cremoso de jaiba, gratinado con queso, que resalta los sabores del sur de Chile',
+      'Guiso cremoso de jaiba gratinado con queso, con sabores del sur de Chile.',
     price: '$11.500',
   },
   {
     title: 'Costillar de Cordero Patagónico',
     description:
-      'Costillas de cordero cocidas lentamente con hierbas patagónicas, acompañadas con pastelera y salsa de menta',
+      'Cordero cocido lentamente con hierbas, acompañado con pastelera y salsa de menta.',
     price: '$13.500',
   },
   {
     title: 'Pastelitos de Papas Aymara',
     description:
-      'Pastelitos de papa rellenos de carne de cordero y especias andinas horneados hasta dorar un homenaje a la papa cultivo ancestral de los Aymara',
+      'Rellenos de cordero y especias andinas, horneados hasta dorar.',
     price: '$9.900',
   },
 ];
@@ -80,28 +75,24 @@ const foodMenuItems: MenuItem[] = [
 const wineMenuItems: MenuItem[] = [
   {
     title: 'Espumante Bullicio',
-    description:
-      'Bebida alcohólica a base de vino, con color y sabor de frutilla, sin azúcar añadida. Perfecta como aperitivo y para acompañar quesos maduros o postres',
+    description: 'Espumante frutal sin azúcar añadida.',
     price: '$6.500',
     highlightLabel: 'Ñobles Viñedos',
   },
   {
     title: 'Dulce Misterio',
-    description:
-      'Espumante artesanal elaborado en una bodega de adobe tradicional, rodeada de un paisaje de belleza cautivadora. Ideal para acompañar quesos, frutas secas, fiambres y postres.',
+    description: 'Espumante artesanal ideal para aperitivos.',
     price: '$7.500',
   },
   {
     title: 'Carmenere Gran Reserva',
-    description:
-      'Este Carmenere, de Quinchamalí en la Región del Ñuble, se cultiva en lomajes suaves y con prácticas ecológicas. Su ubicación favorece una maduración óptima, resultando en un vino único, memorable y de producción limitada',
+    description: 'Vino ecológico de Quinchamalí, intenso y memorable.',
     price: '$24.500',
-    highlightLabel: 'Viña Mannle',
+    highlightLabel: 'Viña Männle',
   },
   {
-    title: 'Cabernet Suavignon Gran Reserva',
-    description:
-      'La depresión intermedia y los suelos arcillosos ricos en cuarzo de Huape, bañados por el sol gran parte del día, crean el microclima perfecto para los vinos premium de Viña Männle',
+    title: 'Cabernet Sauvignon Gran Reserva',
+    description: 'Vino premium con gran cuerpo y carácter.',
     price: '$21.500',
   },
 ];
@@ -110,132 +101,166 @@ export default function RestaurantPage() {
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
-      <main className="grow pt-24">
-        {/* Hero Section with Parallax */}
-        <ParallaxHero
-          backgroundImage="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
-          title="NUESTRO RESTAURANT"
-          subtitle="Un homenaje a los pueblos originarios"
-          description="Disfruta de tus momentos más especiales en Entre Pinos"
-        />
 
-        {/* Intro Text Section */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
-              Una experiencia inspirada en nuestras raíces. Sabores auténticos
-              de nuestros pueblos originarios, a un precio que te encantará
+      <main>
+
+        {/* HERO 🔥 IGUAL QUE CABAÑAS */}
+        <section className="relative h-[70vh] -mt-24">
+
+          <Image
+            src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
+            alt="Restaurant Valle del Sol"
+            fill
+            className="object-cover"
+            priority
+          />
+
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-4xl md:text-6xl font-semibold">
+                Nuestro Restaurant
+              </h1>
+
+              <p className="mt-4 text-lg md:text-xl">
+                Un homenaje a los pueblos originarios
+              </p>
+
+              <p className="mt-2 text-sm md:text-base text-white/80">
+                Disfruta de tus momentos más especiales en Entre Pinos
+              </p>
+            </motion.div>
+          </div>
+
+        </section>
+
+        {/* CTA HERO */}
+        <div className="text-center -mt-10 mb-16 relative z-10">
+          <Link
+            href="https://menu.fu.do/entrepinosquillon/qr-menu"
+            target="_blank"
+            className="inline-block px-10 py-4 rounded-full font-semibold text-white shadow-xl transition transform hover:scale-105"
+            style={{ backgroundColor: 'rgb(251,176,59)' }}
+          >
+            Ver Carta
+          </Link>
+        </div>
+
+        {/* INTRO */}
+        <motion.section
+          className="py-16 text-center"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="max-w-3xl mx-auto px-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              Una experiencia inspirada en nuestras raíces. Sabores auténticos de nuestros pueblos originarios, a un precio que te encantará.
             </p>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Horizontal Gallery */}
-        <HorizontalGallery images={restaurantGalleryImages} height={400} />
+        {/* GALERÍA */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.8 }}
+        >
+          <HorizontalGallery images={restaurantGalleryImages} height={400} />
+        </motion.div>
 
-        {/* Menús de Autor Section */}
-        <TwoColumnSection
-          leftContent={
-            <div className="relative h-full min-h-[500px]">
+        {/* MENÚ */}
+        <motion.div
+          initial={{ opacity: 0, x: -80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <TwoColumnSection
+            leftContent={
               <Image
                 src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Cordero-Patagonico-e1724621972959.jpeg"
-                alt="Cordero Patagónico"
-                fill
-                className="object-cover rounded-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Cordero"
+                width={600}
+                height={500}
+                className="rounded-xl object-cover"
               />
-            </div>
-          }
-          rightContent={
-            <div>
-              <p className="text-gray-600 mb-4">Combinaciones deliciosas</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                Menús de Autor
-              </h2>
-              <FoodMenu items={foodMenuItems} />
-            </div>
-          }
-        />
+            }
+            rightContent={
+              <div>
+                <p className="text-gray-500 mb-2">Combinaciones deliciosas</p>
+                <h2 className="text-4xl font-bold mb-6">Menús de Autor</h2>
+                <FoodMenu items={foodMenuItems} />
+              </div>
+            }
+          />
+        </motion.div>
 
-        {/* Sabores ancestrales Section Title */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Sabores ancestrales y viñas locales
-            </h2>
-          </div>
-        </section>
+        {/* TÍTULO */}
+        <motion.section
+          className="py-20 text-center"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >
+          <h2 className="text-3xl md:text-4xl font-bold">
+            Sabores ancestrales y viñas locales
+          </h2>
+        </motion.section>
 
-        {/* Vinos & Espumantes Section */}
-        <TwoColumnSection
-          leftContent={
-            <div>
-              <p className="text-gray-600 mb-4">Maridaje Perfecto</p>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-8">
-                Vinos & Espumantes
-              </h2>
-              <FoodMenu items={wineMenuItems} />
-            </div>
-          }
-          rightContent={
-            <div className="relative h-full min-h-[500px]">
+        {/* VINOS */}
+        <motion.div
+          initial={{ opacity: 0, x: 80 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+        >
+          <TwoColumnSection
+            leftContent={
+              <div>
+                <p className="text-gray-500 mb-2">Maridaje Perfecto</p>
+                <h2 className="text-4xl font-bold mb-6">Vinos & Espumantes</h2>
+                <FoodMenu items={wineMenuItems} />
+              </div>
+            }
+            rightContent={
               <Image
                 src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Fotografia-Damian-Campos-2-737-min-e1724901779250.jpg"
                 alt="Vinos"
-                fill
-                className="object-cover rounded-lg"
-                sizes="(max-width: 768px) 100vw, 50vw"
+                width={600}
+                height={500}
+                className="rounded-xl object-cover"
               />
-            </div>
-          }
-          className="bg-gray-50"
-        />
+            }
+            className="bg-gray-50"
+          />
+        </motion.div>
 
-        {/* Two Images Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              <div className="relative h-96">
-                <Image
-                  src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Ceviche-e1724896325930.jpg"
-                  alt="Ceviche"
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-              <div className="relative h-96">
-                <Image
-                  src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/elegant-restaurant-table-setting-service-for-P8HYX7H.jpg"
-                  alt="Restaurant setting"
-                  fill
-                  className="object-cover rounded-lg"
-                  sizes="(max-width: 768px) 100vw, 50vw"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        {/* CTA FINAL */}
+        <motion.section
+          className="py-24 text-center"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+        >
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            Una experiencia de lujo a precio accesible, donde cada momento es único.
+          </p>
 
-        {/* CTA Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 text-center">
-            <p className="text-lg text-gray-700 mb-8 max-w-2xl mx-auto">
-              Una experiencia de lujo a precio accesible, donde cada momento
-              es único
-            </p>
-            <Link
-              href="https://menu.fu.do/entrepinosquillon/qr-menu"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-block px-8 py-4 bg-gray-800 text-white rounded-full font-medium hover:bg-gray-700 transition-colors"
-            >
-              Nuestra Carta
-            </Link>
-          </div>
-        </section>
+          <Link
+            href="https://menu.fu.do/entrepinosquillon/qr-menu"
+            target="_blank"
+            className="inline-block px-10 py-4 rounded-full text-white font-semibold transition hover:scale-105"
+            style={{ backgroundColor: 'rgb(251,176,59)' }}
+          >
+            Ver Carta Completa
+          </Link>
+        </motion.section>
+
       </main>
+
       <Footer
-        logoUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Blanco-e1723074296739.png"
         tagline="Vuelve a esos lugares donde fuiste feliz. Vuelve a Valle del Sol"
         contactEmail="contacto@valledelsolquillon.cl"
         socialLinks={socialLinks}

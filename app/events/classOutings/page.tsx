@@ -1,15 +1,18 @@
+'use client';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import HeroSection from '../../components/HeroSection';
 import HorizontalGallery from '../../components/HorizontalGallery';
-import TwoColumnSection from '../../components/TwoColumnSection';
 import AmenitiesCarousel from '../../components/AmenitiesCarousel';
 import { SocialLink, Amenity } from '../../components/types';
+import Image from 'next/image';
+import { motion } from 'framer-motion';
 
+/* SOCIAL */
 const socialLinks: SocialLink[] = [
   {
     name: 'Tripadvisor',
-    href: 'https://www.tripadvisor.cl/Hotel_Review-g3732316-d7155218-Reviews-Centro_de_Eventos_Valle_del_Sol-Quillon_Biobio_Region.html',
+    href: 'https://www.tripadvisor.cl/',
     icon: '🌐',
   },
   {
@@ -22,153 +25,186 @@ const socialLinks: SocialLink[] = [
     href: 'https://www.instagram.com/valledelsolquillon.cl/',
     icon: '📷',
   },
-  {
-    name: 'WhatsApp',
-    href: 'https://api.whatsapp.com/send?phone=%2B56976705424',
-    icon: '💬',
-  },
 ];
 
+/* AMENITIES */
 const paseoAmenities: Amenity[] = [
   {
-    imageUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/alimentacion-saludable.webp?fit=120%2C120&ssl=1',
-    alt: 'Solicita presupuesto con alimentación',
-    caption: 'Solicita presupuesto con alimentación',
+    imageUrl: 'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/alimentacion-saludable.webp',
+    alt: 'Alimentación',
+    caption: 'Alimentación',
   },
   {
-    imageUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/patio-de-recreo.webp?fit=120%2C120&ssl=1',
-    alt: 'Juegos Infantiles',
-    caption: 'Juegos Infantiles',
+    imageUrl: 'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/patio-de-recreo.webp',
+    alt: 'Juegos',
+    caption: 'Juegos infantiles',
   },
   {
-    imageUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/juego-de-picnic.webp?fit=120%2C120&ssl=1',
-    alt: 'Zona de Picnic',
-    caption: 'Zona de Picnic',
+    imageUrl: 'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/juego-de-picnic.webp',
+    alt: 'Picnic',
+    caption: 'Zona de picnic',
   },
   {
-    imageUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/parrilla.webp?fit=120%2C120&ssl=1',
-    alt: 'Parrillas para asado',
-    caption: 'Parrillas para asado',
-  },
-  {
-    imageUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/ninos-jugando.webp?fit=120%2C120&ssl=1',
-    alt: 'Amplias áreas verdes',
-    caption: 'Amplias áreas verdes',
+    imageUrl: 'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/parrilla.webp',
+    alt: 'Parrillas',
+    caption: 'Parrillas',
   },
 ];
 
-const firstGalleryImages: string[] = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8320-min.webp?fit=683%2C1024&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Piscinas-1-1.jpeg?fit=683%2C1024&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8241-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8063-min.webp?fit=683%2C1024&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8112-min.webp?fit=683%2C1024&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_7997-min.webp?fit=683%2C1024&ssl=1',
+/* GALERÍAS */
+const firstGalleryImages = [
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8320-min.webp',
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp',
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Piscinas-1-1.jpeg',
 ];
 
-const secondGalleryImages: string[] = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01806-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC02000-min-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03733.jpg?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03916-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01755-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01759-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01844-min.webp?fit=1024%2C683&ssl=1',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03608-min.webp?fit=1024%2C683&ssl=1',
+const secondGalleryImages = [
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01806-min.webp',
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC02000-min-min.webp',
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03733.jpg',
 ];
 
 export default function ClassOutingsPage() {
   return (
     <div className="min-h-screen flex flex-col">
+
       <Header />
 
-      <main className="grow pt-24">
-        {/* Hero: Paseos de Curso + amenities carousel */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
-            <div className="space-y-6">
-              <h1 className="text-3xl md:text-4xl font-bold text-gray-900">
+      <main>
+
+        {/* HERO 🔥 */}
+        <section className="relative h-[70vh] -mt-24">
+
+          <Image
+            src="https://valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp"
+            alt="Paseos de curso"
+            fill
+            className="object-cover"
+            priority
+          />
+
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-4xl md:text-6xl font-semibold">
                 Paseos de Curso
               </h1>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed">
-                ¡El paseo de curso perfecto te espera! Diversión, piscina, juegos y
-                momentos inolvidables. Reserva y asegura una experiencia única para
-                todos.
+
+              <p className="mt-4 text-lg md:text-xl">
+                Diversión, naturaleza y experiencias inolvidables
               </p>
-            </div>
-            <div className="mt-6 md:mt-0">
-              <AmenitiesCarousel amenities={paseoAmenities} slidesToShow={3} />
-            </div>
+            </motion.div>
+          </div>
+
+        </section>
+
+        {/* INTRO */}
+        <section className="py-20">
+          <div className="max-w-4xl mx-auto text-center px-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              El paseo de curso perfecto te espera. Piscinas, juegos, naturaleza y
+              momentos únicos para compartir con compañeros en un entorno seguro
+              y preparado para disfrutar al máximo.
+            </p>
           </div>
         </section>
 
-        {/* Nuestro enfoque */}
-        <HeroSection
-          title="Nuestro enfoque"
-          description="Diversión asegurada con total seguridad y cuidado, para que los niños disfruten y los apoderados estén tranquilos."
-          className="bg-gray-50"
-        />
+        {/* AMENITIES CON ESTILO 🔥 */}
+        <section className="relative py-24 text-white">
 
-        {/* First horizontal gallery */}
-        <HorizontalGallery images={firstGalleryImages} height={400} />
+          <Image
+            src="https://valledelsolquillon.cl/wp-content/uploads/2024/08/Piscinas-1-1.jpeg"
+            alt="Amenities"
+            fill
+            className="object-cover"
+          />
 
-        {/* Graduaciones + WhatsApp CTA */}
-        <TwoColumnSection
-          leftContent={
-            <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                GRADUACIONES
+          <div className="absolute inset-0 bg-black/70" />
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            className="relative max-w-6xl mx-auto px-6 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-semibold mb-12">
+              Todo incluido para una experiencia perfecta
+            </h2>
+
+            <AmenitiesCarousel amenities={paseoAmenities} slidesToShow={4} />
+          </motion.div>
+
+        </section>
+
+        {/* GALERÍA */}
+        <HorizontalGallery images={firstGalleryImages} height={420} />
+
+        {/* GRADUACIONES */}
+        <section className="py-24">
+          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+
+            <motion.div
+              initial={{ opacity: 0, x: -60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+            >
+              <h2 className="text-3xl md:text-4xl font-semibold">
+                Graduaciones
               </h2>
-              <p className="text-base md:text-lg text-gray-700 leading-relaxed mb-6">
-                Celebra una graduación inolvidable, con diversión y seguridad
-                garantizadas, para que todos disfruten con total tranquilidad.
+
+              <p className="mt-4 text-gray-600">
+                Celebra una graduación inolvidable en un entorno natural, con
+                espacios amplios, seguros y preparados para una experiencia única.
               </p>
+
               <a
                 href="https://wa.link/vjoaea"
                 target="_blank"
-                rel="noopener noreferrer"
-                className="inline-block px-8 py-3 bg-gray-900 text-white rounded-full text-sm md:text-base font-medium hover:bg-gray-800 transition-colors"
+                className="inline-block mt-6 px-8 py-3 rounded-full text-black font-medium"
+                style={{ backgroundColor: 'rgb(251,176,59)' }}
               >
-                WHATSAPP
+                Cotizar por WhatsApp
               </a>
-            </div>
-          }
-          rightContent={<div />}
-          className="bg-white"
-        />
+            </motion.div>
 
-        {/* Second horizontal gallery */}
-        <HorizontalGallery images={secondGalleryImages} height={400} />
-
-        {/* Location near Concepción and Chillán */}
-        <section className="py-16 bg-gray-50">
-          <div className="container mx-auto px-4 space-y-8">
-            <h2 className="text-2xl md:text-3xl font-bold text-center text-gray-900">
-              CERCA DE CONCEPCIÓN Y CHILLÁN
-            </h2>
-            <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
-              <iframe
-                src="https://maps.google.com/maps?q=complejo%20turistico%20valle%20del%20sol%20quillon&t=m&z=10&output=embed&iwloc=near"
-                title="complejo turistico valle del sol quillon"
-                className="w-full h-full border-0"
-                loading="lazy"
+            <motion.div
+              className="relative h-[400px]"
+              initial={{ opacity: 0, x: 60 }}
+              whileInView={{ opacity: 1, x: 0 }}
+            >
+              <Image
+                src="https://valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03733.jpg"
+                alt="Graduaciones"
+                fill
+                className="object-cover rounded-2xl"
               />
-            </div>
+            </motion.div>
+
           </div>
         </section>
 
-        {/* Budget request CTA */}
-        <HeroSection
-          title="SOLICITA UN PRESUPUESTO"
-          description="Cuéntanos sobre tu paseo de curso o graduación y te enviaremos una propuesta a medida."
-          className="bg-white"
-        />
+        {/* GALERÍA FINAL */}
+        <HorizontalGallery images={secondGalleryImages} height={420} />
+
+        {/* CTA FINAL 🔥 */}
+        <section className="py-24 text-center">
+          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
+            Reserva hoy y asegura una experiencia inolvidable para tu curso
+          </p>
+
+          <a
+            href="https://wa.link/vjoaea"
+            target="_blank"
+            className="inline-block px-10 py-4 rounded-full text-black font-medium"
+            style={{ backgroundColor: 'rgb(251,176,59)' }}
+          >
+            Solicitar presupuesto
+          </a>
+        </section>
+
       </main>
 
       <Footer
@@ -176,6 +212,7 @@ export default function ClassOutingsPage() {
         contactEmail="contacto@valledelsolquillon.cl"
         socialLinks={socialLinks}
       />
+
     </div>
   );
 }

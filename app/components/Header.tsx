@@ -19,10 +19,12 @@ export default function Header() {
   }, []);
 
   const menu = [
-    { name: "Inicio", href: "/" },
     { name: "Cabañas", href: "/cabanas" },
     { name: "Restaurante", href: "/restaurant" },
-    { name: "Eventos", href: "/events" },
+    { name: "Matrimonios", href: "/events/weddings" },
+    { name: "Colegios", href: "/events/classOutings" },
+    { name: "Empresas", href: "/events/corporateEvents" },
+    { name: "Tour Operadores", href: "/tour-operadores" },
     { name: "Nosotros", href: "/about" },
   ];
 
@@ -31,7 +33,7 @@ export default function Header() {
       className={`fixed w-full top-0 z-50 transition-all duration-300 ${
         scrolled
           ? "bg-white shadow-md"
-          : "bg-black/20 backdrop-blur-sm"
+          : "bg-black/20 backdrop-blur-md"
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
@@ -52,18 +54,21 @@ export default function Header() {
         </Link>
 
         {/* MENU */}
-        <nav className="hidden md:flex gap-8 text-sm font-medium">
+        <nav className="hidden md:flex gap-6 text-sm font-medium">
           {menu.map((item) => (
             <Link
               key={item.name}
               href={item.href}
-              className={`transition ${
+              className={`relative transition ${
                 scrolled
-                  ? "text-gray-800 hover:text-orange-500"
-                  : "text-white hover:text-orange-300"
+                  ? "text-gray-800 hover:text-[rgb(251,176,59)]"
+                  : "text-white hover:text-[rgb(251,176,59)]"
               }`}
             >
               {item.name}
+
+              {/* underline animado */}
+              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[rgb(251,176,59)] transition-all duration-300 group-hover:w-full"></span>
             </Link>
           ))}
         </nav>
@@ -72,9 +77,14 @@ export default function Header() {
         <div className="flex items-center gap-6">
 
           {/* BOTON RESERVA */}
-          <button className="px-5 py-2 rounded-full bg-orange-500 text-white font-medium hover:bg-orange-600 transition">
-            Reservar
-          </button>
+          <Link href="/cabanas">
+            <button
+              className="px-5 py-2 rounded-full text-white font-medium transition hover:scale-105 shadow-md"
+              style={{ backgroundColor: "rgb(251,176,59)" }}
+            >
+              Reservar
+            </button>
+          </Link>
 
           {/* REDES */}
           <div className="flex items-center gap-3">

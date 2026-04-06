@@ -1,9 +1,12 @@
+'use client';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import HeroSection from '../../components/HeroSection';
 import HorizontalGallery from '../../components/HorizontalGallery';
-import ParallaxCTA from '../../components/ParallaxCTA';
 import EventFeatureCard from '../../components/EventFeatureCard';
+import Image from 'next/image';
+import Link from 'next/link';
+import { motion } from 'framer-motion';
 import { SocialLink } from '../../components/types';
 
 const socialLinks: SocialLink[] = [
@@ -29,76 +32,68 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const heroBackgroundImage =
+const heroImage =
   'https://valledelsolquillon.cl/wp-content/uploads/2024/08/MF-0221-min.jpg';
 
-const servicesIntroText =
+const servicesIntro =
   'Celebra tu amor en un lugar mágico, rodeado de naturaleza y tranquilidad, donde cada detalle se convierte en un recuerdo inolvidable.';
 
 const services = [
   {
     title: 'Wedding Planner',
     description:
-      'Profesional dedicado exclusivamente a coordinar y asesorar a los novios, asegurando que cada detalle de tu matrimonio sea perfecto.',
+      'Coordinación completa para que todo salga perfecto.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/planificador-de-la-boda.webp?fit=80%2C80&ssl=1',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/planificador-de-la-boda.webp',
     iconAlt: 'Wedding planner',
   },
   {
     title: 'Decoraciones',
     description:
-      'Cada matrimonio es único, y por eso contamos con profesionales que ofrecen a los novios una decoración personalizada y de estilo inigualable.',
+      'Diseño personalizado para una boda única.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/pasillo-1.webp?fit=80%2C80&ssl=1',
-    iconAlt: 'Decoraciones pasillo',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/pasillo-1.webp',
+    iconAlt: 'Decoración',
   },
   {
     title: 'Chef de Especialidad',
     description:
-      'Ofrecemos menús personalizados, incluyendo alternativas veganas o vegetarianas, diseñados para reflejar la experiencia única que cada pareja desea vivir.',
+      'Menús diseñados a medida para cada pareja.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sombrero-de-cocinero.webp?fit=80%2C80&ssl=1',
-    iconAlt: 'Sombrero de cocinero',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sombrero-de-cocinero.webp',
+    iconAlt: 'Chef',
   },
   {
     title: 'Audiovisuales',
     description:
-      'Equipo experto que ofrece las mejores opciones en sonido, iluminación, DJ y animación, garantizando una experiencia única y memorable.',
+      'Iluminación, sonido y ambientación profesional.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sistema-de-sonido.webp?fit=80%2C80&ssl=1',
-    iconAlt: 'Sistema de sonido',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sistema-de-sonido.webp',
+    iconAlt: 'Audio',
   },
   {
-    title: 'Adicionales',
+    title: 'Experiencias',
     description:
-      'Cabinas fotográficas, espejo mágico, cámara 360°, estación de tatuajes, carritos de comida, artistas en vivo, cotillón y más opciones para tu matrimonio.',
+      'Cabina 360°, tatuajes, artistas y más.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/fotografo.webp?fit=80%2C80&ssl=1',
-    iconAlt: 'Fotógrafo',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/fotografo.webp',
+    iconAlt: 'Experiencias',
   },
   {
-    title: 'Servicio de Barra',
+    title: 'Bar & Vinos',
     description:
-      'Espumantes de la zona para el brindis, vinos del Valle del Itata para la cena y la mejor barra libre durante la fiesta.',
+      'Selección del Valle del Itata + barra libre.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/copa-de-vino.png?fit=80%2C80&ssl=1',
-    iconAlt: 'Copa de vino',
+      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/copa-de-vino.png',
+    iconAlt: 'Vinos',
   },
 ];
 
-const weddingsGalleryImages: string[] = [
+const gallery = [
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/22789193_1336544243138635_4034647322991933903_n.webp',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/22688736_1336631363129923_5058742057974768606_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/22852865_1343100705816322_7890504004774089660_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/23244168_1345175188942207_6660311132141092709_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/16864273_1109300759196319_1723822983234255931_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/23376595_1352910931501966_8454051898756448670_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/473_821327091327022_8409173245548621767_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/MF-0160-min.webp',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Matrimonio-1.webp',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-4.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/DSC01866-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03733-min.jpg',
 ];
 
 export default function WeddingsPage() {
@@ -106,83 +101,124 @@ export default function WeddingsPage() {
     <div className="min-h-screen flex flex-col">
       <Header />
 
-      <main className="grow pt-24">
-        {/* Hero heading */}
-        <section
-          className="relative py-24 md:py-32 bg-cover bg-center text-white"
-          style={{ backgroundImage: `url(${heroBackgroundImage})` }}
+      <main>
+
+        {/* HERO 🔥 */}
+        <section className="relative h-[70vh] -mt-24">
+
+          <Image
+            src={heroImage}
+            alt="Matrimonios Valle del Sol"
+            fill
+            className="object-cover"
+            priority
+          />
+
+          <div className="absolute inset-0 bg-black/50" />
+
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+            <motion.div
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 1 }}
+            >
+              <h1 className="text-4xl md:text-6xl font-semibold">
+                Sí, acepto
+              </h1>
+
+              <p className="mt-4 text-lg md:text-xl">
+                Cotiza con nuestro formato all inclusive
+              </p>
+            </motion.div>
+          </div>
+
+        </section>
+
+        {/* CTA */}
+        <div className="text-center -mt-10 mb-16 relative z-10">
+          <Link
+            href="/cotiza-tu-evento"
+            className="inline-block px-10 py-4 rounded-full text-white font-semibold shadow-xl transition hover:scale-105"
+            style={{ backgroundColor: 'rgb(251,176,59)' }}
+          >
+            Cotiza tu evento
+          </Link>
+        </div>
+
+        {/* INTRO */}
+        <motion.section
+          className="py-16 text-center"
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
         >
-          <div className="absolute inset-0 bg-black/40" />
-          <div className="relative container mx-auto px-4 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-4">Sí, acepto</h1>
-            <p className="text-lg md:text-xl">
-              Cotiza con nuestro formato all inclusive
+          <div className="max-w-3xl mx-auto px-6">
+            <p className="text-lg text-gray-700 leading-relaxed">
+              {servicesIntro}
             </p>
           </div>
-        </section>
+        </motion.section>
 
-        {/* Intro text */}
-        <HeroSection
-          title="Un día perfecto en un entorno de ensueño."
-          description={servicesIntroText}
-        />
+        {/* LISTA SERVICIOS */}
+        <motion.section
+          className="py-16 bg-gray-50"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >
+          <div className="max-w-4xl mx-auto px-6 text-center">
 
-        {/* Main services (Nuestros servicios incluyen) */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4">
-            <div className="max-w-3xl mx-auto text-center mb-10">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Nuestros Servicios Incluyen:
-              </h2>
-              <ul className="text-gray-700 text-sm md:text-base leading-relaxed space-y-1 list-disc list-inside text-left md:text-left">
-                <li>Servicio de alimentación completo</li>
-                <li>Diversas alternativas de menú</li>
-                <li>Banquetería y bar abierto</li>
-                <li>Menús con opción buffet</li>
-                <li>Papelería completamente personalizada</li>
-                <li>Wedding planner para la coordinación del evento</li>
-                <li>DJ y Animador a elección, según preferencias de los novios</li>
-                <li>Servicio audiovisual completo</li>
-                <li>Salones amplios, con vistas y climatizados</li>
-                <li>Decoración incluida</li>
-                <li>Jardines para celebración de ceremonias</li>
-                <li>Estacionamiento privado sin costo</li>
-                <li>Cabaña para los novios</li>
-                <li>Los mejores vinos y espumantes del Valle del Itata.</li>
-              </ul>
-            </div>
+            <h2 className="text-3xl md:text-4xl font-semibold mb-10">
+              Todo lo que incluye tu matrimonio
+            </h2>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10 mt-12">
-              {services.map((service) => (
-                <EventFeatureCard
-                  key={service.title}
-                  title={service.title}
-                  description={service.description}
-                  iconUrl={service.iconUrl}
-                  iconAlt={service.iconAlt}
-                />
+            <div className="grid md:grid-cols-2 gap-4 text-left">
+              {[
+                'Servicio de alimentación completo',
+                'Banquetería y bar abierto',
+                'Wedding planner',
+                'DJ y animador',
+                'Decoración incluida',
+                'Salones climatizados',
+                'Jardines para ceremonia',
+                'Cabaña para novios',
+              ].map((item, i) => (
+                <p key={i}>✔ {item}</p>
               ))}
             </div>
+
+          </div>
+        </motion.section>
+
+        {/* FEATURES */}
+        <section className="py-20">
+          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+
+            {services.map((service, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 60 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+              >
+                <EventFeatureCard {...service} />
+              </motion.div>
+            ))}
+
           </div>
         </section>
 
-        {/* CTA with parallax background */}
-        <ParallaxCTA
-          backgroundImage={heroBackgroundImage}
-          text="La mejor experiencia en matrimonios, tu boda soñada en manos de profesionales."
-          buttonText="Cotiza tu evento"
-          buttonHref="/cotiza-tu-evento"
-        />
+        {/* GALERÍA */}
+        <motion.section
+          className="py-20"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+        >
+          <h2 className="text-3xl md:text-4xl text-center mb-10">
+            Nuestros Novios
+          </h2>
 
-        {/* Our couples gallery */}
-        <section className="py-16 bg-white">
-          <div className="container mx-auto px-4 text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900">
-              Nuestros Novios
-            </h2>
-          </div>
-          <HorizontalGallery images={weddingsGalleryImages} height={400} />
-        </section>
+          <HorizontalGallery images={gallery} height={400} />
+        </motion.section>
+
       </main>
 
       <Footer
