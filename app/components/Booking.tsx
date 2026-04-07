@@ -39,16 +39,9 @@ export default function Booking() {
             <div className="mt-10 flex gap-4 flex-wrap">
 
               {/* BOTÓN PRINCIPAL */}
-              <Link href="/reservas">
+              <Link href="https://www.instagram.com/valledelsolquillon.cl/">
                 <button className="bg-white text-black hover:bg-gray-200 px-8 py-3 rounded-full text-sm font-semibold transition">
-                  Reservar ahora
-                </button>
-              </Link>
-
-              {/* BOTÓN SECUNDARIO */}
-              <Link href="/experiencias">
-                <button className="border border-white text-white hover:bg-white hover:text-black px-8 py-3 rounded-full text-sm font-medium transition">
-                  Explorar experiencias
+                  Síguenos en Instagram
                 </button>
               </Link>
 

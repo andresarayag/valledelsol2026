@@ -62,17 +62,16 @@ export default function ContactSection() {
 
         {/* 🔥 TÍTULO ANIMADO */}
         <motion.div
-          className="mb-16 text-left"
           initial={{ opacity: 0, x: -120 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
         >
-          <h2 className="text-4xl md:text-5xl font-semibold tracking-tight text-gray-900">
-            PROGRAMAS <span className="font-bold">EXCLUSIVOS</span>
+          <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+            PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
           </h2>
 
-          <p className="mt-4 text-lg text-gray-600">
+          <p className="mt-4 pb-14 text-lg text-gray-600">
             Accede a tarifas preferentes
           </p>
         </motion.div>
@@ -121,7 +120,7 @@ export default function ContactSection() {
                     </button>
 
                     <a
-                      href="https://wa.me/56976705424"
+                      href="https://wa.me/56926035311"
                       target="_blank"
                       rel="noopener noreferrer"
                       className="px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition text-center"

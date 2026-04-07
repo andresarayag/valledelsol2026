@@ -31,11 +31,11 @@ export default function LocationSection() {
 
             <div>
               <p className="text-sm tracking-widest text-white/70 mb-2">
-                NUESTRA <span className="font-semibold">UBICACIÓN</span>
+                Nuestra <span className="font-normal">ubicación</span>
               </p>
 
-              <h2 className="text-3xl md:text-5xl font-bold leading-tight tracking-tight">
-                Es inmejorable
+              <h2 className="text-3xl md:text-5xl font-normal leading-tight tracking-tight">
+                ES <span className="font-semibold">INMEJORABLE</span>
               </h2>
             </div>
 

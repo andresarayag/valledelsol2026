@@ -1,4 +1,5 @@
 'use client';
+
 import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import Image from 'next/image';
@@ -41,13 +42,13 @@ const highlights = [
 export default function HighlightsCarousel() {
   const [index, setIndex] = useState(0);
 
-  const visibleItems = 3; // 🔥 CAMBIO
+  const visibleItems = 4;
   const maxIndex = highlights.length - visibleItems;
 
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
-    }, 3000);
+    }, 3500);
 
     return () => clearInterval(interval);
   }, [maxIndex]);
@@ -62,10 +63,13 @@ export default function HighlightsCarousel() {
 
   return (
     <section className="bg-gray-100 pt-28 pb-40">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-16 items-center">
+      
+      {/* 🔥 LAYOUT CORREGIDO */}
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-16 items-center">
 
         {/* TEXTO */}
         <motion.div
+          className="md:col-span-2"
           initial={{ opacity: 0, x: -120 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, margin: '-100px' }}
@@ -81,36 +85,36 @@ export default function HighlightsCarousel() {
         </motion.div>
 
         {/* CARRUSEL */}
-        <div>
-          <div className="flex items-center gap-8">
+        <div className="md:col-span-3">
+
+          <div className="flex items-center gap-6">
 
             {/* PREV */}
-            <button onClick={prev} className="text-gray-400 hover:text-gray-700 text-3xl">
+            <button
+              onClick={prev}
+              className="text-gray-400 hover:text-gray-700 text-4xl transition"
+            >
               ‹
             </button>
 
             {/* VIEWPORT */}
-            <div className="overflow-x-hidden overflow-y-visible w-full pt-6">
-              {/* 🔥 pt-6 evita corte superior */}
+            <div className="overflow-hidden w-full py-10">
+              {/* 🔥 py-10 evita corte del hover */}
 
               {/* TRACK */}
               <div
-  className="flex transition-transform duration-700 ease-in-out"
-  style={{
-    transform: `translateX(-${index * (100 / highlights.length)}%)`,
-    width: `${highlights.length * (100 / visibleItems)}%`,
-  }}
->
-  {highlights.map((item, i) => (
-    <div
-      key={i}
-      style={{ width: `${100 / highlights.length}%` }}
-      className="flex-shrink-0 flex flex-col items-center text-center px-4 group transition-all duration-300 hover:-translate-y-2"
-    >
-
+                className="flex transition-transform duration-700 ease-in-out"
+                style={{
+                  transform: `translateX(-${index * (100 / visibleItems)}%)`,
+                }}
+              >
+                {highlights.map((item, i) => (
+                  <div
+                    key={i}
+                    className="w-1/2 sm:w-1/3 md:w-1/4 flex-shrink-0 flex flex-col items-center text-center px-4 group transition-all duration-300 hover:-translate-y-2"
+                  >
                     {/* ICONO */}
                     <div className="w-20 h-20 mb-4 rounded-full bg-white flex items-center justify-center shadow-md transition-all duration-300 group-hover:bg-[#FBB03B] group-hover:shadow-xl">
-
                       <Image
                         src={item.icon}
                         alt={item.text}
@@ -118,40 +122,26 @@ export default function HighlightsCarousel() {
                         height={36}
                         className="transition-transform duration-300 group-hover:scale-110"
                       />
-
                     </div>
 
                     {/* TEXTO */}
-                    <p className="text-base text-gray-700 leading-snug font-medium max-w-[160px]">
+                    <p className="text-sm md:text-base text-gray-700 leading-snug font-medium max-w-[160px]">
                       {item.text}
                     </p>
-
                   </div>
                 ))}
               </div>
-
             </div>
 
             {/* NEXT */}
-            <button onClick={next} className="text-gray-400 hover:text-gray-700 text-3xl">
+            <button
+              onClick={next}
+              className="text-gray-400 hover:text-gray-700 text-4xl transition"
+            >
               ›
             </button>
 
           </div>
-
-          {/* DOTS */}
-          <div className="flex justify-center mt-8 gap-3">
-            {Array.from({ length: maxIndex + 1 }).map((_, i) => (
-              <button
-                key={i}
-                onClick={() => setIndex(i)}
-                className={`w-3 h-3 rounded-full transition ${
-                  i === index ? 'bg-gray-800 scale-125' : 'bg-gray-400/50'
-                }`}
-              />
-            ))}
-          </div>
-
         </div>
 
       </div>

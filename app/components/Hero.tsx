@@ -107,7 +107,7 @@ export default function Hero({
 </a>
 
 <a
-  href="/cotiza-tu-evento"
+  href="https://www.eventi-app.com/public-quotation/1"
   className="border border-white px-8 py-3 rounded-full text-sm font-medium transition hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
 >
   Cotizar Evento

@@ -44,22 +44,17 @@ export default function Experiences() {
 
         {/* SUBTÍTULO */}
         <motion.div
-          className="mb-12"
           initial={{ opacity: 0, x: -120 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, margin: '-100px' }}
           transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
         >
-          <p className="text-gray-600 text-2xl md:text-3xl max-w-2xl leading-snug tracking-tight">
-            Descubre{' '}
-            <span className="font-semibold inline-block">
-              experiencias únicas
-            </span>
-            <br />
-            en un entorno natural{' '}
-            <span className="font-semibold inline-block">
-              incomparable
-            </span>
+          <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+            DESCUBRE <span className="font-semibold text-gray-900">EXPERIENCIAS ÚNICAS</span>
+          </h2>
+
+          <p className="mt-4 pb-14 text-lg text-gray-600">
+            En un entorno natural incomparable
           </p>
         </motion.div>
 
