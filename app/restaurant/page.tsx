@@ -2,13 +2,10 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import HorizontalGallery from '../components/HorizontalGallery';
-import TwoColumnSection from '../components/TwoColumnSection';
-import FoodMenu from '../components/FoodMenu';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SocialLink, MenuItem } from '../components/types';
+import { SocialLink } from '../components/types';
 
 const socialLinks: SocialLink[] = [
   {
@@ -33,68 +30,11 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const restaurantGalleryImages = [
+const galleryImages = [
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/4497900C-2782-40DB-A962-B38470044A37_1_102_o-e1725501882844.jpeg',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/1000028807-min.jpg',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/20240824_215030157_iOS-min-e1724725751972.jpg',
-];
-
-const foodMenuItems: MenuItem[] = [
-  {
-    title: 'Ceviche Rapa Nui',
-    description:
-      'Dados de pescado fresco marinado con cebolla morada, pimentones, sésamo, palta y camarón en salsa de mango.',
-    price: '$10.900',
-  },
-  {
-    title: 'Brochetas de Mariscos Kawésqar',
-    description:
-      'Brochetas de machas, camarón, pimentón y cebolla, asadas y servidas sobre pancitos de varas.',
-    price: '$9.900',
-  },
-  {
-    title: 'Chupe de Jaiba Pehuenche',
-    description:
-      'Guiso cremoso de jaiba gratinado con queso, con sabores del sur de Chile.',
-    price: '$11.500',
-  },
-  {
-    title: 'Costillar de Cordero Patagónico',
-    description:
-      'Cordero cocido lentamente con hierbas, acompañado con pastelera y salsa de menta.',
-    price: '$13.500',
-  },
-  {
-    title: 'Pastelitos de Papas Aymara',
-    description:
-      'Rellenos de cordero y especias andinas, horneados hasta dorar.',
-    price: '$9.900',
-  },
-];
-
-const wineMenuItems: MenuItem[] = [
-  {
-    title: 'Espumante Bullicio',
-    description: 'Espumante frutal sin azúcar añadida.',
-    price: '$6.500',
-    highlightLabel: 'Ñobles Viñedos',
-  },
-  {
-    title: 'Dulce Misterio',
-    description: 'Espumante artesanal ideal para aperitivos.',
-    price: '$7.500',
-  },
-  {
-    title: 'Carmenere Gran Reserva',
-    description: 'Vino ecológico de Quinchamalí, intenso y memorable.',
-    price: '$24.500',
-    highlightLabel: 'Viña Männle',
-  },
-  {
-    title: 'Cabernet Sauvignon Gran Reserva',
-    description: 'Vino premium con gran cuerpo y carácter.',
-    price: '$21.500',
-  },
+  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Cordero-Patagonico-e1724621972959.jpeg',
 ];
 
 export default function RestaurantPage() {
@@ -104,9 +44,8 @@ export default function RestaurantPage() {
 
       <main>
 
-        {/* HERO 🔥 IGUAL QUE CABAÑAS */}
+        {/* HERO */}
         <section className="relative h-[70vh] -mt-24">
-
           <Image
             src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
             alt="Restaurant Valle del Sol"
@@ -127,19 +66,14 @@ export default function RestaurantPage() {
                 Nuestro Restaurant
               </h1>
 
-              <p className="mt-4 text-lg md:text-xl">
-                Un homenaje a los pueblos originarios
-              </p>
-
               <p className="mt-2 text-sm md:text-base text-white/80">
-                Disfruta de tus momentos más especiales en Entre Pinos
+                Una experiencia gastronómica en medio de la naturaleza
               </p>
             </motion.div>
           </div>
-
         </section>
 
-        {/* CTA HERO */}
+        {/* CTA HERO (RESTAURADO) */}
         <div className="text-center -mt-10 mb-16 relative z-10">
           <Link
             href="https://menu.fu.do/entrepinosquillon/qr-menu"
@@ -152,111 +86,73 @@ export default function RestaurantPage() {
         </div>
 
         {/* INTRO */}
-        <motion.section
-          className="py-16 text-center"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="max-w-3xl mx-auto px-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              Una experiencia inspirada en nuestras raíces. Sabores auténticos de nuestros pueblos originarios, a un precio que te encantará.
+        <section className="pt-10 pb-20 text-center">
+          <div className="max-w-4xl mx-auto px-6 text-gray-700">
+            <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed">
+              <strong className="text-black font-semibold md:font-bold lg:font-extrabold tracking-wide block mb-3">
+                Sabores que despiertan los sentidos
+              </strong>
+              Cada plato está pensado para transformar una comida en una experiencia inolvidable.
             </p>
           </div>
-        </motion.section>
+        </section>
 
-        {/* GALERÍA */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-        >
-          <HorizontalGallery images={restaurantGalleryImages} height={400} />
-        </motion.div>
-
-        {/* MENÚ */}
-        <motion.div
-          initial={{ opacity: 0, x: -80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <TwoColumnSection
-            leftContent={
-              <Image
-                src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Cordero-Patagonico-e1724621972959.jpeg"
-                alt="Cordero"
-                width={600}
-                height={500}
-                className="rounded-xl object-cover"
-              />
-            }
-            rightContent={
-              <div>
-                <p className="text-gray-500 mb-2">Combinaciones deliciosas</p>
-                <h2 className="text-4xl font-bold mb-6">Menús de Autor</h2>
-                <FoodMenu items={foodMenuItems} />
-              </div>
-            }
-          />
-        </motion.div>
-
-        {/* TÍTULO */}
-        <motion.section
-          className="py-20 text-center"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          <h2 className="text-3xl md:text-4xl font-bold">
-            Sabores ancestrales y viñas locales
-          </h2>
-        </motion.section>
-
-        {/* VINOS */}
-        <motion.div
-          initial={{ opacity: 0, x: 80 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-        >
-          <TwoColumnSection
-            leftContent={
-              <div>
-                <p className="text-gray-500 mb-2">Maridaje Perfecto</p>
-                <h2 className="text-4xl font-bold mb-6">Vinos & Espumantes</h2>
-                <FoodMenu items={wineMenuItems} />
-              </div>
-            }
-            rightContent={
-              <Image
-                src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Fotografia-Damian-Campos-2-737-min-e1724901779250.jpg"
-                alt="Vinos"
-                width={600}
-                height={500}
-                className="rounded-xl object-cover"
-              />
-            }
-            className="bg-gray-50"
-          />
-        </motion.div>
+        {/* GALERÍA PREMIUM */}
+        <section className="px-6 pb-24">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+            {galleryImages.map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="overflow-hidden rounded-2xl group"
+              >
+                <div className="relative h-[300px]">
+                  <Image
+                    src={img}
+                    alt="Plato restaurante"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-700"
+                  />
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section>
 
         {/* CTA FINAL */}
-        <motion.section
-          className="py-24 text-center"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <p className="text-xl text-gray-700 mb-8 max-w-2xl mx-auto">
-            Una experiencia de lujo a precio accesible, donde cada momento es único.
-          </p>
+        <section className="py-24 text-center bg-gray-50">
+          <div className="max-w-3xl mx-auto px-6">
 
-          <Link
-            href="https://menu.fu.do/entrepinosquillon/qr-menu"
-            target="_blank"
-            className="inline-block px-10 py-4 rounded-full text-white font-semibold transition hover:scale-105"
-            style={{ backgroundColor: 'rgb(251,176,59)' }}
-          >
-            Ver Carta Completa
-          </Link>
-        </motion.section>
+            <p className="text-xl text-gray-700 mb-10">
+              Reserva tu experiencia gastronómica o cotiza tu evento con nosotros.
+            </p>
+
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+
+              <a
+                href="https://wa.me/56926035311"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: '#25D366' }}
+              >
+                WhatsApp
+              </a>
+
+              <a
+                href="https://www.eventi-app.com/public-quotation/1"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: 'rgb(251,176,59)' }}
+              >
+                Cotiza tu evento
+              </a>
+
+            </div>
+
+          </div>
+        </section>
 
       </main>
 

@@ -41,7 +41,6 @@ const aboutGalleryImages: string[] = [
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Matrimonio-1.webp',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/image00005-min.jpeg',
   'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Jardines-1-min-e1723475875314.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Matrimonio-min-e1723475932473.webp',
 ];
 
 export default function AboutPage() {
@@ -113,13 +112,7 @@ export default function AboutPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
-              <TeamMemberCard
-                name="Bárbara López"
-                role="Socia · Administración"
-                description="Contador Público y Auditor, líder de la gestión administrativa con foco en crecimiento sostenible."
-                imageUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Nosotros-Barbara-3.webp"
-              />
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 max-w-4xl mx-auto">
 
               <TeamMemberCard
                 name="Felipe Vargas"
@@ -141,13 +134,37 @@ export default function AboutPage() {
                 description="Nuestra encargada de felicidad y bienvenida 🐶"
                 imageUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Bela-7.jpeg"
               />
+
             </div>
 
           </div>
         </section>
 
-        {/* GALERÍA */}
-        <HorizontalGallery images={aboutGalleryImages} height={400} />
+        {/* GALERÍA PREMIUM */}
+<section className="px-6 pb-24">
+  <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+    {aboutGalleryImages.map((img, i) => (
+      <motion.div
+        key={i}
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: i * 0.08 }}
+        className="overflow-hidden rounded-2xl group"
+      >
+        <div className="relative h-[260px] md:h-[300px]">
+          <Image
+            src={img}
+            alt="Galería Valle del Sol"
+            fill
+            className="object-cover group-hover:scale-110 transition duration-700"
+          />
+        </div>
+      </motion.div>
+    ))}
+
+  </div>
+</section>
 
         {/* FRASE FINAL */}
         <section className="py-20 bg-white">

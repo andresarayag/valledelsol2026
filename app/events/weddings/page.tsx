@@ -2,7 +2,6 @@
 
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import HorizontalGallery from '../../components/HorizontalGallery';
 import EventFeatureCard from '../../components/EventFeatureCard';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -32,68 +31,46 @@ const socialLinks: SocialLink[] = [
   },
 ];
 
-const heroImage =
-  'https://valledelsolquillon.cl/wp-content/uploads/2024/08/MF-0221-min.jpg';
-
-const servicesIntro =
-  'Celebra tu amor en un lugar mágico, rodeado de naturaleza y tranquilidad, donde cada detalle se convierte en un recuerdo inolvidable.';
+const heroImage = '/images/matrimonio/matrimonio.JPG';
+const backgroundIncludes = '/images/matrimonio/matri.JPG';
 
 const services = [
   {
     title: 'Wedding Planner',
-    description:
-      'Coordinación completa para que todo salga perfecto.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/planificador-de-la-boda.webp',
+    description: 'Coordinación completa para que todo salga perfecto.',
+    iconUrl: '/images/matrimonio/planificador-de-la-boda.WEBP',
     iconAlt: 'Wedding planner',
   },
   {
     title: 'Decoraciones',
-    description:
-      'Diseño personalizado para una boda única.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/pasillo-1.webp',
+    description: 'Diseño personalizado para una boda única.',
+    iconUrl: '/images/matrimonio/pasillo-1.WEBP',
     iconAlt: 'Decoración',
   },
   {
     title: 'Chef de Especialidad',
-    description:
-      'Menús diseñados a medida para cada pareja.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sombrero-de-cocinero.webp',
+    description: 'Menús diseñados a medida para cada pareja.',
+    iconUrl: '/images/matrimonio/sombrero-de-cocinero.WEBP',
     iconAlt: 'Chef',
   },
   {
     title: 'Audiovisuales',
-    description:
-      'Iluminación, sonido y ambientación profesional.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/sistema-de-sonido.webp',
+    description: 'Iluminación, sonido y ambientación profesional.',
+    iconUrl: '/images/matrimonio/sistema-de-sonido.WEBP',
     iconAlt: 'Audio',
   },
   {
     title: 'Experiencias',
-    description:
-      'Cabina 360°, tatuajes, artistas y más.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/fotografo.webp',
+    description: 'Cabina 360°, tatuajes, artistas y más.',
+    iconUrl: '/images/matrimonio/fotografo.WEBP',
     iconAlt: 'Experiencias',
   },
   {
     title: 'Bar & Vinos',
-    description:
-      'Selección del Valle del Itata + barra libre.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/copa-de-vino.png',
+    description: 'Selección del Valle del Itata + barra libre.',
+    iconUrl: '/images/matrimonio/copa-de-vino.WEBP',
     iconAlt: 'Vinos',
   },
-];
-
-const gallery = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/22789193_1336544243138635_4034647322991933903_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/22688736_1336631363129923_5058742057974768606_n.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Matrimonio-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-4.webp',
 ];
 
 export default function WeddingsPage() {
@@ -103,9 +80,8 @@ export default function WeddingsPage() {
 
       <main>
 
-        {/* HERO 🔥 */}
-        <section className="relative h-[70vh] -mt-24">
-
+        {/* HERO */}
+        <section className="relative h-[75vh] -mt-24">
           <Image
             src={heroImage}
             alt="Matrimonios Valle del Sol"
@@ -113,85 +89,112 @@ export default function WeddingsPage() {
             className="object-cover"
             priority
           />
-
-          <div className="absolute inset-0 bg-black/50" />
+          <div className="absolute inset-0 bg-black/40" />
 
           <div className="absolute inset-0 flex items-center justify-center text-center text-white">
             <motion.div
-              initial={{ opacity: 0, y: 60 }}
+              initial={{ opacity: 0, y: 80 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
+              transition={{ duration: 1.2 }}
             >
-              <h1 className="text-4xl md:text-6xl font-semibold">
+              <h1 className="text-5xl md:text-7xl font-light">
                 Sí, acepto
               </h1>
 
-              <p className="mt-4 text-lg md:text-xl">
+              <p className="mt-6 text-lg md:text-2xl font-light">
                 Cotiza con nuestro formato all inclusive
               </p>
             </motion.div>
           </div>
-
         </section>
 
         {/* CTA */}
-        <div className="text-center -mt-10 mb-16 relative z-10">
+        <div className="text-center -mt-12 mb-20 relative z-10">
           <Link
             href="/cotiza-tu-evento"
-            className="inline-block px-10 py-4 rounded-full text-white font-semibold shadow-xl transition hover:scale-105"
+            className="inline-block px-12 py-4 rounded-full text-white font-semibold shadow-2xl hover:scale-105 transition"
             style={{ backgroundColor: 'rgb(251,176,59)' }}
           >
             Cotiza tu evento
           </Link>
         </div>
 
-        {/* INTRO */}
-        <motion.section
-          className="py-16 text-center"
-          initial={{ opacity: 0, y: 60 }}
-          whileInView={{ opacity: 1, y: 0 }}
-        >
-          <div className="max-w-3xl mx-auto px-6">
-            <p className="text-lg text-gray-700 leading-relaxed">
-              {servicesIntro}
-            </p>
-          </div>
-        </motion.section>
+        {/* INTRO TEXTO */}
+<section className="pt-5 pb-20 text-center">
+  <div className="max-w-5xl mx-auto px-6 text-gray-700 leading-relaxed">
+    <p className="text-xl md:text-2xl lg:text-4xl font-light leading-relaxed">
+      <strong className="text-black font-semibold md:font-bold lg:font-extrabold block mb-3">
+        Celebra tu amor en un lugar mágico,
+      </strong>
+      rodeado de naturaleza y tranquilidad, donde cada detalle se convierte en un recuerdo inolvidable.
+    </p>
+  </div>
+</section>
 
-        {/* LISTA SERVICIOS */}
-        <motion.section
-          className="py-16 bg-gray-50"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          <div className="max-w-4xl mx-auto px-6 text-center">
+       {/* BENEFICIOS MATRIMONIO */}
+<section className="relative py-28 md:py-36 overflow-hidden">
 
-            <h2 className="text-3xl md:text-4xl font-semibold mb-10">
-              Todo lo que incluye tu matrimonio
-            </h2>
+  {/* IMAGEN DE FONDO */}
+  <Image
+    src={backgroundIncludes}
+    alt="Matrimonios Valle del Sol"
+    fill
+    className="object-cover scale-105"
+  />
 
-            <div className="grid md:grid-cols-2 gap-4 text-left">
-              {[
-                'Servicio de alimentación completo',
-                'Banquetería y bar abierto',
-                'Wedding planner',
-                'DJ y animador',
-                'Decoración incluida',
-                'Salones climatizados',
-                'Jardines para ceremonia',
-                'Cabaña para novios',
-              ].map((item, i) => (
-                <p key={i}>✔ {item}</p>
-              ))}
-            </div>
+  {/* OVERLAY + BLUR */}
+  <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
-          </div>
-        </motion.section>
+  {/* CONTENIDO */}
+  <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
+
+    <motion.div
+      initial={{ opacity: 0, y: 60 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.9, ease: 'easeOut' }}
+      viewport={{ once: true }}
+    >
+
+      <h2 className="text-3xl md:text-5xl font-semibold mb-12">
+        Todo lo que incluye tu matrimonio
+      </h2>
+
+      <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto text-lg md:text-xl">
+
+        {[
+          'Servicio de alimentación completo',
+          'Banquetería y bar abierto',
+          'Wedding planner',
+          'DJ y animador',
+          'Decoración incluida',
+          'Salones climatizados',
+          'Jardines para ceremonia',
+          'Cabaña para novios',
+        ].map((item, i) => (
+          <motion.p
+            key={i}
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: i * 0.1, duration: 0.5 }}
+            viewport={{ once: true }}
+            className="flex items-center gap-3"
+          >
+            <span className="text-[#FBB03B] text-xl">✔</span>
+            {item}
+          </motion.p>
+        ))}
+
+      </div>
+
+    </motion.div>
+
+  </div>
+
+</section>
 
         {/* FEATURES */}
-        <section className="py-20">
-          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-10">
-
+        <section className="py-24 bg-white">
+          <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -202,22 +205,51 @@ export default function WeddingsPage() {
                 <EventFeatureCard {...service} />
               </motion.div>
             ))}
-
           </div>
         </section>
 
-        {/* GALERÍA */}
-        <motion.section
-          className="py-20"
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-        >
-          <h2 className="text-3xl md:text-4xl text-center mb-10">
-            Nuestros Novios
-          </h2>
+        {/* VIDEO */}
+        <section className="py-24 bg-gray-100 text-center">
+          <div className="max-w-5xl mx-auto px-6">
 
-          <HorizontalGallery images={gallery} height={400} />
-        </motion.section>
+            <h2 className="text-4xl md:text-5xl mb-12 font-light">
+              Vive la experiencia
+            </h2>
+
+            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-xl">
+              <iframe
+                className="w-full h-full"
+                src="https://www.youtube.com/embed/YOUTUBE_ID"
+                title="Video matrimonio"
+                allowFullScreen
+              />
+            </div>
+
+            {/* BOTONES */}
+            <div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
+
+              <a
+                href="https://wa.me/56926035311"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: '#25D366' }}
+              >
+                WhatsApp
+              </a>
+
+              <a
+                href="https://www.eventi-app.com/public-quotation/1"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: 'rgb(251,176,59)' }}
+              >
+                Cotiza tu evento
+              </a>
+
+            </div>
+
+          </div>
+        </section>
 
       </main>
 
