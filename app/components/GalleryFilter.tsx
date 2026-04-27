@@ -5,40 +5,40 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 const items = [
   {
-    title: 'Áreas Verdes',
+    title: 'ÁREAS VERDES',
     image: '/images/galeria/areas-verdes.jpg',
     description:
-      'Descubre más de 24.000 m² de áreas verdes diseñadas para el descanso y la conexión con la naturaleza. Vive momentos únicos en un entorno amplio, tranquilo y lleno de vida.',
+      'DESCUBRE MÁS DE 24.000 M² DE ÁREAS VERDES DISEÑADAS PARA EL DESCANSO Y LA CONEXIÓN CON LA NATURALEZA. VIVE MOMENTOS ÚNICOS EN UN ENTORNO AMPLIO, TRANQUILO Y LLENO DE VIDA.',
   },
   {
-    title: 'Piscinas',
+    title: 'PISCINAS',
     image: '/images/galeria/piscinas.jpg',
     description:
-      'Disfruta de refrescantes piscinas para adultos y niños, ideales para relajarse y compartir en familia.',
+      'DISFRUTA DE REFRESCANTES PISCINAS PARA ADULTOS Y NIÑOS, IDEALES PARA RELAJARSE Y COMPARTIR EN FAMILIA.',
   },
   {
-    title: 'Habitaciones',
+    title: 'HABITACIONES',
     image: '/images/galeria/habitaciones.jpg',
     description:
-      'Relájate en habitaciones diseñadas para brindar calidez, comodidad y descanso.',
+      'RELÁJATE EN HABITACIONES DISEÑADAS PARA BRINDAR CALIDEZ, COMODIDAD Y DESCANSO.',
   },
   {
-    title: 'Comida Típica',
+    title: 'COMIDA TÍPICA',
     image: '/images/galeria/comida.jpeg',
     description:
-      'Descubre lo mejor de la comida chilena con platos tradicionales llenos de sabor.',
+      'DESCUBRE LA AUTÉNTICA GASTRONOMÍA CHILENA A TRAVÉS DE SUS PLATOS MÁS TRADICIONALES.',
   },
   {
-    title: 'Tinajas',
+    title: 'TINAJAS',
     image: '/images/galeria/tinajas.jpg',
     description:
-      'Disfruta el relajo en las cálidas aguas de nuestras tinajas.',
+      'NUESTRAS TINAJAS OFRECEN UNA EXPERIENCIA DE BIENESTAR INSPIRADA EN LA HIDROTERAPIA, GRACIAS A SU SISTEMA DE CALDERA E HIDROMASAJE.',
   },
   {
-    title: 'Canchas',
+    title: 'CANCHAS',
     image: '/images/galeria/canchas.jpg',
     description:
-      'Disfruta de nuestras canchas deportivas en un entorno natural ideal para compartir, competir y vivir momentos activos al aire libre.',
+      'DISFRUTA DE NUESTRAS CANCHAS DEPORTIVAS EN UN ENTORNO NATURAL IDEAL PARA COMPARTIR, COMPETIR Y VIVIR MOMENTOS ACTIVOS AL AIRE LIBRE',
   },
 ];
 
@@ -48,7 +48,6 @@ export default function GalleryFilter() {
 
   const current = items[active];
 
-  // AUTOPLAY
   useEffect(() => {
     if (paused) return;
 
@@ -85,7 +84,7 @@ export default function GalleryFilter() {
       {/* CONTENIDO */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-6">
 
-        {/* 🔥 MENÚ MEJORADO */}
+        {/* MENÚ */}
         <div className="flex flex-wrap gap-4 mb-12">
           {items.map((item, index) => (
             <button
@@ -106,45 +105,33 @@ export default function GalleryFilter() {
         <AnimatePresence mode="wait">
           <motion.div
             key={current.title}
-            initial="hidden"
-            animate="visible"
-            exit="exit"
-            variants={{
-              hidden: {},
-              visible: {
-                transition: {
-                  staggerChildren: 0.2,
-                },
-              },
-              exit: {
-                opacity: 0,
-                y: -20,
-                transition: { duration: 0.4 },
-              },
-            }}
             className="max-w-xl text-white"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
           >
 
-            {/* TÍTULO */}
+            {/* 🔥 TÍTULO (ESTILO GLOBAL + SLIDE LEFT) */}
             <motion.h2
-              className="text-4xl md:text-6xl font-semibold leading-tight tracking-tight"
-              variants={{
-                hidden: { opacity: 0, y: 40 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.6 }}
+              className="text-4xl md:text-5xl font-light text-white leading-tight"
+              initial={{ opacity: 0, x: -120 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: -60 }}
+              transition={{ duration: 1.1, ease: [0.22, 1, 0.36, 1] }}
             >
-              {current.title}
+              {current.title.split(' ')[0]}{' '}
+              <span className="font-semibold">
+                {current.title.split(' ').slice(1).join(' ')}
+              </span>
             </motion.h2>
 
-            {/* DESCRIPCIÓN */}
+            {/* 🔥 DESCRIPCIÓN (FADE IN DOWN) */}
             <motion.p
               className="mt-6 text-lg text-white/90 leading-relaxed"
-              variants={{
-                hidden: { opacity: 0, y: 30 },
-                visible: { opacity: 1, y: 0 },
-              }}
-              transition={{ duration: 0.8 }}
+              initial={{ opacity: 0, y: -25 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.8, delay: 0.3 }}
             >
               {current.description}
             </motion.p>

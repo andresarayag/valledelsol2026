@@ -18,9 +18,9 @@ const experiences = [
     href: '/restaurante',
   },
   {
-    title: 'Centro de Eventos',
+    title: 'Beach Club',
     subtitle: 'Eventos que conectan',
-    image: '/images/experiencia/eventos.jpeg',
+    image: '/images/experiencia/beachclub.jpeg',
     href: '/eventos',
   },
   {
@@ -44,19 +44,25 @@ export default function Experiences() {
 
         {/* SUBTÍTULO */}
         <motion.div
-          initial={{ opacity: 0, x: -120 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-            DESCUBRE <span className="font-semibold text-gray-900">EXPERIENCIAS ÚNICAS</span>
-          </h2>
+  initial={{ opacity: 0, x: -120 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: false, margin: '-100px' }}
+  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+>
+  <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+    DESCUBRE <span className="font-semibold text-gray-900">EXPERIENCIAS ÚNICAS</span>
+  </h2>
+</motion.div>
 
-          <p className="mt-4 pb-14 text-lg text-gray-600">
-            En un entorno natural incomparable
-          </p>
-        </motion.div>
+<motion.p
+  className="mt-4 pb-14 text-lg text-gray-600"
+  initial={{ opacity: 0, y: -20 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+  EN UN ENTORNO NATURAL INCOMPARABLE
+</motion.p>
 
         {/* 🔥 FILA ÚNICA RESPONSIVE */}
         <div className="flex gap-6 overflow-x-auto md:grid md:grid-cols-5 md:overflow-visible">

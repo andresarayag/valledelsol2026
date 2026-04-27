@@ -68,7 +68,7 @@ export default function Hero({
 
           {/* Línea 2 */}
           <span className="block mt-2 font-bold">
-            la magia de la{" "}
+            LA MAGIA DE LA{" "}
             <span
               className={`inline-block transition-all duration-500 ${
                 isVisible
@@ -83,7 +83,7 @@ export default function Hero({
         </h1>
 
         <p className="text-lg md:text-xl mb-8">
-          Naturaleza, descanso y experiencias inolvidables en Quillón
+          NATURALEZA, DESCANSO Y EXPERIENCIAS INOLVIDABLES EN QUILLÓN
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
