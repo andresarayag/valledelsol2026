@@ -20,25 +20,32 @@ export default function LocationSection() {
       <div className="relative max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
-          {/* LEFT - TEXT (ANIMADO) */}
-          <motion.div
-            className="space-y-6 text-white"
-            initial={{ opacity: 0, x: -120 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: false, margin: '-100px' }}
-            transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-          >
+          {/* LEFT - TEXT */}
+          <div className="space-y-6 text-white">
 
-            <div>
-              <p className="text-sm tracking-widest text-white/70 mb-2">
-                Nuestra <span className="font-normal">ubicación</span>
-              </p>
+            {/* 🔥 TÍTULO PRINCIPAL (LEFT → RIGHT) */}
+            <motion.h2
+              className="text-4xl md:text-5xl font-light text-white leading-tight"
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              NUESTRA <span className="font-semibold">UBICACIÓN</span>
+            </motion.h2>
 
-              <h2 className="text-3xl md:text-5xl font-normal leading-tight tracking-tight">
-                ES <span className="font-semibold">INMEJORABLE</span>
-              </h2>
-            </div>
+            {/* 🔥 SUBTÍTULO (FADE IN DOWN) */}
+            <motion.p
+  className="text-lg md:text-xl text-white/90"
+  initial={{ opacity: 0, y: -30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+>
+  <span className="font">ES INMEJORABLE</span>
+</motion.p>
 
+            {/* TEXTO */}
             <div className="space-y-4 text-white/90 text-lg leading-snug max-w-xl">
 
               <p>
@@ -57,23 +64,24 @@ export default function LocationSection() {
 
               <div className="pt-4 border-t border-white/20">
                 <p className="font-semibold">
-                  Camino a Cerro Negro 1,5 Km, Pasaje los Guindos 467
+                  Km. 1,5 Camino a Cerro Negro, Parcela 51, Quillón
                 </p>
               </div>
 
-              {/* CTA */}
+              {/* 🔥 CTA WAZE */}
               <a
-                href="https://www.google.com/maps?q=Valle+del+Sol+Quillon"
+                href="https://waze.com/ul?q=Km.%201,5%20Camino%20a%20Cerro%20Negro%20Parcela%2051%20Quillón"
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-block mt-4 bg-white text-black px-6 py-3 rounded-full text-sm font-semibold transition hover:scale-105 hover:bg-gray-100"
               >
                 Cómo llegar
               </a>
 
             </div>
-          </motion.div>
+          </div>
 
-          {/* RIGHT - MAP (ANIMADO CON DELAY) */}
+          {/* RIGHT - MAP */}
           <motion.div
             className="relative h-[400px] md:h-[450px] rounded-3xl overflow-hidden shadow-2xl border border-white/10"
             initial={{ opacity: 0, x: 120 }}

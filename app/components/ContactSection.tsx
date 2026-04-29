@@ -60,21 +60,29 @@ export default function ContactSection() {
     <section className="bg-[#f5f5f5] py-24">
       <div className="max-w-6xl mx-auto px-6">
 
-        {/* 🔥 TÍTULO ANIMADO */}
-        <motion.div
-          initial={{ opacity: 0, x: -120 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-        >
-          <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-            PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
-          </h2>
+        
+        {/* 🔥 TÍTULO (slide desde izquierda) */}
+<motion.div
+  initial={{ opacity: 0, x: -120 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: false, margin: '-100px' }}
+  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+>
+  <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+    PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
+  </h2>
+</motion.div>
 
-          <p className="mt-4 pb-14 text-lg text-gray-600">
-            Accede a tarifas preferentes
-          </p>
-        </motion.div>
+{/* 🔥 SUBTÍTULO (fade in down) */}
+<motion.p
+  className="mt-4 pb-14 text-lg text-gray-600"
+  initial={{ opacity: 0, y: -25 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false }}
+  transition={{ duration: 0.8, delay: 0.3 }}
+>
+  ACCEDE A TARIFAS PREFERENTES
+</motion.p>
 
         {/* SLIDER */}
         <div
