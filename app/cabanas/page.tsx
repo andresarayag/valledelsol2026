@@ -278,11 +278,7 @@ export default function CabanasPage() {
 
       </main>
 
-      <Footer
-        tagline="Vuelve a esos lugares donde fuiste feliz. Vuelve a Valle del Sol"
-        contactEmail="contacto@valledelsolquillon.cl"
-        socialLinks={[]}
-      />
+      <Footer/>
 
     </div>
   );

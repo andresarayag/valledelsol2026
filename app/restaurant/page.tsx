@@ -156,11 +156,7 @@ export default function RestaurantPage() {
 
       </main>
 
-      <Footer
-        tagline="Vuelve a esos lugares donde fuiste feliz. Vuelve a Valle del Sol"
-        contactEmail="contacto@valledelsolquillon.cl"
-        socialLinks={socialLinks}
-      />
+      <Footer/>
     </div>
   );
 }
