@@ -9,7 +9,7 @@ export default function LocationSection() {
       {/* BACKGROUND PARALLAX */}
       <div className="absolute inset-0 -z-10">
         <img
-          src="/images/fondos/ubicacion.jpg"
+          src="/images/ubicacion.jpg"
           alt="Ubicación Valle del Sol"
           className="w-full h-[120%] object-cover parallax-bg"
         />

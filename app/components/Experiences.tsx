@@ -8,31 +8,31 @@ const experiences = [
   {
     title: 'Cabañas',
     subtitle: 'Escápate a la serenidad',
-    image: '/images/experiencia/cabanas.jpeg',
+    image: '/images/experiencia/cabanas.jpg',
     href: '/cabanas',
   },
   {
     title: 'Restaurante',
     subtitle: 'Sabores que enamoran',
-    image: '/images/experiencia/restaurante.jpeg',
+    image: '/images/experiencia/restaurante.jpg',
     href: '/restaurante',
   },
   {
     title: 'Seminarios y Capacitaciones',
     subtitle: 'Eventos que conectan',
-    image: '/images/experiencia/seminarios.jpeg',
+    image: '/images/experiencia/seminarios.jpg',
     href: '/eventos',
   },
   {
     title: 'Empresas',
     subtitle: 'Experiencias corporativas a medida',
-    image: '/images/experiencia/empresas.jpg',
+    image: '/images/experiencia/empresa.jpg',
     href: '/empresas',
   },
   {
     title: 'Tour Operadores',
     subtitle: 'Programas diseñados para agencias',
-    image: '/images/experiencia/touroperadores.jpeg',
+    image: '/images/experiencia/tour-operadores.jpg',
     href: '/tour-operadores',
   },
 ];

@@ -10,7 +10,7 @@ export default function Booking() {
       {/* IMAGEN DE FONDO */}
       <div
         className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/images/relajacion.jpeg')" }}
+        style={{ backgroundImage: "url('/images/relajacion.jpg')" }}
       />
 
       {/* OVERLAY */}

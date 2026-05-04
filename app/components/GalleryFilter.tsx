@@ -24,7 +24,7 @@ const items = [
   },
   {
     title: 'COMIDA TÍPICA',
-    image: '/images/galeria/comida.jpeg',
+    image: '/images/galeria/comida.jpg',
     description:
       'DESCUBRE LA AUTÉNTICA GASTRONOMÍA CHILENA A TRAVÉS DE SUS PLATOS MÁS TRADICIONALES.',
   },

@@ -68,7 +68,7 @@ export default function Hero({
 
           {/* Línea 2 */}
           <span className="block mt-2 font-bold">
-            LA MAGIA DE LA{" "}
+            La magia de la{" "}
             <span
               className={`inline-block transition-all duration-500 ${
                 isVisible

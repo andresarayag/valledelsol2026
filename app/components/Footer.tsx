@@ -1,68 +1,155 @@
+'use client';
+
 import Image from 'next/image';
-import { SocialLink } from './types';
+import Link from 'next/link';
+import { FaInstagram, FaFacebookF, FaTripadvisor, FaWhatsapp } from 'react-icons/fa';
 
-interface FooterProps {
-  logoUrl?: string;
-  logoAlt?: string;
-  tagline: string;
-  contactEmail: string;
-  socialLinks: SocialLink[];
-}
-
-export default function Footer({
-  logoUrl = 'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Blanco-e1723074296739.png',
-  logoAlt = 'Valle del Sol Logo',
-  tagline,
-  contactEmail,
-  socialLinks,
-}: FooterProps) {
+export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-          {/* Logo and Tagline */}
+    <>
+      <footer className="bg-gray-900 text-white pt-16 pb-10 relative">
+
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+          {/* 🔥 COLUMNA 1 - LOGO */}
           <div>
             <Image
-              src={logoUrl}
-              alt={logoAlt}
-              width={107}
-              height={107}
+              src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Blanco-e1723074296739.png"
+              alt="Valle del Sol"
+              width={120}
+              height={120}
               className="mb-4"
             />
-            <p className="text-gray-400">{tagline}</p>
+            <p className="text-gray-400 leading-relaxed">
+              Vuelve a esos lugares donde fuiste feliz, vuelve a Valle del Sol.
+            </p>
           </div>
 
-          {/* Contact */}
+          {/* 🔥 COLUMNA 2 - CONTACTO */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Contacto</h3>
-            <p className="text-gray-400">{contactEmail}</p>
+            <h3 className="text-lg font-semibold mb-4">Contacto</h3>
+
+            <p className="text-gray-400 mb-2">
+              Km. 1,5 Camino a Cerro Negro, Parcela 51, Quillón
+            </p>
+
+            <a
+              href="mailto:contacto@valledelsolquillon.cl"
+              className="text-gray-400 hover:text-white transition"
+            >
+              contacto@valledelsolquillon.cl
+            </a>
           </div>
 
-          {/* Social Links */}
+          {/* 🔥 COLUMNA 3 - MENÚ */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Síguenos</h3>
-            <div className="flex space-x-4">
-              {socialLinks.map((link, index) => (
-                <a
-                  key={index}
-                  href={link.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white transition-colors text-2xl"
-                  aria-label={link.name}
-                  title={link.name}
-                >
-                  {link.icon}
-                </a>
-              ))}
+            <h3 className="text-lg font-semibold mb-4">Menú</h3>
+
+            <ul className="space-y-2 text-gray-400">
+              <li><Link href="/cabanas" className="hover:text-white transition">Cabañas</Link></li>
+              <li><Link href="/restaurante" className="hover:text-white transition">Restaurante</Link></li>
+              <li><Link href="/matrimonios" className="hover:text-white transition">Matrimonios</Link></li>
+              <li><Link href="/colegios" className="hover:text-white transition">Colegios</Link></li>
+              <li><Link href="/empresas" className="hover:text-white transition">Empresas</Link></li>
+              <li><Link href="/tour-operadores" className="hover:text-white transition">Tour Operadores</Link></li>
+              <li><Link href="/nosotros" className="hover:text-white transition">Nosotros</Link></li>
+            </ul>
+          </div>
+
+          {/* 🔥 COLUMNA 4 - REDES */}
+          <div>
+            <h3 className="text-lg font-semibold mb-4">Síguenos</h3>
+
+            <div className="flex gap-4 text-xl">
+
+              <a
+                href="https://www.instagram.com/valledelsolquillon.cl/"
+                target="_blank"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <FaInstagram />
+              </a>
+
+              <a
+                href="https://www.facebook.com/valledelsolquillon"
+                target="_blank"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <FaFacebookF />
+              </a>
+
+              <a
+                href="https://www.tripadvisor.cl/Hotel_Review-g3732316-d7155218-Reviews-Centro_de_Eventos_Valle_del_Sol-Quillon_Biobio_Region.html"
+                target="_blank"
+                className="text-gray-400 hover:text-white transition"
+              >
+                <FaTripadvisor />
+              </a>
+
+              <a
+                href="https://wa.me/56926035311"
+                target="_blank"
+                className="text-gray-400 hover:text-green-400 transition"
+              >
+                <FaWhatsapp />
+              </a>
+
             </div>
           </div>
+
         </div>
 
-        <div className="border-t border-gray-800 pt-8 text-center text-gray-400">
-          <p>Hecho con ❤️ por Valle del Sol</p>
+        {/* 🔥 COPYRIGHT */}
+        <div className="border-t border-gray-800 mt-12 pt-6 text-center text-gray-500 text-sm">
+          Todos los derechos reservados 2026. Hecho con ❤️ por Valle del Sol
         </div>
-      </div>
-    </footer>
+
+      </footer>
+
+      {/* 🔥 BOTÓN FLOTANTE WHATSAPP */}
+      <a
+        href="https://wa.me/56926035311"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 group"
+      >
+        <div className="relative flex items-center">
+
+          {/* TEXTO HOVER */}
+          <span className="absolute right-16 opacity-0 group-hover:opacity-100 translate-x-2 group-hover:translate-x-0 transition-all duration-300 bg-black text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap shadow-lg">
+            Cotiza por WhatsApp
+          </span>
+
+          {/* BOTÓN */}
+          <div className="w-14 h-14 bg-green-500 rounded-full flex items-center justify-center shadow-xl hover:bg-green-600 transition-all duration-300 animate-heartbeat">
+            <FaWhatsapp className="text-white text-2xl" />
+          </div>
+
+        </div>
+      </a>
+
+      {/* 🔥 ANIMACIÓN HEARTBEAT */}
+      <style jsx>{`
+        @keyframes heartbeat {
+          0%, 100% {
+            transform: scale(1);
+          }
+          25% {
+            transform: scale(1.08);
+          }
+          40% {
+            transform: scale(1);
+          }
+          60% {
+            transform: scale(1.12);
+          }
+        }
+
+        .animate-heartbeat {
+          animation: heartbeat 2s infinite;
+        }
+      `}</style>
+
+    </>
   );
 }
