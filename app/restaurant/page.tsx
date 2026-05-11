@@ -5,6 +5,7 @@ import Footer from '../components/Footer';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { Clock3, MapPin } from 'lucide-react';
 import { SocialLink } from '../components/types';
 
 const socialLinks: SocialLink[] = [
@@ -46,6 +47,7 @@ export default function RestaurantPage() {
 
         {/* HERO */}
         <section className="relative h-[70vh] -mt-24">
+
           <Image
             src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
             alt="Restaurant Valle del Sol"
@@ -56,12 +58,14 @@ export default function RestaurantPage() {
 
           <div className="absolute inset-0 bg-black/50" />
 
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+          <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
+
             <motion.div
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1 }}
             >
+
               <h1 className="text-4xl md:text-6xl font-semibold">
                 Nuestro Restaurant
               </h1>
@@ -69,12 +73,16 @@ export default function RestaurantPage() {
               <p className="mt-2 text-sm md:text-base text-white/80">
                 Una experiencia gastronómica en medio de la naturaleza
               </p>
+
             </motion.div>
+
           </div>
+
         </section>
 
-        {/* CTA HERO (RESTAURADO) */}
+        {/* CTA HERO */}
         <div className="text-center -mt-10 mb-16 relative z-10">
+
           <Link
             href="https://menu.fu.do/entrepinosquillon/qr-menu"
             target="_blank"
@@ -83,46 +91,155 @@ export default function RestaurantPage() {
           >
             Ver Carta
           </Link>
+
         </div>
 
-        {/* INTRO */}
-        <section className="pt-10 pb-20 text-center">
-          <div className="max-w-4xl mx-auto px-6 text-gray-700">
-            <p className="text-xl md:text-2xl lg:text-3xl font-light leading-relaxed">
-              <strong className="text-black font-semibold md:font-bold lg:font-extrabold tracking-wide block mb-3">
-                Sabores que despiertan los sentidos
-              </strong>
-              Cada plato está pensado para transformar una comida en una experiencia inolvidable.
-            </p>
+        {/* DESCRIPCIÓN RESTAURANT */}
+        <section className="pb-20">
+
+          <div className="max-w-6xl mx-auto px-6">
+
+            <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-12">
+
+              <div className="grid md:grid-cols-2 gap-10 items-center">
+
+                {/* TEXTO */}
+                <div>
+
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
+                    Espacio de <strong>300m²</strong>, capacidad para{' '}
+                    <strong>150 personas</strong> y una espectacular{' '}
+                    <strong>terraza panorámica</strong> con vista a la piscina.
+                    Un ambiente ideal para disfrutar sabores únicos en un entorno natural y acogedor.
+                  </p>
+
+                </div>
+
+                {/* INFO */}
+                <div className="space-y-5">
+
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-14 h-14 rounded-full bg-[#FBB03B]/10 flex items-center justify-center">
+                      <Clock3 className="w-7 h-7 text-[#FBB03B]" />
+                    </div>
+
+                    <div>
+                      <p className="text-sm uppercase tracking-wider text-gray-400">
+                        Horario
+                      </p>
+
+                      <p className="text-lg font-semibold text-gray-800">
+                        Todos los días de 12:00 a 19:00 hrs
+                      </p>
+                    </div>
+
+                  </div>
+
+                  <div className="flex items-center gap-4">
+
+                    <div className="w-14 h-14 rounded-full bg-[#FBB03B]/10 flex items-center justify-center">
+                      <MapPin className="w-7 h-7 text-[#FBB03B]" />
+                    </div>
+
+                    <div>
+                      <p className="text-sm uppercase tracking-wider text-gray-400">
+                        Ubicación
+                      </p>
+
+                      <p className="text-lg font-semibold text-gray-800">
+                        Km. 1,5 Camino a Cerro Negro, Parcela 51, Quillón
+                      </p>
+                    </div>
+
+                  </div>
+
+                </div>
+
+              </div>
+
+            </div>
+
           </div>
+
         </section>
 
-        {/* GALERÍA PREMIUM */}
+        {/* INTRO */}
+        <section className="pt-4 pb-20">
+
+          <div className="max-w-6xl mx-auto px-6">
+
+            {/* TÍTULO */}
+            <motion.div
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{
+                duration: 1.4,
+                ease: [0.22, 1, 0.36, 1],
+              }}
+            >
+
+              <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+                SABORES CON{" "}
+                <span className="font-semibold text-gray-900">
+                  IDENTIDAD LOCAL
+                </span>
+              </h2>
+
+            </motion.div>
+
+            {/* SUBTÍTULO */}
+            <motion.p
+              className="mt-4 text-lg text-gray-600 uppercase tracking-wide"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              PLATOS CON RAÍZ CHILENA, PRODUCTOS LOCALES Y EL SABOR AUTÉNTICO DEL CAMPO
+            </motion.p>
+
+          </div>
+
+        </section>
+
+        {/* GALERÍA */}
         <section className="px-6 pb-24">
+
           <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
             {galleryImages.map((img, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.1 }}
+                viewport={{ once: false }}
                 className="overflow-hidden rounded-2xl group"
               >
+
                 <div className="relative h-[300px]">
+
                   <Image
                     src={img}
                     alt="Plato restaurante"
                     fill
                     className="object-cover group-hover:scale-110 transition duration-700"
                   />
+
                 </div>
+
               </motion.div>
             ))}
+
           </div>
+
         </section>
 
         {/* CTA FINAL */}
         <section className="py-24 text-center bg-gray-50">
+
           <div className="max-w-3xl mx-auto px-6">
 
             <p className="text-xl text-gray-700 mb-10">
@@ -152,11 +269,13 @@ export default function RestaurantPage() {
             </div>
 
           </div>
+
         </section>
 
       </main>
 
-      <Footer/>
+      <Footer />
+
     </div>
   );
 }

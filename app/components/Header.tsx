@@ -115,7 +115,7 @@ export default function Header() {
               scrolled ? "text-gray-800" : "text-white"
             }`}
           >
-            +56 9 7670 5424
+            +56 9 4058 8585
           </span>
 
         </div>

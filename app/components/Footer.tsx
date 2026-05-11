@@ -87,7 +87,7 @@ export default function Footer() {
               </a>
 
               <a
-                href="https://wa.me/56926035311"
+                href="https://wa.me/56940588585"
                 target="_blank"
                 className="text-gray-400 hover:text-green-400 transition"
               >
@@ -108,7 +108,7 @@ export default function Footer() {
 
       {/* 🔥 BOTÓN FLOTANTE WHATSAPP */}
       <a
-        href="https://wa.me/56926035311"
+        href="https://wa.me/56940588585"
         target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 group"
