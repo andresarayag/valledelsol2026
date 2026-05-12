@@ -450,7 +450,39 @@ export default function CabanasPage() {
 
           </div>
         </section>
+ <section className="py-24 text-center bg-gray-50">
 
+          <div className="max-w-3xl mx-auto px-6">
+
+            <p className="text-xl text-gray-700 mb-10">
+              Reserva tu cabaña ideal o cotiza tu evento con nosotros.
+            </p>
+
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
+
+              <a
+                href="https://wa.me/56926035311"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: '#25D366' }}
+              >
+                WhatsApp
+              </a>
+
+              <a
+                href="https://www.eventi-app.com/public-quotation/1"
+                target="_blank"
+                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
+                style={{ backgroundColor: 'rgb(251,176,59)' }}
+              >
+                Cotiza tu evento
+              </a>
+
+            </div>
+
+          </div>
+
+        </section>
       </main>
 
       <Footer />

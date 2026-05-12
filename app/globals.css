@@ -42,14 +42,10 @@ body {
   animation: fade-in 0.8s ease-out forwards;
 }
 
-/* PARALLAX SUAVE */
+/* PARALLAX REAL */
 .parallax-bg {
   transform: translateY(0);
-  transition: transform 0.2s ease-out;
-}
-
-section:hover .parallax-bg {
-  transform: translateY(-10px);
+  will-change: transform;
 }
 
 /* ANIMACIÓN DELAY */

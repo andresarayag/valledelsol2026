@@ -6,33 +6,15 @@ import EventFeatureCard from '../../components/EventFeatureCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { SocialLink } from '../../components/types';
 
-const socialLinks: SocialLink[] = [
-  {
-    name: 'Tripadvisor',
-    href: 'https://www.tripadvisor.cl/Hotel_Review-g3732316-d7155218-Reviews-Centro_de_Eventos_Valle_del_Sol-Quillon_Biobio_Region.html',
-    icon: '🌐',
-  },
-  {
-    name: 'Facebook',
-    href: 'https://www.facebook.com/valledelsolquillon',
-    icon: '📘',
-  },
-  {
-    name: 'Instagram',
-    href: 'https://www.instagram.com/valledelsolquillon.cl/',
-    icon: '📷',
-  },
-  {
-    name: 'WhatsApp',
-    href: 'https://api.whatsapp.com/send?phone=%2B56976705424',
-    icon: '💬',
-  },
-];
-
-const heroImage = '/images/matrimonio/matrimonio.JPG';
 const backgroundIncludes = '/images/matrimonio/matri.JPG';
+
+const weddingGallery = [
+  '/images/matrimonio/galeria1.jpg',
+  '/images/matrimonio/galeria2.jpg',
+  '/images/matrimonio/galeria3.jpg',
+  '/images/matrimonio/galeria4.jpg',
+];
 
 const services = [
   {
@@ -80,33 +62,63 @@ export default function WeddingsPage() {
 
       <main>
 
-        {/* HERO */}
-        <section className="relative h-[75vh] -mt-24">
-          <Image
-            src={heroImage}
-            alt="Matrimonios Valle del Sol"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black/40" />
+       {/* HERO VIDEO */}
+<section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
 
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
-            <motion.div
-              initial={{ opacity: 0, y: 80 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1.2 }}
-            >
-              <h1 className="text-5xl md:text-7xl font-light">
+  {/* VIDEO BACKGROUND */}
+  <div className="absolute inset-0 w-full h-full overflow-hidden">
+
+    <iframe
+      className="
+        absolute top-1/2 left-1/2
+        min-w-full min-h-full
+        w-auto h-auto
+        aspect-video
+        -translate-x-1/2 -translate-y-1/2
+        pointer-events-none
+      "
+      src="https://www.youtube.com/embed/br3Qe9JXdVU?autoplay=1&mute=1&controls=0&loop=1&playlist=br3Qe9JXdVU&modestbranding=1&showinfo=0&rel=0"
+      title="Video Matrimonios Valle del Sol"
+      allow="autoplay; fullscreen"
+    />
+
+  </div>
+
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60" />
+
+  {/* CONTENIDO */}
+  <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-6">
+
+    <div>
+
+      {/* TÍTULO */}
+      <h1
+                className="text-5xl md:text-7xl font-light"
+                style={{
+                  fontFamily: '"Cormorant Garamond", serif',
+                  fontStyle: 'italic',
+                  letterSpacing: '1px',
+                }}
+              >
                 Sí, acepto
               </h1>
 
-              <p className="mt-6 text-lg md:text-2xl font-light">
-                Cotiza con nuestro formato all inclusive
-              </p>
-            </motion.div>
-          </div>
-        </section>
+      {/* SUBTÍTULO */}
+      <motion.p
+        className="text-xl md:text-3xl font-light text-white/90"
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+      >
+        Cotiza con nuestro formato all inclusive
+      </motion.p>
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* CTA */}
         <div className="text-center -mt-12 mb-20 relative z-10">
@@ -119,31 +131,54 @@ export default function WeddingsPage() {
           </Link>
         </div>
 
-        {/* INTRO TEXTO */}
-<section className="pt-5 pb-20 text-center">
-  <div className="max-w-5xl mx-auto px-6 text-gray-700 leading-relaxed">
-    <p className="text-xl md:text-2xl lg:text-4xl font-light leading-relaxed">
-      <strong className="text-black font-semibold md:font-bold lg:font-extrabold block mb-3">
-        Celebra tu amor en un lugar mágico,
-      </strong>
-      rodeado de naturaleza y tranquilidad, donde cada detalle se convierte en un recuerdo inolvidable.
-    </p>
-  </div>
-</section>
+        {/* INTRO */}
+        <section className="pt-10 pb-20 text-center">
+          <div className="max-w-6xl mx-auto px-6">
 
+            {/* TÍTULO */}
+            <motion.h2
+              className="text-4xl md:text-5xl font-light text-gray-700 leading-tight whitespace-nowrap"
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: false, margin: '-100px' }}
+              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+            >
+              CELEBRA TU AMOR EN UN{' '}
+              <span className="font-semibold text-gray-900">
+                LUGAR MÁGICO
+              </span>
+            </motion.h2>
+
+            {/* SUBTÍTULO */}
+            <motion.p
+              className="mt-6 text-xl md:text-2xl text-gray-600 leading-relaxed"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, delay: 0.3 }}
+            >
+              RODEADO DE NATURALEZA Y TRANQUILIDAD, DONDE CADA DETALLE SE CONVIERTE EN UN RECUERDO INOLVIDABLE.
+            </motion.p>
+
+          </div>
+        </section>
+
+        {/* BENEFICIOS */}
        {/* BENEFICIOS MATRIMONIO */}
+{/* BENEFICIOS MATRIMONIO */}
 <section className="relative py-28 md:py-36 overflow-hidden">
 
-  {/* IMAGEN DE FONDO */}
-  <Image
-    src={backgroundIncludes}
-    alt="Matrimonios Valle del Sol"
-    fill
-    className="object-cover scale-105"
-  />
+  {/* PARALLAX BACKGROUND */}
+  <div className="absolute inset-0 -z-10">
+    <Image
+      src={backgroundIncludes}
+      alt="Matrimonios Valle del Sol"
+      fill
+      className="w-full h-[120%] object-cover parallax-bg"
+    />
 
-  {/* OVERLAY + BLUR */}
-  <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+    <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+  </div>
 
   {/* CONTENIDO */}
   <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
@@ -195,6 +230,7 @@ export default function WeddingsPage() {
         {/* FEATURES */}
         <section className="py-24 bg-white">
           <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
+
             {services.map((service, i) => (
               <motion.div
                 key={i}
@@ -205,28 +241,44 @@ export default function WeddingsPage() {
                 <EventFeatureCard {...service} />
               </motion.div>
             ))}
+
           </div>
         </section>
 
-        {/* VIDEO */}
+        {/* GALERÍA */}
+        <section className="px-6 pb-24 bg-white">
+          <div className="max-w-6xl mx-auto grid md:grid-cols-3 gap-6">
+
+            {weddingGallery.map((img, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 40 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ delay: i * 0.1 }}
+                className="overflow-hidden rounded-2xl group"
+              >
+                <div className="relative h-[300px]">
+
+                  <Image
+                    src={img}
+                    alt="Matrimonio Valle del Sol"
+                    fill
+                    className="object-cover group-hover:scale-110 transition duration-700"
+                  />
+
+                </div>
+              </motion.div>
+            ))}
+
+          </div>
+        </section>
+
+        {/* CTA FINAL */}
         <section className="py-24 bg-gray-100 text-center">
+
           <div className="max-w-5xl mx-auto px-6">
 
-            <h2 className="text-4xl md:text-5xl mb-12 font-light">
-              Vive la experiencia
-            </h2>
-
-            <div className="aspect-video w-full rounded-xl overflow-hidden shadow-xl">
-              <iframe
-                className="w-full h-full"
-                src="https://www.youtube.com/embed/YOUTUBE_ID"
-                title="Video matrimonio"
-                allowFullScreen
-              />
-            </div>
-
-            {/* BOTONES */}
-            <div className="flex flex-col md:flex-row gap-6 justify-center mt-12">
+            <div className="flex flex-col md:flex-row gap-6 justify-center">
 
               <a
                 href="https://wa.me/56926035311"
@@ -249,11 +301,12 @@ export default function WeddingsPage() {
             </div>
 
           </div>
+
         </section>
 
       </main>
 
-      <Footer/>
+      <Footer />
     </div>
   );
 }
