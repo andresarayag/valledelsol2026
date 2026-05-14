@@ -10,48 +10,51 @@ import { motion } from 'framer-motion';
 const backgroundIncludes = '/images/matrimonio/matri.JPG';
 
 const weddingGallery = [
-  '/images/matrimonio/galeria1.jpg',
-  '/images/matrimonio/galeria2.jpg',
-  '/images/matrimonio/galeria3.jpg',
-  '/images/matrimonio/galeria4.jpg',
+  '/images/matrimonio/m1.jpg',
+  '/images/matrimonio/m2.jpg',
+  '/images/matrimonio/m3.jpg',
+  '/images/matrimonio/m4.jpg',
+  '/images/matrimonio/m5.jpg',
+  '/images/matrimonio/m6.jpg',
+  '/images/matrimonio/m7.jpg',
 ];
 
 const services = [
   {
-    title: 'Wedding Planner',
-    description: 'Coordinación completa para que todo salga perfecto.',
-    iconUrl: '/images/matrimonio/planificador-de-la-boda.WEBP',
-    iconAlt: 'Wedding planner',
+    title: 'Banquetería y Menú',
+    description: 'Servicio de alimentación completo, con alternativas de menú y opción buffet.',
+    iconUrl: '/images/matrimonio/sombrero-de-cocinero.WEBP',
+    iconAlt: 'Banquetería y Menú',
   },
   {
-    title: 'Decoraciones',
-    description: 'Diseño personalizado para una boda única.',
+    title: 'Ambientación y Decoración',
+    description: 'Espacios preparados para una celebración cálida, personalizada y memorable.',
     iconUrl: '/images/matrimonio/pasillo-1.WEBP',
     iconAlt: 'Decoración',
   },
   {
-    title: 'Chef de Especialidad',
-    description: 'Menús diseñados a medida para cada pareja.',
-    iconUrl: '/images/matrimonio/sombrero-de-cocinero.WEBP',
-    iconAlt: 'Chef',
+    title: 'Wedding Planner',
+    description: 'Apoyo en la organización del día para que cada momento fluya con tranquilidad.',
+    iconUrl: '/images/matrimonio/planificador-de-la-boda.WEBP',
+    iconAlt: 'Wedding Planner',
   },
   {
-    title: 'Audiovisuales',
-    description: 'Iluminación, sonido y ambientación profesional.',
+    title: 'Música y Audiovisuales',
+    description: 'DJ, animación, sonido, iluminación y apoyo técnico para la celebración.',
     iconUrl: '/images/matrimonio/sistema-de-sonido.WEBP',
     iconAlt: 'Audio',
   },
   {
     title: 'Experiencias',
-    description: 'Cabina 360°, tatuajes, artistas y más.',
+    description: 'Cabina 360°, tatuajes, artistas, carritos de comida, cotillón y más detalles para personalizar tu celebración.',
     iconUrl: '/images/matrimonio/fotografo.WEBP',
     iconAlt: 'Experiencias',
   },
   {
-    title: 'Bar & Vinos',
-    description: 'Selección del Valle del Itata + barra libre.',
+    title: 'Bar y Barra libre',
+    description: 'Una barra pensada para que tus invitados disfruten la fiesta de principio a fin.',
     iconUrl: '/images/matrimonio/copa-de-vino.WEBP',
-    iconAlt: 'Vinos',
+    iconAlt: 'Bar',
   },
 ];
 
@@ -123,7 +126,7 @@ export default function WeddingsPage() {
         {/* CTA */}
         <div className="text-center -mt-12 mb-20 relative z-10">
           <Link
-            href="/cotiza-tu-evento"
+            href="https://www.eventi-app.com/public-quotation/1"
             className="inline-block px-12 py-4 rounded-full text-white font-semibold shadow-2xl hover:scale-105 transition"
             style={{ backgroundColor: 'rgb(251,176,59)' }}
           >
@@ -163,8 +166,7 @@ export default function WeddingsPage() {
           </div>
         </section>
 
-        {/* BENEFICIOS */}
-       {/* BENEFICIOS MATRIMONIO */}
+
 {/* BENEFICIOS MATRIMONIO */}
 <section className="relative py-28 md:py-36 overflow-hidden">
 
@@ -198,13 +200,11 @@ export default function WeddingsPage() {
 
         {[
           'Servicio de alimentación completo',
-          'Banquetería y bar abierto',
-          'Wedding planner',
-          'DJ y animador',
-          'Decoración incluida',
-          'Salones climatizados',
+          'Banquetería y bar',
+          'Decoración y ambientación',
+          'Música, sonido e iluminación',
           'Jardines para ceremonia',
-          'Cabaña para novios',
+          'Cabaña para los novios',
         ].map((item, i) => (
           <motion.p
             key={i}
