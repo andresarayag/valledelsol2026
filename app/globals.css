@@ -64,3 +64,20 @@ body {
   animation: fade-in-delay 1s ease-out 0.3s forwards;
   opacity: 0;
 }
+
+
+/* MARQUEE INFINITO */
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0%);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.marquee {
+  animation: marquee 18s linear infinite;
+}
