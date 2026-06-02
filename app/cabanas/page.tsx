@@ -31,20 +31,32 @@ const cabins = [
 
     icons: [
       {
-        icon: '/images/cabanas/iconos/cama-2-plazas.png',
-        label: 'Cama 2 plazas',
+        icon: '/images/cabanas/iconos/cama2plazas.png',
+        label: '1 cama de 2 plazas',
       },
       {
-        icon: '/images/cabanas/iconos/estufa-de-lena.png',
-        label: 'Estufa a leña',
+        icon: '/images/cabanas/iconos/cocina.png',
+        label: 'Cocina equipada',
       },
       {
         icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Nevera',
+        label: 'Frigobar',
       },
       {
         icon: '/images/cabanas/iconos/parrilla.png',
         label: 'Parrilla',
+      },
+      {
+        icon: '/images/cabanas/iconos/toallas.png',
+        label: 'Toallas',
+      },
+      {
+        icon: '/images/cabanas/iconos/papel-de-bano.png',
+        label: 'Confort',
+      },
+      {
+        icon: '/images/cabanas/iconos/estufa-de-lena.png',
+        label: 'Estufa a leña',
       },
       {
         icon: '/images/cabanas/iconos/terraza.png',
@@ -53,6 +65,14 @@ const cabins = [
       {
         icon: '/images/cabanas/iconos/wifi.png',
         label: 'Wifi',
+      },
+      {
+        icon: '/images/cabanas/iconos/smarttv.png',
+        label: 'Smart TV',
+      },
+      {
+        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
+        label: 'Servicio a la habitación',
       },
     ],
   },
@@ -76,16 +96,36 @@ const cabins = [
 
     icons: [
       {
-        icon: '/images/cabanas/iconos/cama-2-plazas.png',
-        label: '2 Habitaciones',
+        icon: '/images/cabanas/iconos/cama2plazas.png',
+        label: '1 cama de 2 plazas',
+      },
+      {
+        icon: '/images/cabanas/iconos/cama1plaza.png',
+        label: '2 camas de 1 plaza',
+      },
+      {
+        icon: '/images/cabanas/iconos/cocina.png',
+        label: 'Cocina equipada',
       },
       {
         icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Nevera',
+        label: 'Frigobar',
       },
       {
         icon: '/images/cabanas/iconos/parrilla.png',
         label: 'Parrilla',
+      },
+      {
+        icon: '/images/cabanas/iconos/toallas.png',
+        label: 'Toallas',
+      },
+      {
+        icon: '/images/cabanas/iconos/papel-de-bano.png',
+        label: 'Confort',
+      },
+      {
+        icon: '/images/cabanas/iconos/estufa-de-lena.png',
+        label: 'Estufa a leña',
       },
       {
         icon: '/images/cabanas/iconos/terraza.png',
@@ -94,6 +134,14 @@ const cabins = [
       {
         icon: '/images/cabanas/iconos/wifi.png',
         label: 'Wifi',
+      },
+      {
+        icon: '/images/cabanas/iconos/smarttv.png',
+        label: 'Smart TV',
+      },
+      {
+        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
+        label: 'Servicio a la habitación',
       },
     ],
   },
@@ -121,16 +169,40 @@ const cabins = [
 
     icons: [
       {
-        icon: '/images/cabanas/iconos/cama-2-plazas.png',
-        label: '3 Habitaciones',
+        icon: '/images/cabanas/iconos/cama2plazas.png',
+        label: '1 cama de 2 plazas',
+      },
+      {
+        icon: '/images/cabanas/iconos/cama1plaza.png',
+        label: '2 camas de 1 plaza',
+      },
+      {
+        icon: '/images/cabanas/iconos/literas.png',
+        label: '1 litera',
+      },
+      {
+        icon: '/images/cabanas/iconos/cocina.png',
+        label: 'Cocina equipada',
       },
       {
         icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Nevera',
+        label: 'Frigobar',
       },
       {
         icon: '/images/cabanas/iconos/parrilla.png',
         label: 'Parrilla',
+      },
+      {
+        icon: '/images/cabanas/iconos/toallas.png',
+        label: 'Toallas',
+      },
+      {
+        icon: '/images/cabanas/iconos/papel-de-bano.png',
+        label: 'Confort',
+      },
+      {
+        icon: '/images/cabanas/iconos/estufa-de-lena.png',
+        label: 'Estufa a leña',
       },
       {
         icon: '/images/cabanas/iconos/terraza.png',
@@ -139,6 +211,14 @@ const cabins = [
       {
         icon: '/images/cabanas/iconos/wifi.png',
         label: 'Wifi',
+      },
+      {
+        icon: '/images/cabanas/iconos/smarttv.png',
+        label: 'Smart TV',
+      },
+      {
+        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
+        label: 'Servicio a la habitación',
       },
     ],
   },
