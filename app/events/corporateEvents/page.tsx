@@ -102,7 +102,7 @@ export default function CorporateEventPage() {
         <section className="relative h-[70vh] -mt-24">
 
           <Image
-            src="https://valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-5-min-e1725423897963.jpeg"
+            src='/images/empresas/e4.jpg'
             alt="Eventos Empresas"
             fill
             className="object-cover"
