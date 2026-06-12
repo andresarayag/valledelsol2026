@@ -27,18 +27,34 @@ const socialLinks: SocialLink[] = [
 
 /* GALERÍA PASEOS */
 const outingGallery = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8320-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Piscinas-1-1.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01806-min.webp',
+  '/images/colegios/paseos/p1.jpg',
+  '/images/colegios/paseos/p2.jpg',
+  '/images/colegios/paseos/p4.jpg',
+  '/images/colegios/paseos/p5.jpg',
+  '/images/colegios/paseos/p6.jpg',
+  '/images/colegios/paseos/p7.jpg',
+  '/images/colegios/paseos/p8.jpg',
+  '/images/colegios/paseos/p10.jpg',
 ];
 
 /* GALERÍA GRADUACIONES */
 const graduationGallery = [
-  'https://valledelsolquillon.cl/wp-content/uploads/2024/09/DSC03733.jpg',
-  'https://valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8320-min.webp',
-  'https://valledelsolquillon.cl/wp-content/uploads/2024/09/DSC02000-min-min.webp',
-  'https://valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp',
+  '/images/colegios/graduaciones/g1.jpg',
+  '/images/colegios/graduaciones/g2.jpg',
+  '/images/colegios/graduaciones/g3.jpg',
+  '/images/colegios/graduaciones/g4.jpg',
+  '/images/colegios/graduaciones/g5.jpg',
+  '/images/colegios/graduaciones/g6.jpg',
+  '/images/colegios/graduaciones/g7.jpg',
+  '/images/colegios/graduaciones/g8.jpg',
+  '/images/colegios/graduaciones/g9.jpg',
+  '/images/colegios/graduaciones/g10.jpg',
+  '/images/colegios/graduaciones/g11.jpg',
+  '/images/colegios/graduaciones/g12.jpg',
+  '/images/colegios/graduaciones/g13.jpg',
+  '/images/colegios/graduaciones/g14.jpg',
+  '/images/colegios/graduaciones/g15.jpg',
+  '/images/colegios/graduaciones/g16.jpg',
 ];
 
 /* FEATURES */
@@ -47,19 +63,19 @@ const paseoFeatures = [
     title: '💦 Piscinas y juegos',
     description:
       'Toboganes, piscinas y espacios para disfrutar todo el día.',
-    icon: '/images/cabanas/iconos/piscina.png',
+    icon: '/images/iconos/piscinas.png',
   },
   {
     title: '🎉 Diversión asegurada',
     description:
-      'Actividades, áreas verdes y momentos inolvidables.',
-    icon: '/images/cabanas/iconos/juegos.png',
+      'Actividades deportivas, áreas verdes y momentos inolvidables.',
+    icon: '/images/iconos/futbol.png',
   },
   {
     title: '🌴 Naturaleza y descanso',
     description:
       'Un entorno seguro y entretenido para estudiantes y profesores.',
-    icon: '/images/cabanas/iconos/areas-verdes.png',
+    icon: '/images/iconos/areas-verdes.png',
   },
 ];
 
@@ -248,7 +264,7 @@ export default function ClassOutingsPage() {
               >
 
                 <Image
-                  src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8327-min.webp"
+                  src='/images/colegios/paseos/p3.jpg'
                   alt="Paseos"
                   fill
                   className="object-cover hover:scale-105 transition duration-700"
@@ -418,7 +434,7 @@ export default function ClassOutingsPage() {
               </div>
 
               <h2 className="text-5xl md:text-7xl font-black text-[#0d2033]">
-                Galería Paseos de Curso
+                Revisa todo lo que puedes tener
               </h2>
 
             </div>
@@ -554,6 +570,58 @@ export default function ClassOutingsPage() {
           </div>
 
         </section>
+
+        {/* GALERÍA DE GRADUACIONES */}
+<section className="py-24 bg-black">
+  <div className="max-w-7xl mx-auto px-6">
+
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+      viewport={{ once: false, margin: '-100px' }}
+    >
+      <h2 className="text-4xl md:text-5xl font-light text-white leading-tight">
+        MOMENTOS QUE <span className="font-semibold text-white">PERDURAN PARA SIEMPRE</span>
+      </h2>
+    </motion.div>
+
+    <motion.p
+      className="mt-4 mb-14 text-lg text-white"
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{ duration: 0.8, delay: 0.3 }}
+    >
+      UNA NOCHE ÚNICA PARA CELEBRAR EL FIN DE UNA GRAN ETAPA
+    </motion.p>
+
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+
+      {graduationGallery.map((img, i) => (
+        <motion.div
+          key={i}
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ delay: i * 0.05 }}
+          className="overflow-hidden rounded-2xl group shadow-lg"
+        >
+          <div className="relative h-[240px] md:h-[270px]">
+            <Image
+              src={img}
+              alt={`Graduación ${i + 1}`}
+              fill
+              className="object-cover transition duration-700 group-hover:scale-110"
+            />
+          </div>
+        </motion.div>
+      ))}
+
+    </div>
+
+  </div>
+</section>
 
         {/* CTA */}
         <section className="py-36 text-center bg-[#f3fbff]">
