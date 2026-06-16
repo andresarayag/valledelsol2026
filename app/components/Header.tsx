@@ -24,7 +24,7 @@ export default function Header() {
     { name: "Matrimonios", href: "/events/weddings" },
     { name: "Colegios", href: "/events/classOutings" },
     { name: "Empresas", href: "/events/corporateEvents" },
-    { name: "Tour Operadores", href: "/tour-operadores" },
+    { name: "Tour Operadores", href: "/touroperadores" },
     { name: "Nosotros", href: "/about" },
   ];
 
