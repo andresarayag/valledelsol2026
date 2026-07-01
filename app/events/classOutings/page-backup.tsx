@@ -110,6 +110,19 @@ export default function ClassOutingsPage() {
           {/* OVERLAY */}
           <div className="absolute inset-0 bg-gradient-to-b from-[#0d5cab]/40 via-[#0d5cab]/20 to-[#081521]/75" />
 
+          {/* ELEMENTOS DECORATIVOS */}
+          <div className="absolute top-36 left-8 text-yellow-300 text-6xl animate-pulse">
+            ☀️
+          </div>
+
+          <div className="absolute bottom-40 right-10 text-blue-200 text-6xl animate-bounce">
+            💦
+          </div>
+
+          <div className="absolute top-56 right-20 text-yellow-200 text-5xl rotate-12">
+            ✨
+          </div>
+
           <div className="absolute inset-0 flex items-center">
 
             <div className="max-w-7xl mx-auto px-6 w-full">
@@ -162,6 +175,29 @@ export default function ClassOutingsPage() {
 
         </section>
 
+        {/* STRIP BENEFICIOS */}
+        <section className="bg-[#0d5cab] text-white py-10">
+
+          <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-4 gap-6 text-center">
+
+            {[
+              '💦 Piscinas',
+              '⚽ Juegos',
+              '🌴 Áreas verdes',
+              '🍔 Alimentación opcional',
+            ].map((item, i) => (
+              <div
+                key={i}
+                className="bg-white/10 rounded-3xl py-5 text-[20px] font-semibold backdrop-blur-md"
+              >
+                {item}
+              </div>
+            ))}
+
+          </div>
+
+        </section>
+
         {/* PASEOS */}
         <section className="relative overflow-hidden bg-[#f3fbff] py-36">
 
@@ -175,35 +211,26 @@ export default function ClassOutingsPage() {
             <div className="grid lg:grid-cols-2 gap-20 items-center">
 
               {/* TEXTO */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -120 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.2 }}
+                viewport={{ once: true }}
+              >
 
                 <div className="inline-block bg-[#FBB03B]/15 text-[#D89B2B] px-5 py-2 rounded-full text-[16px] font-bold mb-8">
                   🎈 Paseos entretenidos para colegios
                 </div>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -120 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: '-100px' }}
-                  transition={{
-                    duration: 1.4,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <h2 className="text-4xl md:text-5xl font-light text-[#0d2033] leading-tight uppercase">
-                    EL PASEO QUE TODOS <span className="font-semibold text-[#0d2033]">RECORDARÁN</span>
-                  </h2>
-                </motion.div>
+                <h2 className="text-5xl md:text-7xl leading-[1] font-black text-[#0d2033]">
+                  El paseo que todos recordarán
+                </h2>
 
-                <motion.p
-                  className="mt-4 text-lg text-gray-700 uppercase leading-relaxed max-w-2xl"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  PISCINAS, JUEGOS, ÁREAS VERDES Y ACTIVIDADES PENSADAS PARA QUE ESTUDIANTES, PROFESORES Y APODERADOS DISFRUTEN UN DÍA INCREÍBLE EN VALLE DEL SOL.
-                </motion.p>
+                <p className="mt-10 text-[20px] text-gray-700 leading-relaxed max-w-2xl">
+                  Piscinas, juegos, áreas verdes y actividades pensadas
+                  para que estudiantes, profesores y apoderados disfruten
+                  un día increíble en Valle del Sol.
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-5 mt-12">
 
@@ -225,7 +252,7 @@ export default function ClassOutingsPage() {
 
                 </div>
 
-              </div>
+              </motion.div>
 
               {/* FOTO */}
               <motion.div
@@ -297,29 +324,13 @@ export default function ClassOutingsPage() {
                 🌟 Modalidades disponibles
               </div>
 
-              <motion.div
-                initial={{ opacity: 0, x: -120 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: false, margin: '-100px' }}
-                transition={{
-                  duration: 1.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-              >
-                <h2 className="text-4xl md:text-5xl font-light text-[#0d2033] leading-tight uppercase">
-                  ELIGE LA EXPERIENCIA <span className="font-semibold text-[#0d2033]">IDEAL</span>
-                </h2>
-              </motion.div>
+              <h2 className="text-5xl md:text-7xl font-black text-[#0d2033] leading-[1]">
+                Elige la experiencia ideal
+              </h2>
 
-              <motion.p
-                className="mt-4 text-lg text-gray-600 max-w-3xl mx-auto uppercase"
-                initial={{ opacity: 0, y: -20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: false }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                OPCIONES FLEXIBLES PARA ADAPTARSE A CADA CURSO Y NECESIDAD.
-              </motion.p>
+              <p className="mt-8 text-[20px] text-gray-600 max-w-3xl mx-auto">
+                Opciones flexibles para adaptarse a cada curso y necesidad.
+              </p>
 
             </div>
 
@@ -470,35 +481,26 @@ export default function ClassOutingsPage() {
             <div className="grid lg:grid-cols-2 gap-16 items-center">
 
               {/* TEXTO */}
-              <div>
+              <motion.div
+                initial={{ opacity: 0, x: -120 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 1.4 }}
+                viewport={{ once: true }}
+              >
 
                 <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-6">
                   Graduaciones en Valle del Sol
                 </p>
 
-                <motion.div
-                  initial={{ opacity: 0, x: -120 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: false, margin: '-100px' }}
-                  transition={{
-                    duration: 1.4,
-                    ease: [0.22, 1, 0.36, 1],
-                  }}
-                >
-                  <h2 className="text-4xl md:text-5xl font-light text-white leading-tight uppercase">
-                    CELEBRA EL CIERRE DE UNA ETAPA <span className="font-semibold text-white">INOLVIDABLE</span>
-                  </h2>
-                </motion.div>
+                <h2 className="text-5xl md:text-7xl font-light leading-[1.05]">
+                  Celebra el cierre de una etapa inolvidable
+                </h2>
 
-                <motion.p
-                  className="mt-4 text-lg text-white/80 uppercase leading-relaxed"
-                  initial={{ opacity: 0, y: -20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: false }}
-                  transition={{ duration: 0.8, delay: 0.3 }}
-                >
-                  ESPACIOS ELEGANTES, GASTRONOMÍA Y COORDINACIÓN COMPLETA PARA VIVIR UNA NOCHE ESPECIAL JUNTO A COMPAÑEROS, FAMILIAS Y PROFESORES.
-                </motion.p>
+                <p className="mt-10 text-[20px] md:text-[22px] text-white/80 leading-relaxed">
+                  Espacios elegantes, gastronomía y coordinación completa
+                  para vivir una noche especial junto a compañeros,
+                  familias y profesores.
+                </p>
 
                 <div className="flex flex-col sm:flex-row gap-5 mt-12">
 
@@ -521,7 +523,7 @@ export default function ClassOutingsPage() {
 
                 </div>
 
-              </div>
+              </motion.div>
 
               {/* FOTO */}
               <motion.div

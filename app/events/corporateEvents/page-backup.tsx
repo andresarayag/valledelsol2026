@@ -46,7 +46,7 @@ const highlightStats = [
   },
   {
     title: 'Team Building',
-    description: 'Actividades para fortalecer la integración y motivación de los equipos.',
+    description: 'Proyección, sonido e iluminación profesional.',
     iconUrl:
       'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/escenario.png',
   },
@@ -158,7 +158,7 @@ export default function CorporateEventPage() {
               transition={{ duration: 1 }}
             >
 
-              <h1 className="text-5xl md:text-7xl font-bold">
+              <h1 className="text-5xl md:text-7xl font-light">
                 Eventos Corporativos
               </h1>
 
@@ -195,11 +195,11 @@ export default function CorporateEventPage() {
       className="mb-16 text-center"
     >
 
-      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm font-bold mb-5">
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
         Infraestructura Corporativa
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-bold">
+      <h2 className="text-4xl md:text-5xl font-light">
         Todo lo que tu empresa necesita
       </h2>
 
@@ -250,150 +250,6 @@ export default function CorporateEventPage() {
 
 </section>
 
-{/* PASEOS FIN DE AÑO */}
-
-<section className="relative py-36 bg-[#071827] overflow-hidden text-white">
-
-  <Image
-    src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8756-min.webp"
-    alt="Paseos Fin de Año"
-    fill
-    className="object-cover scale-105"
-  />
-
-  <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-[#071827]/85 to-black/55" />
-  <div className="absolute -top-32 -left-32 w-96 h-96 bg-[#FBB03B]/20 rounded-full blur-3xl" />
-  <div className="absolute bottom-0 right-0 w-[520px] h-[520px] bg-[#FBB03B]/10 rounded-full blur-3xl" />
-
-  <div className="relative max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
-
-    <motion.div
-      initial={{ opacity:0, x:-120 }}
-      whileInView={{ opacity:1, x:0 }}
-      transition={{
-        duration:1.4,
-        ease:[0.22,1,0.36,1],
-      }}
-      viewport={{ once:true }}
-    >
-
-      <div className="inline-flex items-center gap-3 rounded-full bg-[#FBB03B] px-6 py-3 text-black text-sm md:text-base font-bold uppercase tracking-[0.2em] shadow-[0_20px_60px_rgba(251,176,59,0.35)] mb-8">
-        Producto destacado para empresas
-      </div>
-
-      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm font-bold mb-5">
-
-        Celebraciones Corporativas
-
-      </p>
-
-      <h2 className="text-5xl md:text-7xl font-bold leading-[1.02] max-w-3xl">
-
-        Paseos de Fin de Año
-
-      </h2>
-
-      <motion.p
-        initial={{ opacity:0,y:-20 }}
-        whileInView={{ opacity:1,y:0 }}
-        transition={{ duration:.9 }}
-        viewport={{ once:true }}
-        className="mt-8 text-xl md:text-2xl text-white/85 leading-relaxed"
-      >
-
-        Uno de nuestros productos más fuertes: jornadas corporativas pensadas
-        para cerrar el año con entretención, naturaleza, gastronomía y espacios
-        exclusivos para todo el equipo.
-
-      </motion.p>
-
-      <motion.p
-        initial={{ opacity:0,y:-20 }}
-        whileInView={{ opacity:1,y:0 }}
-        transition={{ duration:.9, delay:.15 }}
-        viewport={{ once:true }}
-        className="mt-6 text-lg text-white/70 leading-relaxed"
-      >
-
-        Piscinas, quinchos, amplias áreas verdes, música, banquetería,
-        actividades recreativas y coordinación completa convierten cada jornada
-        en una experiencia memorable para colaboradores, equipos directivos y
-        sus familias.
-
-      </motion.p>
-
-      <div className="grid sm:grid-cols-2 gap-5 mt-10">
-
-        {[
-          'Celebraciones privadas',
-          'Banquetería completa',
-          'Piscinas y áreas verdes',
-          'Actividades recreativas',
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08, duration: 0.7 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md p-5 text-lg font-semibold"
-          >
-            {item}
-          </motion.div>
-        ))}
-
-      </div>
-
-      <div className="flex flex-col sm:flex-row gap-5 mt-12">
-
-        <a
-          href="https://wa.link/vjoaea"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-[#FBB03B] text-black text-lg font-bold shadow-[0_20px_60px_rgba(251,176,59,0.35)] hover:scale-105 transition-all duration-500"
-        >
-          Cotizar paseo de fin de año
-        </a>
-
-        <a
-          href="https://www.eventi-app.com/public-quotation/1"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-white/30 text-white text-lg font-semibold backdrop-blur-md hover:bg-white hover:text-black transition-all duration-500"
-        >
-          Solicitar propuesta
-        </a>
-
-      </div>
-
-    </motion.div>
-
-    <motion.div
-      initial={{ opacity:0, x:120 }}
-      whileInView={{ opacity:1, x:0 }}
-      transition={{
-        duration:1.4,
-        ease:[0.22,1,0.36,1],
-      }}
-      viewport={{ once:true }}
-      className="relative h-[520px] md:h-[680px] rounded-[42px] overflow-hidden shadow-[0_40px_120px_rgba(0,0,0,0.45)] border border-white/10"
-    >
-
-      <Image
-        src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-5-min-e1725423897963.jpeg"
-        alt="Celebración corporativa de fin de año"
-        fill
-        className="object-cover hover:scale-110 transition duration-700"
-      />
-
-      <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
-
-    </motion.div>
-
-  </div>
-
-</section>
-
 {/* CAPACITACIONES */}
 
 <section className="py-32 bg-gray-50">
@@ -410,13 +266,13 @@ export default function CorporateEventPage() {
       viewport={{ once: true }}
     >
 
-      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm font-bold mb-5">
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
 
         Eventos Empresariales
 
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
+      <h2 className="text-4xl md:text-5xl font-light leading-tight">
 
         Capacitaciones, Seminarios y Congresos
 
@@ -493,11 +349,11 @@ export default function CorporateEventPage() {
         <div className="rounded-2xl bg-white shadow-lg p-5">
 
           <h4 className="font-semibold mb-2">
-            ✔ Team Building
+            ✔ Tecnología
           </h4>
 
           <p className="text-gray-600 text-sm">
-            Actividades para fortalecer la integración, liderazgo y trabajo en equipo.
+            Sonido, proyección, iluminación y soporte audiovisual.
           </p>
 
         </div>
@@ -629,6 +485,116 @@ export default function CorporateEventPage() {
 
 </section>
 
+{/* PASEOS FIN DE AÑO */}
+
+<section className="py-32 bg-white">
+
+  <div className="max-w-7xl mx-auto px-6 grid lg:grid-cols-2 gap-20 items-center">
+
+    <motion.div
+      initial={{ opacity:0, x:-120 }}
+      whileInView={{ opacity:1, x:0 }}
+      transition={{
+        duration:1.4,
+        ease:[0.22,1,0.36,1],
+      }}
+      viewport={{ once:true }}
+    >
+
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+
+        Celebraciones Corporativas
+
+      </p>
+
+      <h2 className="text-4xl md:text-5xl font-light leading-tight">
+
+        Paseos de Fin de Año
+
+      </h2>
+
+      <motion.p
+        initial={{ opacity:0,y:-20 }}
+        whileInView={{ opacity:1,y:0 }}
+        transition={{ duration:.9 }}
+        viewport={{ once:true }}
+        className="mt-8 text-lg text-gray-600 leading-relaxed"
+      >
+
+        Celebra los logros de tu organización en un entorno natural privilegiado.
+        Organizamos paseos de fin de año completamente personalizados para
+        empresas, combinando gastronomía, recreación y entretención para todos
+        los colaboradores.
+
+      </motion.p>
+
+      <motion.p
+        initial={{ opacity:0,y:-20 }}
+        whileInView={{ opacity:1,y:0 }}
+        transition={{ duration:.9, delay:.15 }}
+        viewport={{ once:true }}
+        className="mt-6 text-lg text-gray-600 leading-relaxed"
+      >
+
+        Piscinas, quinchos, amplias áreas verdes, música, banquetería,
+        actividades recreativas y espacios exclusivos convierten cada jornada en
+        una experiencia inolvidable para todo el equipo.
+
+      </motion.p>
+
+      <div className="grid grid-cols-2 gap-5 mt-10">
+
+        <div className="rounded-2xl bg-gray-50 p-5 shadow-md">
+
+          🎉 Celebraciones privadas
+
+        </div>
+
+        <div className="rounded-2xl bg-gray-50 p-5 shadow-md">
+
+          🍽 Banquetería completa
+
+        </div>
+
+        <div className="rounded-2xl bg-gray-50 p-5 shadow-md">
+
+          🏊 Piscinas y áreas verdes
+
+        </div>
+
+        <div className="rounded-2xl bg-gray-50 p-5 shadow-md">
+
+          🎶 Actividades recreativas
+
+        </div>
+
+      </div>
+
+    </motion.div>
+
+    <motion.div
+      initial={{ opacity:0, x:120 }}
+      whileInView={{ opacity:1, x:0 }}
+      transition={{
+        duration:1.4,
+        ease:[0.22,1,0.36,1],
+      }}
+      viewport={{ once:true }}
+      className="relative h-[620px] rounded-[36px] overflow-hidden shadow-2xl"
+    >
+
+      <Image
+        src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8756-min.webp"
+        alt="Paseos Fin de Año"
+        fill
+        className="object-cover hover:scale-110 transition duration-700"
+      />
+
+    </motion.div>
+
+  </div>
+
+</section>
 {/* CONVENIOS */}
 
 <section className="relative py-36 overflow-hidden">
