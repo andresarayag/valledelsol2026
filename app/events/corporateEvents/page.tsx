@@ -27,7 +27,7 @@ const socialLinks: SocialLink[] = [
 
 const highlightStats = [
   {
-    title: 'Ubicación privilegiada',
+    title: 'Ubicación privilegiada TEST',
     description: 'La mejor ubicación de Quillón.',
     iconUrl:
       'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/ubicacion-1.webp',
