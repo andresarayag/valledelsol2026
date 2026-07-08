@@ -2,7 +2,9 @@
 
 import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion'; // 👈 IMPORTANTE
+import { motion } from 'framer-motion';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 const slides = [
   {
@@ -26,7 +28,6 @@ export default function ContactSection() {
   const [current, setCurrent] = useState(0);
   const timeoutRef = useRef<NodeJS.Timeout | null>(null);
 
-  // AUTOPLAY
   useEffect(() => {
     timeoutRef.current = setTimeout(() => {
       setCurrent((prev) => (prev === slides.length - 1 ? 0 : prev + 1));
@@ -37,7 +38,6 @@ export default function ContactSection() {
     };
   }, [current]);
 
-  // SWIPE
   let startX = 0;
 
   const handleTouchStart = (e: React.TouchEvent) => {
@@ -60,31 +60,27 @@ export default function ContactSection() {
     <section className="bg-[#f5f5f5] py-24">
       <div className="max-w-6xl mx-auto px-6">
 
-        
-        {/* 🔥 TÍTULO (slide desde izquierda) */}
-<motion.div
-  initial={{ opacity: 0, x: -120 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: false, margin: '-100px' }}
-  transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
->
-  <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-    PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
-  </h2>
-</motion.div>
+        <motion.div
+          initial={{ opacity: 0, x: -120 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: false, margin: '-100px' }}
+          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+        >
+          <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+            PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
+          </h2>
+        </motion.div>
 
-{/* 🔥 SUBTÍTULO (fade in down) */}
-<motion.p
-  className="mt-4 pb-14 text-lg text-gray-600"
-  initial={{ opacity: 0, y: -25 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: false }}
-  transition={{ duration: 0.8, delay: 0.3 }}
->
-  ACCEDE A TARIFAS PREFERENTES
-</motion.p>
+        <motion.p
+          className="mt-4 pb-14 text-lg text-gray-600"
+          initial={{ opacity: 0, y: -25 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: false }}
+          transition={{ duration: 0.8, delay: 0.3 }}
+        >
+          ACCEDE A TARIFAS PREFERENTES
+        </motion.p>
 
-        {/* SLIDER */}
         <div
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
@@ -100,7 +96,6 @@ export default function ContactSection() {
                 className="w-full flex-shrink-0 grid md:grid-cols-2 gap-12 items-center"
               >
 
-                {/* IMAGEN */}
                 <div className="flex justify-center">
                   <div className="relative w-full max-w-[420px] aspect-square rounded-full overflow-hidden shadow-2xl ring-4 ring-white">
                     <Image
@@ -112,7 +107,6 @@ export default function ContactSection() {
                   </div>
                 </div>
 
-                {/* TEXTO */}
                 <div>
                   <h3 className="text-3xl md:text-4xl font-semibold text-gray-900 mb-4 tracking-tight">
                     {slide.title}
@@ -123,18 +117,25 @@ export default function ContactSection() {
                   </p>
 
                   <div className="flex flex-col sm:flex-row gap-4">
-                    <button className="px-6 py-3 bg-black text-white rounded-full hover:bg-gray-800 transition">
-                      Más información
-                    </button>
-
-                    <a
-                      href="https://wa.me/56940588585"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="px-6 py-3 bg-green-500 text-white rounded-full hover:bg-green-600 transition text-center"
+                    <PrimaryButton
+                      href="/touroperadores"
+                      className="px-6 py-3 text-base shadow-xl"
                     >
-                      WhatsApp
-                    </a>
+                      Más información
+                    </PrimaryButton>
+
+                    <SecondaryButton
+  href="https://wa.me/56940588585"
+  className="
+    px-6 py-3 text-base
+    border-gray-900
+    text-gray-900
+    hover:bg-gray-900
+    hover:text-white
+  "
+>
+  WhatsApp
+</SecondaryButton>
                   </div>
                 </div>
 
@@ -143,7 +144,6 @@ export default function ContactSection() {
           </div>
         </div>
 
-        {/* DOTS */}
         <div className="flex justify-center mt-10 gap-2">
           {slides.map((_, index) => (
             <div

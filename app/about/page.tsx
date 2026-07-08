@@ -1,9 +1,9 @@
 'use client';
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import HorizontalGallery from '../components/HorizontalGallery';
 import TeamMemberCard from '../components/TeamMemberCard';
 import Image from 'next/image';
 import { SocialLink } from '../components/types';
@@ -44,40 +44,90 @@ const aboutGalleryImages: string[] = [
 ];
 
 export default function AboutPage() {
+
+  const heroRef = useRef(null);
+
+const { scrollYProgress } = useScroll({
+  target: heroRef,
+  offset: ['start start', 'end start'],
+});
+
+const heroY = useTransform(scrollYProgress, [0, 1], ['-12%', '28%']);
+
+const heroScale = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [1.15, 1.28]
+);
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
 
       <main className="grow pt-24">
 
-        {/* HERO */}
-        <section className="relative h-[70vh] -mt-24">
-          <Image
-            src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Jardines-1-min-e1723475875314.webp"
-            alt="Valle del Sol"
-            fill
-            className="object-cover"
-            priority
-          />
 
-          <div className="absolute inset-0 bg-black/50" />
+{/* HERO */}
+<section
+  ref={heroRef}
+  className="relative h-[85vh] -mt-24 overflow-hidden bg-black"
+>
 
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white px-4">
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
-              <h1 className="text-4xl md:text-6xl font-semibold">
-                Más que un complejo turístico
-              </h1>
+  {/* PARALLAX */}
+<motion.div
+  className="absolute -inset-y-32 inset-x-0"
+  style={{
+    y: heroY,
+    scale: heroScale,
+  }}
+>
+    <Image
+      src="/images/galeria/areas-verdes.jpg"
+      alt="Valle del Sol"
+      fill
+      className="object-cover"
+      priority
+    />
+  </motion.div>
 
-              <p className="mt-4 text-lg md:text-xl">
-                Queremos ser una experiencia y un recuerdo
-              </p>
-            </motion.div>
-          </div>
-        </section>
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
+
+  {/* CONTENIDO */}
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+
+    <div className="max-w-6xl mx-auto text-center text-white">
+
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
+        Más que un
+        <br />
+        Complejo Turístico
+      </motion.h1>
+
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
+        Queremos ser una experiencia que permanezca en la memoria de cada visitante.
+      </motion.p>
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* INTRO */}
         <section className="py-20 bg-white">
@@ -170,9 +220,6 @@ export default function AboutPage() {
         <section className="py-20 bg-white">
           <div className="max-w-3xl mx-auto text-center px-6 space-y-8">
 
-            <p className="text-gray-700 text-lg leading-relaxed">
-              Nos perdemos buscando lo que no necesitamos, cuando lo esencial está en compartir momentos con quienes amamos.
-            </p>
 
             <h2 className="text-2xl md:text-3xl font-bold">
               “Somos el tiempo que gastamos en quienes amamos”

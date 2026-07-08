@@ -1,6 +1,8 @@
 'use client';
 
 import { useEffect, useState } from 'react';
+import PrimaryButton from './PrimaryButton';
+import SecondaryButton from './SecondaryButton';
 
 interface HeroProps {
   staticText: string;
@@ -34,24 +36,23 @@ export default function Hero({
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-black">
 
       {/* 🎥 VIDEO BACKGROUND */}
-     <div className="absolute inset-0 w-full h-full overflow-hidden">
+      <div className="absolute inset-0 w-full h-full overflow-hidden">
 
-  <iframe
-    className="
-      absolute top-1/2 left-1/2
-      min-w-full min-h-full
-      w-auto h-auto
-      aspect-video
-      -translate-x-1/2 -translate-y-1/2
-      pointer-events-none
-    "
-    src="https://www.youtube.com/embed/ly7mtnfeCFA?autoplay=1&mute=1&controls=0&loop=1&playlist=ly7mtnfeCFA&modestbranding=1&showinfo=0&rel=0"
-    title="Video Valle del Sol"
-    allow="autoplay; fullscreen"
-  />
+        <iframe
+          className="
+            absolute top-1/2 left-1/2
+            min-w-full min-h-full
+            w-auto h-auto
+            aspect-video
+            -translate-x-1/2 -translate-y-1/2
+            pointer-events-none
+          "
+          src="https://www.youtube.com/embed/ly7mtnfeCFA?autoplay=1&mute=1&controls=0&loop=1&playlist=ly7mtnfeCFA&modestbranding=1&showinfo=0&rel=0"
+          title="Video Valle del Sol"
+          allow="autoplay; fullscreen"
+        />
 
-</div>
-
+      </div>
 
       {/* Overlay oscuro elegante */}
       <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60"></div>
@@ -68,12 +69,12 @@ export default function Hero({
 
           {/* Línea 2 */}
           <span className="block mt-2 font-bold">
-            La magia de la{" "}
+            La magia de la{' '}
             <span
               className={`inline-block transition-all duration-500 ${
                 isVisible
-                  ? "opacity-100 translate-y-0"
-                  : "opacity-0 -translate-y-4"
+                  ? 'opacity-100 translate-y-0'
+                  : 'opacity-0 -translate-y-4'
               }`}
             >
               {animatedWords[currentIndex]}
@@ -86,21 +87,23 @@ export default function Hero({
           NATURALEZA, DESCANSO Y EXPERIENCIAS INOLVIDABLES EN QUILLÓN
         </p>
 
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        <div className="flex flex-col sm:flex-row gap-5 justify-center">
 
-          <a
-            href="/cabanas"
-            className="bg-white text-black px-8 py-3 rounded-full text-sm font-semibold transition hover:bg-gray-200 hover:scale-105 hover:shadow-xl"
-          >
+          <PrimaryButton href="/cabanas">
             Ver Cabañas
-          </a>
+          </PrimaryButton>
 
-          <a
-            href="https://www.eventi-app.com/public-quotation/1"
-            className="border border-white px-8 py-3 rounded-full text-sm font-medium transition hover:bg-white hover:text-black hover:scale-105 hover:shadow-xl"
-          >
-            Cotizar Evento
-          </a>
+          <SecondaryButton
+  href="https://www.eventi-app.com/public-quotation/1"
+  className="
+    border-white/40
+    text-white
+    hover:bg-white
+    hover:text-black
+  "
+>
+  Cotizar Evento
+</SecondaryButton>
 
         </div>
 

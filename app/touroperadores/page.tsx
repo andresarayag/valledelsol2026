@@ -3,10 +3,11 @@
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import HorizontalGallery from '../components/HorizontalGallery';
+import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
 import { SocialLink } from '../components/types';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-
 /* ===========================================================
    SOCIAL
 =========================================================== */
@@ -82,94 +83,91 @@ export default function TourOperadoresPage() {
                             HERO
         ======================================================= */}
 
-        <section className="relative h-screen -mt-24 overflow-hidden">
+        {/* HERO */}
+<section className="relative h-screen -mt-24 overflow-hidden bg-black">
 
-          <Image
-            src="/images/tour/t3.jpg"
-            alt="Turismo para Grupos"
-            fill
-            priority
-            className="object-cover"
-          />
+  <Image
+    src="/images/tour/t3.jpg"
+    alt="Turismo para Grupos"
+    fill
+    priority
+    className="object-cover"
+  />
 
-          <div className="absolute inset-0 bg-black/60" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-          <div className="absolute inset-0 flex items-center justify-center">
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
 
-  <div className="max-w-6xl mx-auto px-6 pt-32 md:pt-40 text-center text-white">
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-              <motion.p
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: .9 }}
-                className="uppercase tracking-[0.45em] text-[#FBB03B] text-sm mb-6"
-              >
-                Turismo Receptivo • Tour Operadores
-              </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        className="uppercase tracking-[0.45em] text-[#FBB03B] text-sm mb-8"
+      >
+        Turismo Receptivo • Tour Operadores
+      </motion.p>
 
-              <motion.h1
-                initial={{ opacity: 0, x: -120 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 1.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="text-5xl md:text-7xl xl:text-8xl font-light leading-tight"
-              >
-                Turismo para
-                <br />
-                Grupos
-              </motion.h1>
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
+        Turismo para
+        <br />
+        Grupos
+      </motion.h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: .9,
-                  delay: .25,
-                }}
-                className="mt-10 text-lg md:text-2xl text-white/85 max-w-4xl mx-auto leading-relaxed"
-              >
-                Diseñamos programas turísticos para delegaciones nacionales e
-                internacionales que buscan descubrir el Valle del Itata desde
-                un lugar único, rodeado de naturaleza, gastronomía y
-                experiencias inolvidables.
-              </motion.p>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.9,
+          delay: 0.25,
+        }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
+        Diseñamos programas turísticos para delegaciones nacionales e internacionales que buscan descubrir el Valle del Itata desde un lugar único, rodeado de naturaleza, gastronomía y experiencias inolvidables.
+      </motion.p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: .9,
-                  delay: .45,
-                }}
-                className="flex flex-col sm:flex-row gap-5 justify-center mt-14"
-              >
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.9,
+          delay: 0.45,
+        }}
+        className="flex flex-col sm:flex-row gap-5 justify-center mt-14"
+      >
 
-                <a
-                  href="https://wa.link/vjoaea"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="px-10 py-5 rounded-full font-semibold text-lg transition-all duration-300 hover:scale-105 shadow-2xl"
-                  style={{ backgroundColor: '#FBB03B', color: '#111' }}
-                >
-                  Solicitar Programa
-                </a>
+        <PrimaryButton href="https://wa.link/vjoaea">
+          Solicitar Programa
+        </PrimaryButton>
 
-                <a
-                  href="#intro"
-                  className="px-10 py-5 rounded-full border border-white/40 hover:bg-white hover:text-black transition-all duration-300 text-lg"
-                >
-                  Descubrir Más
-                </a>
+        <SecondaryButton
+          href="#intro"
+          className="
+            !border-white/40
+            !text-white
+            hover:!bg-white
+            hover:!text-black
+          "
+        >
+          Descubrir Más
+        </SecondaryButton>
 
-              </motion.div>
+      </motion.div>
 
-            </div>
+    </div>
 
-          </div>
+  </div>
 
-        </section>
+</section>
 
         {/* ======================================================
                           INTRO

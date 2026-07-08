@@ -6,7 +6,8 @@ import HorizontalGallery from '../../components/HorizontalGallery';
 import EventFeatureCard from '../../components/EventFeatureCard';
 import { SocialLink } from '../../components/types';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 /* SOCIAL */
 
@@ -129,6 +130,20 @@ const corporateGallery = [
 /* PAGE */
 
 export default function CorporateEventPage() {
+  const heroRef = useRef(null);
+
+const { scrollYProgress } = useScroll({
+  target: heroRef,
+  offset: ['start start', 'end start'],
+});
+
+const heroY = useTransform(scrollYProgress, [0, 1], ['-12%', '28%']);
+
+const heroScale = useTransform(
+  scrollYProgress,
+  [0, 1],
+  [1.15, 1.28]
+);
   return (
     <div className="min-h-screen flex flex-col overflow-hidden bg-white">
 
@@ -138,40 +153,60 @@ export default function CorporateEventPage() {
 
         {/* HERO */}
 
-        <section className="relative h-[75vh] -mt-24">
+        {/* HERO */}
+{/* HERO */}
+<section
+  ref={heroRef}
+  className="relative h-[85vh] -mt-24 overflow-hidden bg-black"
+>
+  <motion.div
+    className="absolute -inset-y-32 inset-x-0"
+    style={{
+      y: heroY,
+      scale: heroScale,
+    }}
+  >
+    <Image
+      src="/images/empresas/e4.jpg"
+      alt="Eventos Empresas"
+      fill
+      priority
+      className="object-cover"
+    />
+  </motion.div>
 
-          <Image
-            src="/images/empresas/e4.jpg"
-            alt="Eventos Empresas"
-            fill
-            priority
-            className="object-cover"
-          />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-          <div className="absolute inset-0 bg-black/60" />
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white">
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
+        Eventos Corporativos
+      </motion.h1>
 
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
+        Espacios premium para reuniones, capacitaciones, celebraciones y experiencias inolvidables.
+      </motion.p>
 
-              <h1 className="text-5xl md:text-7xl font-bold">
-                Eventos Corporativos
-              </h1>
-
-              <p className="mt-6 text-lg md:text-2xl text-white/90">
-                Espacios premium para reuniones, capacitaciones, celebraciones
-                y experiencias inolvidables.
-              </p>
-
-            </motion.div>
-
-          </div>
-
-        </section>
+    </div>
+  </div>
+</section>
 
         {/* STRIP */}
 
@@ -324,25 +359,31 @@ export default function CorporateEventPage() {
 
       <div className="grid sm:grid-cols-2 gap-5 mt-10">
 
-        {[
-          'Celebraciones privadas',
-          'Banquetería completa',
-          'Piscinas y áreas verdes',
-          'Actividades recreativas',
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.08, duration: 0.7 }}
-            viewport={{ once: true }}
-            className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md p-5 text-lg font-semibold"
-          >
-            {item}
-          </motion.div>
-        ))}
+  {[
+    'Celebraciones privadas',
+    'Banquetería completa',
+    'Piscinas y áreas verdes',
+    'Actividades recreativas',
+  ].map((item, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.08, duration: 0.7 }}
+      viewport={{ once: true }}
+      className="rounded-2xl border border-white/10 bg-white/10 backdrop-blur-md p-5 text-lg font-semibold flex items-center gap-4"
+    >
+      <span className="text-[#FBB03B] text-2xl leading-none">
+        ✓
+      </span>
 
-      </div>
+      <span>
+        {item}
+      </span>
+    </motion.div>
+  ))}
+
+</div>
 
       <div className="flex flex-col sm:flex-row gap-5 mt-12">
 

@@ -2,9 +2,11 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 /* =========================
    DATA CABAÑAS
@@ -30,58 +32,23 @@ const cabins = [
     ],
 
     icons: [
-      {
-        icon: '/images/cabanas/iconos/cama2plazas.png',
-        label: '1 cama de 2 plazas',
-      },
-      {
-        icon: '/images/cabanas/iconos/cocina.png',
-        label: 'Cocina equipada',
-      },
-      {
-        icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Frigobar',
-      },
-      {
-        icon: '/images/cabanas/iconos/parrilla.png',
-        label: 'Parrilla',
-      },
-      {
-        icon: '/images/cabanas/iconos/toallas.png',
-        label: 'Toallas',
-      },
-      {
-        icon: '/images/cabanas/iconos/papel-de-bano.png',
-        label: 'Confort',
-      },
-      {
-        icon: '/images/cabanas/iconos/estufa-de-lena.png',
-        label: 'Estufa a leña',
-      },
-      {
-        icon: '/images/cabanas/iconos/terraza.png',
-        label: 'Terraza',
-      },
-      {
-        icon: '/images/cabanas/iconos/wifi.png',
-        label: 'Wifi',
-      },
-      {
-        icon: '/images/cabanas/iconos/smarttv.png',
-        label: 'Smart TV',
-      },
-      {
-        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
-        label: 'Servicio a la habitación',
-      },
+      { icon: '/images/cabanas/iconos/cama2plazas.png', label: '1 cama de 2 plazas' },
+      { icon: '/images/cabanas/iconos/cocina.png', label: 'Cocina equipada' },
+      { icon: '/images/cabanas/iconos/nevera.png', label: 'Frigobar' },
+      { icon: '/images/cabanas/iconos/parrilla.png', label: 'Parrilla' },
+      { icon: '/images/cabanas/iconos/toallas.png', label: 'Toallas' },
+      { icon: '/images/cabanas/iconos/papel-de-bano.png', label: 'Confort' },
+      { icon: '/images/cabanas/iconos/estufa-de-lena.png', label: 'Estufa a leña' },
+      { icon: '/images/cabanas/iconos/terraza.png', label: 'Terraza' },
+      { icon: '/images/cabanas/iconos/wifi.png', label: 'Wifi' },
+      { icon: '/images/cabanas/iconos/smarttv.png', label: 'Smart TV' },
+      { icon: '/images/cabanas/iconos/servicio-de-habitacion.png', label: 'Servicio a la habitación' },
     ],
   },
 
   {
     title: 'Cabaña para 4 personas',
-    description:
-      'Espacio acogedor ideal para experiencias familiares inolvidables.',
-
+    description: 'Espacio acogedor ideal para experiencias familiares inolvidables.',
     details:
       'Cabaña familiar de dos habitaciones más cocina americana de 40m2. Se ubica frente a una zona de juegos infantiles bajo la sombra de pinos, cuenta con una terraza de 20m2.',
 
@@ -95,62 +62,24 @@ const cabins = [
     ],
 
     icons: [
-      {
-        icon: '/images/cabanas/iconos/cama2plazas.png',
-        label: '1 cama de 2 plazas',
-      },
-      {
-        icon: '/images/cabanas/iconos/cama1plaza.png',
-        label: '2 camas de 1 plaza',
-      },
-      {
-        icon: '/images/cabanas/iconos/cocina.png',
-        label: 'Cocina equipada',
-      },
-      {
-        icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Frigobar',
-      },
-      {
-        icon: '/images/cabanas/iconos/parrilla.png',
-        label: 'Parrilla',
-      },
-      {
-        icon: '/images/cabanas/iconos/toallas.png',
-        label: 'Toallas',
-      },
-      {
-        icon: '/images/cabanas/iconos/papel-de-bano.png',
-        label: 'Confort',
-      },
-      {
-        icon: '/images/cabanas/iconos/estufa-de-lena.png',
-        label: 'Estufa a leña',
-      },
-      {
-        icon: '/images/cabanas/iconos/terraza.png',
-        label: 'Terraza',
-      },
-      {
-        icon: '/images/cabanas/iconos/wifi.png',
-        label: 'Wifi',
-      },
-      {
-        icon: '/images/cabanas/iconos/smarttv.png',
-        label: 'Smart TV',
-      },
-      {
-        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
-        label: 'Servicio a la habitación',
-      },
+      { icon: '/images/cabanas/iconos/cama2plazas.png', label: '1 cama de 2 plazas' },
+      { icon: '/images/cabanas/iconos/cama1plaza.png', label: '2 camas de 1 plaza' },
+      { icon: '/images/cabanas/iconos/cocina.png', label: 'Cocina equipada' },
+      { icon: '/images/cabanas/iconos/nevera.png', label: 'Frigobar' },
+      { icon: '/images/cabanas/iconos/parrilla.png', label: 'Parrilla' },
+      { icon: '/images/cabanas/iconos/toallas.png', label: 'Toallas' },
+      { icon: '/images/cabanas/iconos/papel-de-bano.png', label: 'Confort' },
+      { icon: '/images/cabanas/iconos/estufa-de-lena.png', label: 'Estufa a leña' },
+      { icon: '/images/cabanas/iconos/terraza.png', label: 'Terraza' },
+      { icon: '/images/cabanas/iconos/wifi.png', label: 'Wifi' },
+      { icon: '/images/cabanas/iconos/smarttv.png', label: 'Smart TV' },
+      { icon: '/images/cabanas/iconos/servicio-de-habitacion.png', label: 'Servicio a la habitación' },
     ],
   },
 
   {
     title: 'Cabaña para 6 personas',
-    description:
-      'Cabaña acogedora para familias grandes y grupos de amigos.',
-
+    description: 'Cabaña acogedora para familias grandes y grupos de amigos.',
     details:
       'Cabaña familiar de tres habitaciones más cocina americana de 65m2. Se ubica frente a la fuente con cascada de agua, cuenta con una terraza de 30m2.',
 
@@ -168,58 +97,19 @@ const cabins = [
     ],
 
     icons: [
-      {
-        icon: '/images/cabanas/iconos/cama2plazas.png',
-        label: '1 cama de 2 plazas',
-      },
-      {
-        icon: '/images/cabanas/iconos/cama1plaza.png',
-        label: '2 camas de 1 plaza',
-      },
-      {
-        icon: '/images/cabanas/iconos/literas.png',
-        label: '1 litera',
-      },
-      {
-        icon: '/images/cabanas/iconos/cocina.png',
-        label: 'Cocina equipada',
-      },
-      {
-        icon: '/images/cabanas/iconos/nevera.png',
-        label: 'Frigobar',
-      },
-      {
-        icon: '/images/cabanas/iconos/parrilla.png',
-        label: 'Parrilla',
-      },
-      {
-        icon: '/images/cabanas/iconos/toallas.png',
-        label: 'Toallas',
-      },
-      {
-        icon: '/images/cabanas/iconos/papel-de-bano.png',
-        label: 'Confort',
-      },
-      {
-        icon: '/images/cabanas/iconos/estufa-de-lena.png',
-        label: 'Estufa a leña',
-      },
-      {
-        icon: '/images/cabanas/iconos/terraza.png',
-        label: 'Terraza',
-      },
-      {
-        icon: '/images/cabanas/iconos/wifi.png',
-        label: 'Wifi',
-      },
-      {
-        icon: '/images/cabanas/iconos/smarttv.png',
-        label: 'Smart TV',
-      },
-      {
-        icon: '/images/cabanas/iconos/servicio-de-habitacion.png',
-        label: 'Servicio a la habitación',
-      },
+      { icon: '/images/cabanas/iconos/cama2plazas.png', label: '1 cama de 2 plazas' },
+      { icon: '/images/cabanas/iconos/cama1plaza.png', label: '2 camas de 1 plaza' },
+      { icon: '/images/cabanas/iconos/literas.png', label: '1 litera' },
+      { icon: '/images/cabanas/iconos/cocina.png', label: 'Cocina equipada' },
+      { icon: '/images/cabanas/iconos/nevera.png', label: 'Frigobar' },
+      { icon: '/images/cabanas/iconos/parrilla.png', label: 'Parrilla' },
+      { icon: '/images/cabanas/iconos/toallas.png', label: 'Toallas' },
+      { icon: '/images/cabanas/iconos/papel-de-bano.png', label: 'Confort' },
+      { icon: '/images/cabanas/iconos/estufa-de-lena.png', label: 'Estufa a leña' },
+      { icon: '/images/cabanas/iconos/terraza.png', label: 'Terraza' },
+      { icon: '/images/cabanas/iconos/wifi.png', label: 'Wifi' },
+      { icon: '/images/cabanas/iconos/smarttv.png', label: 'Smart TV' },
+      { icon: '/images/cabanas/iconos/servicio-de-habitacion.png', label: 'Servicio a la habitación' },
     ],
   },
 ];
@@ -249,9 +139,7 @@ function Carousel({ images }: { images: string[] }) {
 
       <button
         onClick={() =>
-          setIndex((prev) =>
-            prev === 0 ? images.length - 1 : prev - 1
-          )
+          setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
         }
         className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-full"
       >
@@ -259,9 +147,7 @@ function Carousel({ images }: { images: string[] }) {
       </button>
 
       <button
-        onClick={() =>
-          setIndex((prev) => (prev + 1) % images.length)
-        }
+        onClick={() => setIndex((prev) => (prev + 1) % images.length)}
         className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-full"
       >
         ›
@@ -300,18 +186,18 @@ function AmenitiesCarousel({
   };
 
   return (
-    <div className="relative flex items-center gap-4 mt-8">
+    <div className="relative mt-8 px-12">
 
-      {/* PREV */}
+      {/* PREV FUERA DEL CARRUSEL */}
       <button
         onClick={prev}
-        className="absolute left-0 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+        className="absolute -left-2 md:-left-4 top-10 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
       >
         ‹
       </button>
 
       {/* VIEWPORT */}
-      <div className="overflow-hidden w-full px-12">
+      <div className="overflow-hidden w-full">
         <div
           className="flex transition-transform duration-700 ease-in-out"
           style={{
@@ -341,10 +227,10 @@ function AmenitiesCarousel({
         </div>
       </div>
 
-      {/* NEXT */}
+      {/* NEXT FUERA DEL CARRUSEL */}
       <button
         onClick={next}
-        className="absolute right-0 z-10 w-10 h-10 rounded-full bg-white shadow-md flex items-center justify-center hover:scale-110 transition"
+        className="absolute -right-2 md:-right-4 top-10 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
       >
         ›
       </button>
@@ -356,14 +242,29 @@ function AmenitiesCarousel({
    PAGE
 ========================= */
 export default function CabanasPage() {
+const { scrollYProgress } = useScroll();
+
+const heroY = useTransform(
+  scrollYProgress,
+  [0, 0.25],
+  ['0%', '28%']
+);
+
+const heroScale = useTransform(
+  scrollYProgress,
+  [0, 0.25],
+  [1.15, 1.25]
+);
   return (
     <div className="min-h-screen">
 
       <Header />
 
       <main>
-{/* HERO */}
-<section className="relative h-[70vh] -mt-24">
+
+        {/* HERO */}
+        {/* HERO */}
+<section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
 
   <Image
     src="/images/cabanas/hero.jpg"
@@ -373,31 +274,37 @@ export default function CabanasPage() {
     priority
   />
 
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-black/50" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-  {/* CONTENIDO */}
-  <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-    <motion.div
-      initial={{ opacity: 0, y: 60 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 1 }}
-    >
-
-      <h1 className="text-4xl md:text-6xl font-semibold">
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
         Nuestras Cabañas
-      </h1>
+      </motion.h1>
 
-      <p className="mt-4 text-lg md:text-xl text-white/90">
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
         Naturaleza, descanso y desconexión total
-      </p>
+      </motion.p>
 
-    </motion.div>
-
+    </div>
   </div>
 
 </section>
+
         {/* INTRO */}
         <section className="py-20 bg-white">
           <div className="max-w-4xl mx-auto px-6 text-center">
@@ -418,69 +325,66 @@ export default function CabanasPage() {
 
           </div>
         </section>
-{/* BENEFICIOS */}
-<section className="relative py-28 md:py-36 overflow-hidden">
 
-  {/* IMAGEN FONDO */}
-  <Image
-    src="/images/cabanas/bg-beneficios.jpeg"
-    alt="Servicios cabañas"
-    fill
-    className="object-cover scale-105"
-  />
+        {/* BENEFICIOS */}
+        <section className="relative py-28 md:py-36 overflow-hidden">
 
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
+          <Image
+            src="/images/cabanas/bg-beneficios.jpeg"
+            alt="Servicios cabañas"
+            fill
+            className="object-cover scale-105"
+          />
 
-  {/* CONTENIDO */}
-  <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
+          <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
 
-    <motion.div
-      initial={{ opacity: 0, x: -120 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      transition={{ duration: 1.2 }}
-      viewport={{ once: false }}
-    >
+          <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
 
-      {/* TÍTULO */}
-      <h2 className="text-4xl md:text-5xl font-light leading-tight">
-        TODAS LAS CABAÑAS{" "}
-        <span className="font-semibold">
-          INCLUYEN
-        </span>
-      </h2>
+            <motion.div
+              initial={{ opacity: 0, x: -120 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              transition={{ duration: 1.2 }}
+              viewport={{ once: false }}
+            >
 
-      {/* BENEFICIOS */}
-      <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto text-lg md:text-xl mt-14">
+              <h2 className="text-4xl md:text-5xl font-light leading-tight">
+                TODAS LAS CABAÑAS{' '}
+                <span className="font-semibold">
+                  INCLUYEN
+                </span>
+              </h2>
 
-        {[
-          'Desayuno incluido',
-          'Smart TV',
-          'Amenidades de baño',
-          'Acceso a piscina y áreas verdes',
-          'Acceso zona de picnic',
-          'Terraza, parrilla y accesorios',
-        ].map((item, i) => (
-          <motion.p
-            key={i}
-            initial={{ opacity: 0, y: -20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ delay: i * 0.1, duration: 0.6 }}
-            viewport={{ once: false }}
-            className="flex items-center gap-3"
-          >
-            <span className="text-orange-400 text-xl">✔</span>
-            {item}
-          </motion.p>
-        ))}
+              <div className="grid md:grid-cols-2 gap-8 text-left max-w-4xl mx-auto text-lg md:text-xl mt-14">
 
-      </div>
+                {[
+                  'Desayuno incluido',
+                  'Smart TV',
+                  'Amenidades de baño',
+                  'Acceso a piscina y áreas verdes',
+                  'Acceso zona de picnic',
+                  'Terraza, parrilla y accesorios',
+                ].map((item, i) => (
+                  <motion.p
+                    key={i}
+                    initial={{ opacity: 0, y: -20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: i * 0.1, duration: 0.6 }}
+                    viewport={{ once: false }}
+                    className="flex items-center gap-3"
+                  >
+                    <span className="text-orange-400 text-xl">✔</span>
+                    {item}
+                  </motion.p>
+                ))}
 
-    </motion.div>
+              </div>
 
-  </div>
+            </motion.div>
 
-</section>
+          </div>
+
+        </section>
+
         {/* CABAÑAS */}
         <section className="py-20">
           <div className="max-w-6xl mx-auto px-6 space-y-24">
@@ -495,7 +399,6 @@ export default function CabanasPage() {
                 viewport={{ once: false }}
               >
 
-                {/* IZQUIERDA */}
                 <div>
 
                   <Carousel images={cabin.images} />
@@ -504,7 +407,6 @@ export default function CabanasPage() {
 
                 </div>
 
-                {/* DERECHA */}
                 <div className="pt-2">
 
                   <h3 className="text-3xl font-semibold">
@@ -519,9 +421,14 @@ export default function CabanasPage() {
                     {cabin.details}
                   </p>
 
-                  <button className="mt-8 bg-black text-white px-8 py-3 rounded-full hover:bg-gray-800 transition">
-                    Reservar
-                  </button>
+                  <div className="mt-8">
+                    <PrimaryButton
+                      href="https://wa.me/56926035311"
+                      className="px-8 py-3 text-base shadow-xl"
+                    >
+                      Reservar
+                    </PrimaryButton>
+                  </div>
 
                 </div>
 
@@ -530,7 +437,9 @@ export default function CabanasPage() {
 
           </div>
         </section>
- <section className="py-24 text-center bg-gray-50">
+
+        {/* CTA FINAL */}
+        <section className="py-24 text-center bg-gray-50">
 
           <div className="max-w-3xl mx-auto px-6">
 
@@ -539,30 +448,34 @@ export default function CabanasPage() {
             </p>
 
             <div className="flex flex-col md:flex-row gap-6 justify-center">
-
-              <a
-                href="https://wa.me/56926035311"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                WhatsApp
-              </a>
-
-              <a
+              <PrimaryButton
                 href="https://www.eventi-app.com/public-quotation/1"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: 'rgb(251,176,59)' }}
+                className="px-10 py-4"
               >
                 Cotiza tu evento
-              </a>
+              </PrimaryButton>
+              
+              <SecondaryButton
+                href="https://wa.me/56926035311"
+                className="
+                  px-10 py-4
+                  border-gray-900
+                  text-gray-900
+                  hover:bg-gray-900
+                  hover:text-white
+                "
+              >
+                WhatsApp
+              </SecondaryButton>
+
+              
 
             </div>
 
           </div>
 
         </section>
+
       </main>
 
       <Footer />

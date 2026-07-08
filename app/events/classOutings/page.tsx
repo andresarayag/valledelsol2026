@@ -1,10 +1,16 @@
 'use client';
 
+import { useRef } from 'react';
+
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
+import PrimaryButton from '../../components/PrimaryButton';
+import SecondaryButton from '../../components/SecondaryButton';
 import { SocialLink } from '../../components/types';
+
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+
+import { motion, useScroll, useTransform } from 'framer-motion';
 
 /* SOCIAL */
 const socialLinks: SocialLink[] = [
@@ -60,19 +66,19 @@ const graduationGallery = [
 /* FEATURES */
 const paseoFeatures = [
   {
-    title: '💦 Piscinas y juegos',
+    title: 'Piscinas y juegos',
     description:
       'Toboganes, piscinas y espacios para disfrutar todo el día.',
     icon: '/images/iconos/piscinas.png',
   },
   {
-    title: '🎉 Diversión asegurada',
+    title: 'Diversión asegurada',
     description:
       'Actividades deportivas, áreas verdes y momentos inolvidables.',
     icon: '/images/iconos/futbol.png',
   },
   {
-    title: '🌴 Naturaleza y descanso',
+    title: 'Naturaleza y descanso',
     description:
       'Un entorno seguro y entretenido para estudiantes y profesores.',
     icon: '/images/iconos/areas-verdes.png',
@@ -87,8 +93,17 @@ const graduationFeatures = [
   'Espacios decorados',
   'Opciones sin alcohol',
 ];
-
 export default function ClassOutingsPage() {
+  const heroRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: heroRef,
+    offset: ['start start', 'end start'],
+  });
+
+const heroY = useTransform(scrollYProgress, [0, 1], ['-12%', '28%']);
+const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
+
   return (
     <div className="min-h-screen flex flex-col bg-[#f3fbff] overflow-hidden">
 
@@ -96,71 +111,92 @@ export default function ClassOutingsPage() {
 
       <main>
 
-        {/* HERO */}
-        <section className="relative min-h-[100vh] pt-40 md:pt-52 overflow-hidden">
+       {/* HERO */}
+<section
+  ref={heroRef}
+  className="relative min-h-screen -mt-24 overflow-hidden bg-black"
+>
+  <motion.div
+    className="absolute inset-0"
+    style={{
+      y: heroY,
+      scale: heroScale,
+    }}
+  >
+    <Image
+      src="/images/colegios/paseos/g1.jpg"
+      alt="Paseos de Curso"
+      fill
+      className="object-cover"
+      priority
+    />
+  </motion.div>
 
-          <Image
-            src='/images/colegios/paseos/g1.jpg'
-            alt="Paseos de Curso"
-            fill
-            className="object-cover"
-            priority
-          />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0d5cab]/40 via-[#0d5cab]/20 to-[#081521]/75" />
+  <div className="relative z-10 min-h-screen flex items-center justify-center px-6 pt-24">
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-          <div className="absolute inset-0 flex items-center">
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        className="uppercase tracking-[0.45em] text-[#FBB03B] text-sm mb-8"
+      >
+        Diversión • Piscinas • Juegos • Naturaleza
+      </motion.p>
 
-            <div className="max-w-7xl mx-auto px-6 w-full">
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
+        Paseos de Curso
+      </motion.h1>
 
-              <motion.div
-                initial={{ opacity: 0, y: 80 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 1 }}
-                className="max-w-3xl text-white"
-              >
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
+        Un día lleno de piscinas, juegos y momentos inolvidables para compartir
+        junto a compañeros y profesores.
+      </motion.p>
 
-                <div className="inline-block bg-[#FBB03B] text-black px-6 py-3 rounded-full text-[16px] font-bold shadow-2xl mb-8">
-                  🌴 Diversión • Piscinas • Juegos • Naturaleza
-                </div>
+      <motion.div
+        initial={{ opacity: 0, y: 30 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 0.9,
+          delay: 0.45,
+        }}
+        className="flex flex-col sm:flex-row gap-5 mt-14 justify-center"
+      >
+        <PrimaryButton href="https://www.eventi-app.com/public-quotation/1">
+          Reserva tu fecha
+        </PrimaryButton>
 
-                <h1 className="text-5xl md:text-8xl font-black leading-[0.95] drop-shadow-2xl">
-                  Paseos de Curso
-                </h1>
+        <SecondaryButton
+          href="https://wa.me/56926035311"
+          className="
+            !border-white/40
+            !text-white
+            hover:!bg-white
+            hover:!text-black
+          "
+        >
+          WhatsApp
+        </SecondaryButton>
+      </motion.div>
 
-                <p className="mt-8 text-[20px] md:text-[28px] leading-relaxed text-white/95 font-medium max-w-2xl">
-                  Un día lleno de piscinas, juegos y momentos inolvidables
-                  para compartir junto a compañeros y profesores.
-                </p>
-
-                <div className="flex flex-col sm:flex-row gap-5 mt-12">
-
-                  <a
-                    href="https://www.eventi-app.com/public-quotation/1"
-                    target="_blank"
-                    className="px-10 py-5 rounded-full bg-[#FBB03B] text-black text-[20px] font-bold shadow-[0_20px_60px_rgba(251,176,59,0.45)] hover:scale-105 transition-all duration-500"
-                  >
-                    🎉 Reserva tu fecha
-                  </a>
-
-                  <a
-                    href="https://wa.me/56926035311"
-                    target="_blank"
-                    className="px-10 py-5 rounded-full border-2 border-white/70 text-[20px] font-semibold backdrop-blur-md hover:bg-white hover:text-black transition-all duration-500"
-                  >
-                    WhatsApp
-                  </a>
-
-                </div>
-
-              </motion.div>
-
-            </div>
-
-          </div>
-
-        </section>
+    </div>
+  </div>
+</section>
 
         {/* PASEOS */}
         <section className="relative overflow-hidden bg-[#f3fbff] py-36">
@@ -178,7 +214,7 @@ export default function ClassOutingsPage() {
               <div>
 
                 <div className="inline-block bg-[#FBB03B]/15 text-[#D89B2B] px-5 py-2 rounded-full text-[16px] font-bold mb-8">
-                  🎈 Paseos entretenidos para colegios
+                  Paseos entretenidos para colegios
                 </div>
 
                 <motion.div
@@ -212,7 +248,7 @@ export default function ClassOutingsPage() {
                     target="_blank"
                     className="px-10 py-5 rounded-full bg-[#FBB03B] text-black text-[20px] font-bold shadow-[0_20px_60px_rgba(251,176,59,0.45)] hover:scale-105 transition-all duration-500"
                   >
-                    🎉 Cotizar paseo
+                    Cotizar paseo
                   </a>
 
                   <a
@@ -294,7 +330,7 @@ export default function ClassOutingsPage() {
             <div className="text-center mb-20">
 
               <div className="inline-block bg-[#eaf6ff] text-[#0d5cab] px-5 py-2 rounded-full text-[16px] font-bold mb-8">
-                🌟 Modalidades disponibles
+                Modalidades disponibles
               </div>
 
               <motion.div
@@ -339,7 +375,7 @@ export default function ClassOutingsPage() {
                 </div>
 
                 <h3 className="text-4xl font-black text-[#1f1f1f]">
-                  🍔 Con alimentación
+                 Con alimentación
                 </h3>
 
                 <p className="mt-6 text-[20px] text-gray-700 leading-relaxed">
@@ -377,7 +413,7 @@ export default function ClassOutingsPage() {
               >
 
                 <h3 className="text-4xl font-black text-[#1f1f1f]">
-                  🌴 Sin alimentación
+                  Sin alimentación
                 </h3>
 
                 <p className="mt-6 text-[20px] text-gray-700 leading-relaxed">
@@ -417,10 +453,6 @@ export default function ClassOutingsPage() {
           <div className="max-w-7xl mx-auto">
 
             <div className="text-center mb-20">
-
-              <div className="inline-block bg-[#FBB03B]/15 text-[#D89B2B] px-5 py-2 rounded-full text-[16px] font-bold mb-8">
-                📸 Momentos inolvidables
-              </div>
 
               <h2 className="text-5xl md:text-7xl font-black text-[#0d2033]">
                 Revisa todo lo que puedes tener
@@ -502,24 +534,23 @@ export default function ClassOutingsPage() {
 
                 <div className="flex flex-col sm:flex-row gap-5 mt-12">
 
-                  <a
-                    href="https://www.eventi-app.com/public-quotation/1"
-                    target="_blank"
-                    className="px-10 py-5 rounded-full text-white text-[20px] font-semibold hover:scale-105 transition-all duration-500"
-                    style={{ backgroundColor: 'rgb(251,176,59)' }}
-                  >
-                    Cotizar graduación
-                  </a>
+  <PrimaryButton href="https://www.eventi-app.com/public-quotation/1">
+    Cotizar graduación
+  </PrimaryButton>
 
-                  <a
-                    href="https://wa.me/56926035311"
-                    target="_blank"
-                    className="px-10 py-5 rounded-full border border-white/20 text-[20px] font-medium hover:bg-white hover:text-black transition-all duration-500"
-                  >
-                    Hablar por WhatsApp
-                  </a>
+<SecondaryButton
+  href="https://wa.me/56926035311"
+  className="
+    !border-white/40
+    !text-white
+    hover:!bg-white
+    hover:!text-black
+  "
+>
+  Hablar por WhatsApp
+</SecondaryButton>
 
-                </div>
+</div>
 
               </div>
 
@@ -544,26 +575,26 @@ export default function ClassOutingsPage() {
             </div>
 
             {/* FEATURES */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24">
+           {/* FEATURES */}
+<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-24">
 
-              {graduationFeatures.map((item, i) => (
-                <motion.div
-                  key={i}
-                  initial={{ opacity: 0, y: 40 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  transition={{ delay: i * 0.08 }}
-                  viewport={{ once: true }}
-                  className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-8"
-                >
+  {graduationFeatures.map((item, i) => (
+    <motion.div
+      key={i}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ delay: i * 0.08 }}
+      viewport={{ once: true }}
+      className="rounded-[28px] border border-white/10 bg-white/5 backdrop-blur-md p-8"
+    >
+      <p className="text-[22px] font-medium flex items-center gap-4">
+        <span className="text-[#FBB03B] text-2xl">✓</span>
+        {item}
+      </p>
+    </motion.div>
+  ))}
 
-                  <p className="text-[22px] font-medium">
-                    {item}
-                  </p>
-
-                </motion.div>
-              ))}
-
-            </div>
+</div>
 
           </div>
 
@@ -622,48 +653,19 @@ export default function ClassOutingsPage() {
 </section>
 
         {/* CTA */}
-        <section className="py-36 text-center bg-[#f3fbff]">
+        <section className="pt-20 pb-20 text-center bg-[#f3fbff]">
+       <div className="flex flex-col md:flex-row gap-6 justify-center mt-14 mb-10">
 
-          <div className="max-w-5xl mx-auto px-6">
+  <SecondaryButton href="https://wa.me/56926035311">
+    WhatsApp
+  </SecondaryButton>
 
-            <div className="inline-block bg-[#FBB03B]/15 text-[#D89B2B] px-5 py-2 rounded-full text-[16px] font-bold mb-8">
-              🌴 Valle del Sol Quillón
-            </div>
+  <PrimaryButton href="https://www.eventi-app.com/public-quotation/1">
+    Cotiza tu evento
+  </PrimaryButton>
 
-            <h2 className="text-5xl md:text-7xl font-black text-[#0d2033] leading-[1]">
-              Reserva una experiencia inolvidable
-            </h2>
-
-            <p className="mt-8 text-[20px] md:text-[24px] text-gray-600 leading-relaxed">
-              Diversión, naturaleza y momentos únicos para todo tu curso.
-            </p>
-
-            <div className="flex flex-col md:flex-row gap-6 justify-center mt-14">
-
-              <a
-                href="https://wa.me/56926035311"
-                target="_blank"
-                className="px-10 py-5 rounded-full text-white text-[20px] font-bold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                WhatsApp
-              </a>
-
-              <a
-                href="https://www.eventi-app.com/public-quotation/1"
-                target="_blank"
-                className="px-10 py-5 rounded-full text-black text-[20px] font-bold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: 'rgb(251,176,59)' }}
-              >
-                🎉 Cotiza tu evento
-              </a>
-
-            </div>
-
-          </div>
-
-        </section>
-
+</div>
+</section>
       </main>
 
       <Footer />

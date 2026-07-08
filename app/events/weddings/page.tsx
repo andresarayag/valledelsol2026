@@ -5,7 +5,10 @@ import Footer from '../../components/Footer';
 import EventFeatureCard from '../../components/EventFeatureCard';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
+import PrimaryButton from '../../components/PrimaryButton';
+import SecondaryButton from '../../components/SecondaryButton';
 
 const backgroundIncludes = '/images/matrimonio/matri.JPG';
 
@@ -40,25 +43,34 @@ const services = [
   },
   {
     title: 'Música y Audiovisuales',
-    description: 'DJ, animación, sonido, iluminación y apoyo técnico para la celebración.',
+    description: 'DJ, animación, sonido e iluminación.',
     iconUrl: '/images/matrimonio/sistema-de-sonido.WEBP',
     iconAlt: 'Audio',
   },
   {
     title: 'Experiencias',
-    description: 'Cabina 360°, tatuajes, artistas, carritos de comida, cotillón y más detalles para personalizar tu celebración.',
+    description: 'Cabina 360°, tatuajes, artistas, carritos de comida, cotillón y más.',
     iconUrl: '/images/matrimonio/fotografo.WEBP',
     iconAlt: 'Experiencias',
   },
   {
     title: 'Bar y Barra libre',
-    description: 'Una barra pensada para que tus invitados disfruten la fiesta de principio a fin.',
+    description: 'Una barra pensada para que tus invitados disfruten la fiesta.',
     iconUrl: '/images/matrimonio/copa-de-vino.WEBP',
     iconAlt: 'Bar',
   },
 ];
 
 export default function WeddingsPage() {
+  const includesRef = useRef(null);
+
+  const { scrollYProgress } = useScroll({
+    target: includesRef,
+    offset: ['start end', 'end start'],
+  });
+
+  const includesY = useTransform(scrollYProgress, [0, 1], ['-35%', '35%']);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Header />
@@ -68,7 +80,7 @@ export default function WeddingsPage() {
        {/* HERO VIDEO */}
 <section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
 
-  {/* VIDEO BACKGROUND */}
+  {/* VIDEO */}
   <div className="absolute inset-0 w-full h-full overflow-hidden">
 
     <iframe
@@ -87,32 +99,40 @@ export default function WeddingsPage() {
 
   </div>
 
-  {/* OVERLAY */}
-  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/60" />
+  {/* Overlay */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
   {/* CONTENIDO */}
-  <div className="relative z-10 flex items-center justify-center h-full text-center text-white px-6">
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
 
-    <div>
+    <div className="max-w-5xl mx-auto text-center text-white">
 
-      {/* TÍTULO */}
-      <h1
-                className="text-5xl md:text-7xl font-light"
-                style={{
-                  fontFamily: '"Cormorant Garamond", serif',
-                  fontStyle: 'italic',
-                  letterSpacing: '1px',
-                }}
-              >
-                Sí, acepto
-              </h1>
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-6xl md:text-8xl lg:text-9xl text-white leading-none"
+        style={{
+          fontFamily: '"Cormorant Garamond", serif',
+          fontStyle: 'italic',
+          letterSpacing: '1px',
+          fontWeight: 500,
+        }}
+      >
+        Sí, acepto
+      </motion.h1>
 
-      {/* SUBTÍTULO */}
       <motion.p
-        className="text-xl md:text-3xl font-light text-white/90"
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed"
       >
         Cotiza con nuestro formato all inclusive
       </motion.p>
@@ -168,19 +188,26 @@ export default function WeddingsPage() {
 
 
 {/* BENEFICIOS MATRIMONIO */}
-<section className="relative py-28 md:py-36 overflow-hidden">
+<section
+  ref={includesRef}
+  className="relative py-40 md:py-52 overflow-hidden"
+>
 
   {/* PARALLAX BACKGROUND */}
-  <div className="absolute inset-0 -z-10">
+  <motion.div
+    className="absolute inset-0 -z-10 h-[140%]"
+    style={{ y: includesY }}
+  >
     <Image
       src={backgroundIncludes}
       alt="Matrimonios Valle del Sol"
       fill
-      className="w-full h-[120%] object-cover parallax-bg"
+      className="object-cover"
+      priority
     />
 
     <div className="absolute inset-0 bg-black/70 backdrop-blur-[2px]" />
-  </div>
+  </motion.div>
 
   {/* CONTENIDO */}
   <div className="relative max-w-6xl mx-auto px-6 text-center text-white">
@@ -280,25 +307,23 @@ export default function WeddingsPage() {
 
             <div className="flex flex-col md:flex-row gap-6 justify-center">
 
-              <a
-                href="https://wa.me/56926035311"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                WhatsApp
-              </a>
+  <PrimaryButton
+    href="https://www.eventi-app.com/public-quotation/1"
+    target="_blank"
+  >
+    Cotiza tu evento
+  </PrimaryButton>
+  
+  <SecondaryButton
+    href="https://wa.me/56926035311"
+    target="_blank"
+  >
+    WhatsApp
+  </SecondaryButton>
 
-              <a
-                href="https://www.eventi-app.com/public-quotation/1"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: 'rgb(251,176,59)' }}
-              >
-                Cotiza tu evento
-              </a>
 
-            </div>
+
+</div>
 
           </div>
 

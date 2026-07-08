@@ -7,6 +7,8 @@ import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { Clock3, MapPin } from 'lucide-react';
 import { SocialLink } from '../components/types';
+import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
 
 const socialLinks: SocialLink[] = [
   {
@@ -46,39 +48,47 @@ export default function RestaurantPage() {
       <main>
 
         {/* HERO */}
-        <section className="relative h-[70vh] -mt-24">
+        {/* HERO */}
+<section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
 
-          <Image
-            src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
-            alt="Restaurant Valle del Sol"
-            fill
-            className="object-cover"
-            priority
-          />
+  <Image
+    src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
+    alt="Restaurant Valle del Sol"
+    fill
+    className="object-cover"
+    priority
+  />
 
-          <div className="absolute inset-0 bg-black/50" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-          <div className="absolute inset-0 flex items-center justify-center text-center text-white px-6">
+  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-            <motion.div
-              initial={{ opacity: 0, y: 60 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1 }}
-            >
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+      >
+        Nuestro Restaurant
+      </motion.h1>
 
-              <h1 className="text-4xl md:text-6xl font-semibold">
-                Nuestro Restaurant
-              </h1>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 1, delay: 0.4 }}
+        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+      >
+        Una experiencia gastronómica en medio de la naturaleza
+      </motion.p>
 
-              <p className="mt-2 text-sm md:text-base text-white/80">
-                Una experiencia gastronómica en medio de la naturaleza
-              </p>
+    </div>
+  </div>
 
-            </motion.div>
-
-          </div>
-
-        </section>
+</section>
 
         {/* CTA HERO */}
         <div className="text-center -mt-10 mb-16 relative z-10">
@@ -240,35 +250,25 @@ export default function RestaurantPage() {
         {/* CTA FINAL */}
         <section className="py-24 text-center bg-gray-50">
 
-          <div className="max-w-3xl mx-auto px-6">
+          <div className="flex flex-col md:flex-row gap-6 justify-center">
 
-            <p className="text-xl text-gray-700 mb-10">
-              Reserva tu experiencia gastronómica o cotiza tu evento con nosotros.
-            </p>
+  <PrimaryButton
+    href="https://www.eventi-app.com/public-quotation/1"
+    target="_blank"
+  >
+    Cotiza tu evento
+  </PrimaryButton>
+  
+  <SecondaryButton
+    href="https://wa.me/56926035311"
+    target="_blank"
+  >
+    WhatsApp
+  </SecondaryButton>
 
-            <div className="flex flex-col md:flex-row gap-6 justify-center">
 
-              <a
-                href="https://wa.me/56926035311"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: '#25D366' }}
-              >
-                WhatsApp
-              </a>
 
-              <a
-                href="https://www.eventi-app.com/public-quotation/1"
-                target="_blank"
-                className="px-10 py-4 rounded-full text-white font-semibold shadow-lg hover:scale-105 transition"
-                style={{ backgroundColor: 'rgb(251,176,59)' }}
-              >
-                Cotiza tu evento
-              </a>
-
-            </div>
-
-          </div>
+</div>
 
         </section>
 
