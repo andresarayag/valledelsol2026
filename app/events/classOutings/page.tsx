@@ -238,7 +238,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
                   viewport={{ once: false }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  PISCINAS, JUEGOS, ÁREAS VERDES Y ACTIVIDADES PENSADAS PARA QUE ESTUDIANTES, PROFESORES Y APODERADOS DISFRUTEN UN DÍA INCREÍBLE EN VALLE DEL SOL.
+                  Piscinas, juegos, áreas verdes y actividades pensadas para que estudiantes, profesores y apoderados disfruten un día increíble en Valle del Sol.
                 </motion.p>
 
                 <div className="flex flex-col sm:flex-row gap-5 mt-12">
@@ -529,7 +529,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
                   viewport={{ once: false }}
                   transition={{ duration: 0.8, delay: 0.3 }}
                 >
-                  ESPACIOS ELEGANTES, GASTRONOMÍA Y COORDINACIÓN COMPLETA PARA VIVIR UNA NOCHE ESPECIAL JUNTO A COMPAÑEROS, FAMILIAS Y PROFESORES.
+                  Espacios elegantes, gastronomía y coordinación completa para vivir una noche especial junto a compañeros, familias y profesores.
                 </motion.p>
 
                 <div className="flex flex-col sm:flex-row gap-5 mt-12">

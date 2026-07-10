@@ -324,7 +324,7 @@ const heroScale = useTransform(
 
       <h2 className="text-5xl md:text-7xl font-bold leading-[1.02] max-w-3xl">
 
-        Paseos de Fin de Año
+        Paseos de fin de año
 
       </h2>
 
@@ -393,7 +393,7 @@ const heroScale = useTransform(
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-10 py-5 rounded-full bg-[#FBB03B] text-black text-lg font-bold shadow-[0_20px_60px_rgba(251,176,59,0.35)] hover:scale-105 transition-all duration-500"
         >
-          Cotizar paseo de fin de año
+          Cotizar evento
         </a>
 
         <a
@@ -402,7 +402,7 @@ const heroScale = useTransform(
           rel="noopener noreferrer"
           className="inline-flex items-center justify-center px-10 py-5 rounded-full border border-white/30 text-white text-lg font-semibold backdrop-blur-md hover:bg-white hover:text-black transition-all duration-500"
         >
-          Solicitar propuesta
+          WhatsApp
         </a>
 
       </div>
