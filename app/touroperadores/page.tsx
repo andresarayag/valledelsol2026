@@ -738,136 +738,131 @@ export default function TourOperadoresPage() {
 
         <section className="relative py-32 bg-black overflow-hidden text-white">
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black" />
 
-          <div className="relative max-w-7xl mx-auto px-6">
+  <div className="relative max-w-7xl mx-auto px-6">
 
-            <motion.div
-              initial={{ opacity:0, x:-120 }}
-              whileInView={{ opacity:1, x:0 }}
-              transition={{
-                duration:1.4,
-                ease:[0.22,1,0.36,1],
-              }}
-              viewport={{ once:true }}
-              className="text-center mb-24"
-            >
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 1.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: true }}
+      className="text-center mb-24"
+    >
 
-              <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+        Así vivimos el viaje
+      </p>
 
-                Así vivimos el viaje
+      <h2 className="text-4xl md:text-6xl font-light">
+        Una experiencia organizada de principio a fin
+      </h2>
 
-              </p>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .9 }}
+        viewport={{ once: true }}
+        className="mt-8 text-white/70 text-lg max-w-4xl mx-auto leading-relaxed"
+      >
+        Coordinamos cada etapa del programa para que los pasajeros
+        disfruten del destino sin preocupaciones, mientras el tour
+        operador cuenta con un respaldo confiable durante todo el viaje.
+      </motion.p>
 
-              <h2 className="text-4xl md:text-6xl font-light">
+    </motion.div>
 
-                Una experiencia organizada de principio a fin
+    <div className="relative">
 
-              </h2>
+      {/* Línea horizontal */}
+      <div className="hidden lg:block absolute top-16 left-0 right-0 h-[2px] bg-white/10" />
 
-              <motion.p
-                initial={{ opacity:0,y:-20 }}
-                whileInView={{ opacity:1,y:0 }}
-                transition={{ duration:.9 }}
-                viewport={{ once:true }}
-                className="mt-8 text-white/70 text-lg max-w-4xl mx-auto leading-relaxed"
-              >
+      <div className="grid lg:grid-cols-7 gap-10">
 
-                Coordinamos cada etapa del programa para que los pasajeros
-                disfruten del destino sin preocupaciones, mientras el tour
-                operador cuenta con un respaldo confiable durante todo el viaje.
+        {[
+          {
+            icon: '/images/tour/iconos/llegada.png',
+            title: 'Llegada',
+            text: 'Recepción del grupo en el aeropuerto o punto de encuentro.',
+          },
+          {
+            icon: '/images/tour/iconos/traslado.png',
+            title: 'Traslado',
+            text: 'Traslado cómodo y seguro hacia Valle del Sol Quillón.',
+          },
+          {
+            icon: '/images/tour/iconos/bienvenida.png',
+            title: 'Bienvenida',
+            text: 'Check-in, instalación y recepción del grupo.',
+          },
+          {
+            icon: '/images/tour/iconos/gastronomia.png',
+            title: 'Gastronomía',
+            text: 'Almuerzos, cenas y cocina local durante la estadía.',
+          },
+          {
+            icon: '/images/tour/iconos/excursiones.png',
+            title: 'Excursiones',
+            text: 'Viñas, licorerías, naturaleza y patrimonio del Valle del Itata.',
+          },
+          {
+            icon: '/images/tour/iconos/tiempolibre.png',
+            title: 'Tiempo Libre',
+            text: 'Piscinas, áreas verdes y actividades recreativas.',
+          },
+          {
+            icon: '/images/tour/iconos/regreso.png',
+            title: 'Regreso',
+            text: 'Coordinación de salida y retorno del grupo.',
+          },
+        ].map((step, index) => (
 
-              </motion.p>
+          <motion.div
+            key={index}
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: .8,
+              delay: index * .08,
+            }}
+            viewport={{ once: true }}
+            className="relative text-center"
+          >
 
-            </motion.div>
+            <div className="relative z-10 w-28 h-28 mx-auto rounded-full bg-[#FBB03B] flex items-center justify-center shadow-[0_20px_60px_rgba(251,176,59,0.35)]">
 
-            <div className="relative">
-
-              {/* Línea horizontal */}
-
-              <div className="hidden lg:block absolute top-16 left-0 right-0 h-[2px] bg-white/10" />
-
-              <div className="grid lg:grid-cols-7 gap-10">
-
-                {[
-                  {
-                    icon:'✈️',
-                    title:'Llegada',
-                    text:'Recepción del grupo en el aeropuerto o punto de encuentro.',
-                  },
-                  {
-                    icon:'🚌',
-                    title:'Traslado',
-                    text:'Traslado cómodo y seguro hacia Valle del Sol Quillón.',
-                  },
-                  {
-                    icon:'🏨',
-                    title:'Bienvenida',
-                    text:'Check-in, instalación y recepción del grupo.',
-                  },
-                  {
-                    icon:'🍽️',
-                    title:'Gastronomía',
-                    text:'Almuerzos, cenas y cocina local durante la estadía.',
-                  },
-                  {
-                    icon:'🍷',
-                    title:'Excursiones',
-                    text:'Viñas, licorerías, naturaleza y patrimonio del Valle del Itata.',
-                  },
-                  {
-                    icon:'🏖️',
-                    title:'Tiempo Libre',
-                    text:'Piscinas, áreas verdes y actividades recreativas.',
-                  },
-                  {
-                    icon:'🧳',
-                    title:'Regreso',
-                    text:'Coordinación de salida y retorno del grupo.',
-                  },
-                ].map((step,index)=>(
-
-                  <motion.div
-                    key={index}
-                    initial={{ opacity:0,y:60 }}
-                    whileInView={{ opacity:1,y:0 }}
-                    transition={{
-                      duration:.8,
-                      delay:index*.08,
-                    }}
-                    viewport={{ once:true }}
-                    className="relative text-center"
-                  >
-
-                    <div className="relative z-10 w-24 h-24 mx-auto rounded-full bg-[#FBB03B] flex items-center justify-center text-4xl shadow-2xl">
-
-                      {step.icon}
-
-                    </div>
-
-                    <h3 className="mt-8 text-2xl font-light">
-
-                      {step.title}
-
-                    </h3>
-
-                    <p className="mt-4 text-white/70 leading-relaxed">
-
-                      {step.text}
-
-                    </p>
-
-                  </motion.div>
-
-                ))}
-
-              </div>
+              <Image
+                src={step.icon}
+                alt={step.title}
+                width={58}
+                height={58}
+                className="object-contain"
+              />
 
             </div>
 
-          </div>
+            <h3 className="mt-8 text-2xl font-light">
+              {step.title}
+            </h3>
 
-        </section>
+            <p className="mt-4 text-white/70 leading-relaxed">
+              {step.text}
+            </p>
+
+          </motion.div>
+
+        ))}
+
+      </div>
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* ======================================================
                     ¿POR QUÉ ELEGIRNOS?
@@ -875,107 +870,105 @@ export default function TourOperadoresPage() {
 
         <section className="py-32 bg-white">
 
-          <div className="max-w-7xl mx-auto px-6">
+  <div className="max-w-7xl mx-auto px-6">
 
-            <motion.div
-              initial={{ opacity:0,x:-120 }}
-              whileInView={{ opacity:1,x:0 }}
-              transition={{
-                duration:1.4,
-                ease:[0.22,1,0.36,1],
-              }}
-              viewport={{ once:true }}
-              className="text-center mb-20"
-            >
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 1.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: true }}
+      className="text-center mb-20"
+    >
 
-              <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+        ¿Por qué Valle del Sol?
+      </p>
 
-                ¿Por qué Valle del Sol?
+      <h2 className="text-4xl md:text-6xl font-light">
+        Un partner confiable para Tour Operadores
+      </h2>
 
-              </p>
+    </motion.div>
 
-              <h2 className="text-4xl md:text-6xl font-light">
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-                Un partner confiable para Tour Operadores
+      {[
+        {
+          icon: '/images/tour/iconos/bienvenida.png',
+          title: 'Infraestructura',
+          text: 'Alojamiento, restaurante, piscinas y amplios espacios en un solo lugar.',
+        },
+        {
+          icon: '/images/tour/iconos/traslado.png',
+          title: 'Programas Grupales',
+          text: 'Experiencia organizando viajes para delegaciones nacionales e internacionales.',
+        },
+        {
+          icon: '/images/tour/iconos/ubicacion.png',
+          title: 'Ubicación Estratégica',
+          text: 'Excelente punto de partida para recorrer Quillón y el Valle del Itata.',
+        },
+        {
+          icon: '/images/tour/iconos/gastronomia.png',
+          title: 'Gastronomía',
+          text: 'Menús adaptados para grupos y cocina con identidad local.',
+        },
+        {
+          icon: '/images/tour/iconos/atencion.png',
+          title: 'Atención Personalizada',
+          text: 'Acompañamiento permanente antes, durante y después de cada programa.',
+        },
+        {
+          icon: '/images/tour/iconos/excursiones.png',
+          title: 'Experiencias',
+          text: 'Naturaleza, cultura, viñas y actividades para todas las edades.',
+        },
+      ].map((card, index) => (
 
-              </h2>
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: .8,
+            delay: index * .08,
+          }}
+          viewport={{ once: true }}
+          className="group rounded-[30px] bg-gray-50 shadow-xl p-10 hover:-translate-y-3 transition-all duration-500"
+        >
 
-            </motion.div>
+          <div className="w-20 h-20 rounded-full bg-[#FBB03B]/10 flex items-center justify-center mb-8 group-hover:bg-[#FBB03B]/20 transition-all duration-300">
 
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-              {[
-                {
-                  icon:'🏨',
-                  title:'Infraestructura',
-                  text:'Alojamiento, restaurante, piscinas y amplios espacios en un solo lugar.',
-                },
-                {
-                  icon:'🚌',
-                  title:'Programas Grupales',
-                  text:'Experiencia organizando viajes para delegaciones nacionales e internacionales.',
-                },
-                {
-                  icon:'📍',
-                  title:'Ubicación Estratégica',
-                  text:'Excelente punto de partida para recorrer Quillón y el Valle del Itata.',
-                },
-                {
-                  icon:'🍽️',
-                  title:'Gastronomía',
-                  text:'Menús adaptados para grupos y cocina con identidad local.',
-                },
-                {
-                  icon:'🤝',
-                  title:'Atención Personalizada',
-                  text:'Acompañamiento permanente antes, durante y después de cada programa.',
-                },
-                {
-                  icon:'🌿',
-                  title:'Experiencias',
-                  text:'Naturaleza, cultura, viñas y actividades para todas las edades.',
-                },
-              ].map((card,index)=>(
-
-                <motion.div
-                  key={index}
-                  initial={{ opacity:0,y:50 }}
-                  whileInView={{ opacity:1,y:0 }}
-                  transition={{
-                    duration:.8,
-                    delay:index*.08,
-                  }}
-                  viewport={{ once:true }}
-                  className="group rounded-[30px] bg-gray-50 shadow-xl p-10 hover:-translate-y-3 transition-all duration-500"
-                >
-
-                  <div className="text-5xl mb-6">
-
-                    {card.icon}
-
-                  </div>
-
-                  <h3 className="text-2xl font-light mb-5">
-
-                    {card.title}
-
-                  </h3>
-
-                  <p className="text-gray-600 leading-relaxed">
-
-                    {card.text}
-
-                  </p>
-
-                </motion.div>
-
-              ))}
-
-            </div>
+            <Image
+              src={card.icon}
+              alt={card.title}
+              width={46}
+              height={46}
+              className="object-contain"
+            />
 
           </div>
 
-        </section>
+          <h3 className="text-2xl font-light mb-5">
+            {card.title}
+          </h3>
+
+          <p className="text-gray-600 leading-relaxed">
+            {card.text}
+          </p>
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
         {/* ======================================================
                             CTA FINAL
         ======================================================= */}
