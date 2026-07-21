@@ -189,7 +189,7 @@ const heroScale = useTransform(
         }}
         className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
       >
-        Eventos Corporativos
+        Servicios Corporativos
       </motion.h1>
 
       <motion.p
@@ -234,8 +234,8 @@ const heroScale = useTransform(
         Infraestructura Corporativa
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-bold">
-        Todo lo que tu empresa necesita
+      <h2 className="text-4xl md:text-5xl font-light text-BLACK leading-tight uppercase">
+      TODO LO QUE TU EMPRESA <span className="font-semibold text-BLACK">NECESITA</span>
       </h2>
 
       <motion.p
@@ -322,10 +322,8 @@ const heroScale = useTransform(
 
       </p>
 
-      <h2 className="text-5xl md:text-7xl font-bold leading-[1.02] max-w-3xl">
-
-        Paseos de fin de año
-
+      <h2 className="text-4xl md:text-5xl font-light text-white leading-tight uppercase">
+      PASEOS DE <span className="font-semibold text-white">FIN DE AÑO</span>
       </h2>
 
       <motion.p
@@ -457,10 +455,8 @@ const heroScale = useTransform(
 
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-bold leading-tight">
-
-        Capacitaciones, Seminarios y Congresos
-
+      <h2 className="text-4xl md:text-5xl font-light text-BLACK leading-tight uppercase">
+      CAPACITACIONES, SEMINARIOS <span className="font-semibold text-BLACK">Y CONGRESOS</span>
       </h2>
 
       <motion.p
@@ -592,11 +588,9 @@ const heroScale = useTransform(
 
       </p>
 
-      <h2 className="text-4xl md:text-6xl font-light">
-
-        Experiencias Corporativas
-
-      </h2>
+      <h2 className="text-4xl md:text-5xl font-light text-white leading-tight uppercase">
+                    SERVICIOS <span className="font-semibold text-white">CORPORATIVOS</span>
+                  </h2>
 
       <motion.p
         initial={{ opacity:0,y:-20 }}
@@ -701,10 +695,8 @@ const heroScale = useTransform(
 
       </p>
 
-      <h2 className="text-4xl md:text-6xl font-light">
-
-        Beneficios exclusivos para tus colaboradores
-
+      <h2 className="text-4xl md:text-5xl font-light text-white leading-tight uppercase">
+      BENEFICIOS EXCLUSIVOS PARA <span className="font-semibold text-white">TUS COLABORADORES</span>
       </h2>
 
       <motion.p
@@ -731,7 +723,7 @@ const heroScale = useTransform(
 
         <h3 className="text-2xl mb-3">
 
-          💰 Descuentos
+          Descuentos
 
         </h3>
 
@@ -747,7 +739,7 @@ const heroScale = useTransform(
 
         <h3 className="text-2xl mb-3">
 
-          🎁 Promociones
+          Promociones
 
         </h3>
 
@@ -763,7 +755,7 @@ const heroScale = useTransform(
 
         <h3 className="text-2xl mb-3">
 
-          🌿 Experiencias
+          Experiencias
 
         </h3>
 
@@ -804,10 +796,8 @@ const heroScale = useTransform(
 
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-light">
-
-        Galería Corporativa
-
+      <h2 className="text-4xl md:text-5xl font-light text-black leading-tight uppercase">
+      DESCUBRE <span className="font-semibold text-black">NUESTROS ESPACIOS</span>
       </h2>
 
     </motion.div>
@@ -869,11 +859,9 @@ const heroScale = useTransform(
 
     </p>
 
-    <h2 className="text-4xl md:text-6xl font-light leading-tight">
-
-      Creamos experiencias corporativas que inspiran, conectan y fortalecen equipos.
-
-    </h2>
+    <h2 className="text-4xl md:text-5xl font-light text-black leading-tight uppercase">
+      CREAMOS EXPERIENCIAS CORPORATIVAS QUE <span className="font-semibold text-black">INSPIRAN, CONECTAN Y FORTALECEN EQUIPOS.</span>
+      </h2>
 
     <p className="mt-8 text-lg text-gray-600 leading-relaxed">
 

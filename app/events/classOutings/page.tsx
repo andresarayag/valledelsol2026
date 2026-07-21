@@ -232,7 +232,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
                 </motion.div>
 
                 <motion.p
-                  className="mt-4 text-lg text-gray-700 uppercase leading-relaxed max-w-2xl"
+                  className="mt-4 text-lg text-gray-700 leading-relaxed max-w-2xl"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}
@@ -523,7 +523,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
                 </motion.div>
 
                 <motion.p
-                  className="mt-4 text-lg text-white/80 uppercase leading-relaxed"
+                  className="mt-4 text-lg text-white/80 leading-relaxed"
                   initial={{ opacity: 0, y: -20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: false }}

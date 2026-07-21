@@ -2,7 +2,6 @@
 
 import Header from '../components/Header';
 import Footer from '../components/Footer';
-import HorizontalGallery from '../components/HorizontalGallery';
 import PrimaryButton from '../components/PrimaryButton';
 import SecondaryButton from '../components/SecondaryButton';
 import { SocialLink } from '../components/types';
@@ -196,7 +195,7 @@ export default function TourOperadoresPage() {
 
               <h2 className="text-4xl md:text-5xl font-light leading-tight">
 
-                El punto de partida para descubrir el Valle del Itata
+                El punto de partida para <span className="font-semibold text-gray-900">descubrir el Valle del Itata</span>
 
               </h2>
 
@@ -283,7 +282,7 @@ export default function TourOperadoresPage() {
               </p>
 
               <h2 className="text-4xl md:text-6xl font-light">
-                Programas diseñados para recorrer Chile en grupo
+                Programas diseñados para <span className="font-semibold text-gray-900">recorrer el valle en grupo</span>
               </h2>
 
               <motion.p
@@ -346,7 +345,7 @@ export default function TourOperadoresPage() {
 
                 <h3 className="text-4xl font-light mb-8">
 
-                  Turismo para Adulto Mayor
+                  <span className="font-semibold text-gray-900">Turismo para Adulto Mayor</span>
 
                 </h3>
 
@@ -426,7 +425,7 @@ export default function TourOperadoresPage() {
 
                 <h3 className="text-4xl font-light mb-8">
 
-                  Delegaciones y Organizaciones
+                  <span className="font-semibold text-gray-900">Delegaciones y Organizaciones</span>
 
                 </h3>
 
@@ -512,124 +511,123 @@ export default function TourOperadoresPage() {
 
         <section className="relative py-32 bg-black overflow-hidden text-white">
 
-          <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black opacity-95" />
+  <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black opacity-95" />
 
-          <div className="relative max-w-7xl mx-auto px-6">
+  <div className="relative max-w-7xl mx-auto px-6">
 
-            <motion.div
-              initial={{ opacity: 0, x: -120 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{
-                duration: 1.4,
-                ease: [0.22,1,0.36,1],
-              }}
-              viewport={{ once: true }}
-              className="text-center mb-24"
-            >
+    <motion.div
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      transition={{
+        duration: 1.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+      viewport={{ once: true }}
+      className="text-center mb-24"
+    >
 
-              <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
+        Turismo Internacional
+      </p>
 
-                Turismo Internacional
+      <h2 className="text-4xl md:text-6xl font-light">
+        Recibimos grupos de{" "}
+        <span className="font-semibold text-white">
+          todo el mundo
+        </span>
+      </h2>
 
-              </p>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: .9 }}
+        viewport={{ once: true }}
+        className="mt-8 text-white/70 text-lg max-w-4xl mx-auto leading-relaxed"
+      >
+        Coordinamos la experiencia completa desde la llegada de los
+        pasajeros a Chile, entregando alojamiento, gastronomía,
+        transporte y recorridos turísticos para que cada viaje se
+        desarrolle de forma cómoda, segura y sin preocupaciones.
+      </motion.p>
 
-              <h2 className="text-4xl md:text-6xl font-light">
+    </motion.div>
 
-                Recibimos grupos de todo el mundo
+    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
 
-              </h2>
+      {[
+        {
+          icon: "/images/tour/iconos/llegada.png",
+          title: "Traslados Aeropuerto",
+          text: "Coordinamos traslados privados desde y hacia el aeropuerto para recibir a cada delegación con puntualidad y comodidad.",
+        },
+        {
+          icon: "/images/tour/iconos/atencion.png",
+          title: "Recepción de Delegaciones",
+          text: "Nuestro equipo acompaña la llegada de los grupos y coordina cada detalle del programa turístico.",
+        },
+        {
+          icon: "/images/tour/iconos/bienvenida.png",
+          title: "Alojamiento",
+          text: "Cómodas cabañas y espacios preparados para grupos de distintos tamaños durante toda su estadía.",
+        },
+        {
+          icon: "/images/tour/iconos/gastronomia.png",
+          title: "Gastronomía Local",
+          text: "Menús especialmente preparados para grupos, resaltando sabores tradicionales de la zona.",
+        },
+        {
+          icon: "/images/tour/iconos/traslado.png",
+          title: "Transporte Turístico",
+          text: "Apoyamos la coordinación logística para excursiones y recorridos por los principales atractivos del destino.",
+        },
+        {
+          icon: "/images/tour/iconos/ubicacion.png",
+          title: "Programas Personalizados",
+          text: "Cada itinerario se adapta al tiempo disponible, intereses del grupo y temporada del año.",
+        },
+      ].map((item, index) => (
 
-              <motion.p
-                initial={{ opacity:0,y:-20 }}
-                whileInView={{ opacity:1,y:0 }}
-                transition={{ duration:.9 }}
-                viewport={{ once:true }}
-                className="mt-8 text-white/70 text-lg max-w-4xl mx-auto leading-relaxed"
-              >
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 60 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: .8,
+            delay: index * .08,
+          }}
+          viewport={{ once: true }}
+          className="group rounded-[30px] bg-white/5 backdrop-blur-sm border border-white/10 p-8 hover:border-[#FBB03B]/60 hover:bg-white/10 transition-all duration-500"
+        >
 
-                Coordinamos la experiencia completa desde la llegada de los
-                pasajeros a Chile, entregando alojamiento, gastronomía,
-                transporte y recorridos turísticos para que cada viaje se
-                desarrolle de forma cómoda, segura y sin preocupaciones.
-
-              </motion.p>
-
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-8">
-
-              {[
-                {
-                  emoji: '✈️',
-                  title: 'Traslados Aeropuerto',
-                  text: 'Coordinamos traslados privados desde y hacia el aeropuerto para recibir a cada delegación con puntualidad y comodidad.',
-                },
-                {
-                  emoji: '🧳',
-                  title: 'Recepción de Delegaciones',
-                  text: 'Nuestro equipo acompaña la llegada de los grupos y coordina cada detalle del programa turístico.',
-                },
-                {
-                  emoji: '🏨',
-                  title: 'Alojamiento',
-                  text: 'Cómodas cabañas y espacios preparados para grupos de distintos tamaños durante toda su estadía.',
-                },
-                {
-                  emoji: '🍽️',
-                  title: 'Gastronomía Local',
-                  text: 'Menús especialmente preparados para grupos, resaltando sabores tradicionales de la zona.',
-                },
-                {
-                  emoji: '🚌',
-                  title: 'Transporte Turístico',
-                  text: 'Apoyamos la coordinación logística para excursiones y recorridos por los principales atractivos del destino.',
-                },
-                {
-                  emoji: '🌎',
-                  title: 'Programas Personalizados',
-                  text: 'Cada itinerario se adapta al tiempo disponible, intereses del grupo y temporada del año.',
-                },
-              ].map((item, index) => (
-
-                <motion.div
-                  key={index}
-                  initial={{ opacity:0, y:60 }}
-                  whileInView={{ opacity:1, y:0 }}
-                  transition={{
-                    duration:.8,
-                    delay:index*.08,
-                  }}
-                  viewport={{ once:true }}
-                  className="group rounded-[30px] bg-white/5 backdrop-blur-sm border border-white/10 p-8 hover:border-[#FBB03B]/60 hover:bg-white/10 transition-all duration-500"
-                >
-
-                  <div className="text-5xl mb-6">
-
-                    {item.emoji}
-
-                  </div>
-
-                  <h3 className="text-2xl font-light mb-5">
-
-                    {item.title}
-
-                  </h3>
-
-                  <p className="text-white/70 leading-relaxed">
-
-                    {item.text}
-
-                  </p>
-
-                </motion.div>
-
-              ))}
-
+          <div className="mb-8">
+            <div className="w-20 h-20 rounded-full bg-white shadow-xl flex items-center justify-center">
+              <Image
+                src={item.icon}
+                alt={item.title}
+                width={42}
+                height={42}
+                className="object-contain"
+              />
             </div>
-
           </div>
 
-        </section>
+          <h3 className="text-2xl font-light mb-5">
+            {item.title}
+          </h3>
+
+          <p className="text-white/70 leading-relaxed">
+            {item.text}
+          </p>
+
+        </motion.div>
+
+      ))}
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* ======================================================
                 SERVICIO INTEGRAL
@@ -657,7 +655,7 @@ export default function TourOperadoresPage() {
 
               <h2 className="text-4xl md:text-5xl font-light leading-tight">
 
-                Un solo lugar para coordinar todo el viaje
+                Un solo lugar para <span className="font-semibold text-gray-900">coordinar todo el viaje</span>
 
               </h2>
 
@@ -758,7 +756,7 @@ export default function TourOperadoresPage() {
       </p>
 
       <h2 className="text-4xl md:text-6xl font-light">
-        Una experiencia organizada de principio a fin
+        Una experiencia <span className="font-semibold text-white-900">organizada de principio a fin</span>
       </h2>
 
       <motion.p
@@ -888,7 +886,7 @@ export default function TourOperadoresPage() {
       </p>
 
       <h2 className="text-4xl md:text-6xl font-light">
-        Un partner confiable para Tour Operadores
+        Un partner confiable para <span className="font-semibold text-gray-900">Tour Operadores</span>
       </h2>
 
     </motion.div>
@@ -1004,11 +1002,9 @@ export default function TourOperadoresPage() {
 
               <h2 className="text-4xl md:text-6xl font-light leading-tight">
 
-                Diseñemos el próximo
+                Diseñemos el próximo programa turístico
                 <br />
-                programa turístico
-                <br />
-                para tus pasajeros
+                <span className="font-semibold text-white-900">para tus pasajeros</span>
 
               </h2>
 

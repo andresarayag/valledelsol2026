@@ -1,126 +1,352 @@
 'use client';
 
-import { useEffect, useState } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { Facebook, Instagram } from "lucide-react";
+import { useEffect, useState } from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
+import {
+  Facebook,
+  Instagram,
+  Menu,
+  Phone,
+  X,
+} from 'lucide-react';
 
 export default function Header() {
-
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    handleScroll();
+
+    window.addEventListener('scroll', handleScroll);
+
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
   }, []);
 
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+
   const menu = [
-    { name: "Cabañas", href: "/cabanas" },
-    { name: "Restaurante", href: "/restaurant" },
-    { name: "Matrimonios", href: "/events/weddings" },
-    { name: "Colegios", href: "/events/classOutings" },
-    { name: "Empresas", href: "/events/corporateEvents" },
-    { name: "Tour Operadores", href: "/touroperadores" },
-    { name: "Nosotros", href: "/about" },
+    { name: 'Cabañas', href: '/cabanas' },
+    { name: 'Restaurante', href: '/restaurant' },
+    { name: 'Matrimonios', href: '/events/weddings' },
+    { name: 'Colegios', href: '/events/classOutings' },
+    { name: 'Empresas', href: '/events/corporateEvents' },
+    { name: 'Tour Operadores', href: '/touroperadores' },
+    { name: 'Nosotros', href: '/about' },
   ];
 
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
+  };
+
   return (
-    <header
-      className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? "bg-white shadow-md"
-          : "bg-black/20 backdrop-blur-md"
-      }`}
-    >
-      <div className="max-w-7xl mx-auto px-6 h-24 flex items-center justify-between">
+    <>
+      <header
+        className={`fixed top-0 left-0 z-50 w-full transition-all duration-300 ${
+          scrolled
+            ? 'bg-white shadow-md'
+            : 'bg-black/25 backdrop-blur-md'
+        }`}
+      >
+        <div className="max-w-7xl mx-auto px-5 sm:px-6 h-20 lg:h-24 flex items-center justify-between">
 
-        {/* LOGO */}
-        <Link href="/">
-          <Image
-            src={
-              scrolled
-                ? "/images/logo/logo-naranjo.png"
-                : "/images/logo/logo-blanco.png"
-            }
-            alt="Valle del Sol"
-            width={100}
-            height={50}
-            className="object-contain"
-          />
-        </Link>
-
-        {/* MENU */}
-        <nav className="hidden md:flex gap-6 text-sm font-medium">
-          {menu.map((item) => (
-            <Link
-              key={item.name}
-              href={item.href}
-              className={`relative transition ${
+          {/* LOGO */}
+          <Link
+            href="/"
+            onClick={closeMobileMenu}
+            className="relative z-50 flex-shrink-0"
+            aria-label="Ir al inicio"
+          >
+            <Image
+              src={
                 scrolled
-                  ? "text-gray-800 hover:text-[rgb(251,176,59)]"
-                  : "text-white hover:text-[rgb(251,176,59)]"
-              }`}
-            >
-              {item.name}
-
-              {/* underline animado */}
-              <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-[rgb(251,176,59)] transition-all duration-300 group-hover:w-full"></span>
-            </Link>
-          ))}
-        </nav>
-
-        {/* RIGHT SIDE */}
-        <div className="flex items-center gap-6">
-
-          {/* BOTON RESERVA */}
-          <Link href="/cabanas">
-            <button
-              className="px-5 py-2 rounded-full text-white font-medium transition hover:scale-105 shadow-md"
-              style={{ backgroundColor: "rgb(251,176,59)" }}
-            >
-              Reservar
-            </button>
+                  ? '/images/logo/logo-naranjo.png'
+                  : '/images/logo/logo-blanco.png'
+              }
+              alt="Valle del Sol"
+              width={100}
+              height={70}
+              priority
+              className="w-[82px] lg:w-[100px] h-auto object-contain"
+            />
           </Link>
 
-          {/* REDES */}
-          <div className="flex items-center gap-3">
-            <Link
-              href="https://www.facebook.com/valledelsolquillon"
-              target="_blank"
-            >
-              <Facebook
-                size={18}
-                className={scrolled ? "text-gray-700" : "text-white"}
-              />
-            </Link>
+          {/* MENÚ ESCRITORIO */}
+          <nav className="hidden lg:flex items-center gap-5 xl:gap-6 text-sm font-medium">
+            {menu.map((item) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                className={`group relative whitespace-nowrap transition-colors duration-300 ${
+                  scrolled
+                    ? 'text-gray-800 hover:text-[#FBB03B]'
+                    : 'text-white hover:text-[#FBB03B]'
+                }`}
+              >
+                {item.name}
+
+                <span className="absolute left-0 -bottom-2 w-0 h-[2px] bg-[#FBB03B] transition-all duration-300 group-hover:w-full" />
+              </Link>
+            ))}
+          </nav>
+
+          {/* LADO DERECHO ESCRITORIO */}
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6">
 
             <Link
-              href="https://www.instagram.com/valledelsolquillon.cl/"
-              target="_blank"
+              href="/cabanas"
+              className="
+                inline-flex items-center justify-center
+                px-5 py-2.5
+                rounded-full
+                bg-[#FBB03B]
+                text-black
+                font-semibold
+                shadow-md
+                transition-all
+                duration-300
+                hover:scale-105
+                hover:shadow-xl
+              "
             >
-              <Instagram
-                size={18}
-                className={scrolled ? "text-gray-700" : "text-white"}
-              />
+              Reservar
             </Link>
+
+            <div className="flex items-center gap-3">
+              <Link
+                href="https://www.facebook.com/valledelsolquillon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Valle del Sol"
+                className="transition-transform duration-300 hover:scale-110"
+              >
+                <Facebook
+                  size={18}
+                  className={
+                    scrolled
+                      ? 'text-gray-700 hover:text-[#FBB03B]'
+                      : 'text-white hover:text-[#FBB03B]'
+                  }
+                />
+              </Link>
+
+              <Link
+                href="https://www.instagram.com/valledelsolquillon.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Valle del Sol"
+                className="transition-transform duration-300 hover:scale-110"
+              >
+                <Instagram
+                  size={18}
+                  className={
+                    scrolled
+                      ? 'text-gray-700 hover:text-[#FBB03B]'
+                      : 'text-white hover:text-[#FBB03B]'
+                  }
+                />
+              </Link>
+            </div>
+
+            <a
+              href="tel:+56940588585"
+              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 hover:text-[#FBB03B] ${
+                scrolled ? 'text-gray-800' : 'text-white'
+              }`}
+            >
+              +56 9 4058 8585
+            </a>
+
           </div>
 
-          {/* TELEFONO */}
-          <span
-            className={`text-sm font-medium ${
-              scrolled ? "text-gray-800" : "text-white"
-            }`}
-          >
-            +56 9 4058 8585
-          </span>
+          {/* CONTROLES MÓVILES */}
+          <div className="flex lg:hidden items-center gap-3">
+
+            <Link
+              href="/cabanas"
+              onClick={closeMobileMenu}
+              className="
+                hidden sm:inline-flex
+                items-center justify-center
+                px-4 py-2
+                rounded-full
+                bg-[#FBB03B]
+                text-black
+                text-sm
+                font-semibold
+                shadow-md
+                transition-all
+                duration-300
+                hover:scale-105
+              "
+            >
+              Reservar
+            </Link>
+
+            <button
+              type="button"
+              onClick={() => setMobileMenuOpen((prev) => !prev)}
+              aria-label={
+                mobileMenuOpen
+                  ? 'Cerrar menú'
+                  : 'Abrir menú'
+              }
+              aria-expanded={mobileMenuOpen}
+              className={`relative z-50 w-11 h-11 rounded-full flex items-center justify-center border transition-all duration-300 ${
+                scrolled || mobileMenuOpen
+                  ? 'border-gray-200 bg-white text-gray-900 shadow-md'
+                  : 'border-white/40 bg-black/20 text-white backdrop-blur-md'
+              }`}
+            >
+              {mobileMenuOpen ? (
+                <X size={24} />
+              ) : (
+                <Menu size={24} />
+              )}
+            </button>
+
+          </div>
 
         </div>
+      </header>
 
-      </div>
-    </header>
+      {/* FONDO OSCURO MÓVIL */}
+      <button
+        type="button"
+        aria-label="Cerrar menú"
+        onClick={closeMobileMenu}
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 lg:hidden ${
+          mobileMenuOpen
+            ? 'opacity-100 pointer-events-auto'
+            : 'opacity-0 pointer-events-none'
+        }`}
+      />
+
+      {/* MENÚ LATERAL MÓVIL */}
+      <aside
+        className={`fixed top-0 right-0 z-40 h-screen w-[88%] max-w-sm bg-[#0f1b2d] text-white shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+          mobileMenuOpen
+            ? 'translate-x-0'
+            : 'translate-x-full'
+        }`}
+      >
+        <div className="h-full flex flex-col px-7 pt-28 pb-8 overflow-y-auto">
+
+          <nav className="flex flex-col">
+            {menu.map((item, index) => (
+              <Link
+                key={item.name}
+                href={item.href}
+                onClick={closeMobileMenu}
+                className="
+                  py-4
+                  border-b
+                  border-white/10
+                  text-lg
+                  font-medium
+                  text-white/90
+                  transition-all
+                  duration-300
+                  hover:text-[#FBB03B]
+                  hover:pl-2
+                "
+                style={{
+                  transitionDelay: mobileMenuOpen
+                    ? `${index * 35}ms`
+                    : '0ms',
+                }}
+              >
+                {item.name}
+              </Link>
+            ))}
+          </nav>
+
+          <div className="mt-8">
+
+            <Link
+              href="/cabanas"
+              onClick={closeMobileMenu}
+              className="
+                flex
+                w-full
+                items-center
+                justify-center
+                rounded-full
+                bg-[#FBB03B]
+                px-6
+                py-4
+                text-black
+                font-semibold
+                shadow-xl
+                transition-all
+                duration-300
+                hover:scale-[1.02]
+              "
+            >
+              Reservar
+            </Link>
+
+          </div>
+
+          <div className="mt-auto pt-10">
+
+            <a
+              href="tel:+56940588585"
+              className="flex items-center gap-3 text-white/80 hover:text-[#FBB03B] transition-colors"
+            >
+              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
+                <Phone size={18} />
+              </div>
+
+              <span className="font-medium">
+                +56 9 4058 8585
+              </span>
+            </a>
+
+            <div className="flex items-center gap-4 mt-7">
+
+              <Link
+                href="https://www.facebook.com/valledelsolquillon"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Facebook de Valle del Sol"
+                className="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/80 transition-all duration-300 hover:bg-[#FBB03B] hover:text-black hover:scale-110"
+              >
+                <Facebook size={19} />
+              </Link>
+
+              <Link
+                href="https://www.instagram.com/valledelsolquillon.cl/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram de Valle del Sol"
+                className="w-11 h-11 rounded-full border border-white/15 bg-white/5 flex items-center justify-center text-white/80 transition-all duration-300 hover:bg-[#FBB03B] hover:text-black hover:scale-110"
+              >
+                <Instagram size={19} />
+              </Link>
+
+            </div>
+
+          </div>
+
+        </div>
+      </aside>
+    </>
   );
 }

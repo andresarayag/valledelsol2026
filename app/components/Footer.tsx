@@ -57,45 +57,86 @@ export default function Footer() {
           </div>
 
           {/* 🔥 COLUMNA 4 - REDES */}
-          <div>
-            <h3 className="text-lg font-semibold mb-4">Síguenos</h3>
+          {/* 🔥 COLUMNA 4 - REDES */}
+<div>
+  <h3 className="text-lg font-semibold mb-4">Síguenos</h3>
 
-            <div className="flex gap-4 text-xl">
+  <div className="flex gap-4 text-xl mb-8">
 
-              <a
-                href="https://www.instagram.com/valledelsolquillon.cl/"
-                target="_blank"
-                className="text-gray-400 hover:text-white transition"
-              >
-                <FaInstagram />
-              </a>
+    <a
+      href="https://www.instagram.com/valledelsolquillon.cl/"
+      target="_blank"
+      className="text-gray-400 hover:text-white transition"
+    >
+      <FaInstagram />
+    </a>
 
-              <a
-                href="https://www.facebook.com/valledelsolquillon"
-                target="_blank"
-                className="text-gray-400 hover:text-white transition"
-              >
-                <FaFacebookF />
-              </a>
+    <a
+      href="https://www.facebook.com/valledelsolquillon"
+      target="_blank"
+      className="text-gray-400 hover:text-white transition"
+    >
+      <FaFacebookF />
+    </a>
 
-              <a
-                href="https://www.tripadvisor.cl/Hotel_Review-g3732316-d7155218-Reviews-Centro_de_Eventos_Valle_del_Sol-Quillon_Biobio_Region.html"
-                target="_blank"
-                className="text-gray-400 hover:text-white transition"
-              >
-                <FaTripadvisor />
-              </a>
+    <a
+      href="https://www.tripadvisor.cl/Hotel_Review-g3732316-d7155218-Reviews-Centro_de_Eventos_Valle_del_Sol-Quillon_Biobio_Region.html"
+      target="_blank"
+      className="text-gray-400 hover:text-white transition"
+    >
+      <FaTripadvisor />
+    </a>
 
-              <a
-                href="https://wa.me/56940588585"
-                target="_blank"
-                className="text-gray-400 hover:text-green-400 transition"
-              >
-                <FaWhatsapp />
-              </a>
+    <a
+      href="https://wa.me/56940588585"
+      target="_blank"
+      className="text-gray-400 hover:text-green-400 transition"
+    >
+      <FaWhatsapp />
+    </a>
 
-            </div>
-          </div>
+  </div>
+
+  {/* SELLOS */}
+  <div className="flex flex-wrap gap-4 items-center">
+
+  {[
+    {
+      src: "/images/tour/iconos/sellochilesustentable.png",
+      alt: "Chile Sustentable",
+      w: 78,
+      h: 78,
+    },
+    {
+      src: "/images/tour/iconos/sellosernatur.png",
+      alt: "Sernatur",
+      w: 78,
+      h: 78,
+    },
+    {
+      src: "/images/tour/iconos/spemundohosting.webp",
+      alt: "ChileCompra",
+      w: 120,
+      h: 52,
+    },
+  ].map((logo, index) => (
+    <div
+      key={index}
+      className="bg-white rounded-xl p-2 shadow-lg hover:scale-105 transition duration-300"
+    >
+      <Image
+        src={logo.src}
+        alt={logo.alt}
+        width={logo.w}
+        height={logo.h}
+        className="object-contain"
+      />
+    </div>
+  ))}
+
+</div>
+
+</div>
 
         </div>
 

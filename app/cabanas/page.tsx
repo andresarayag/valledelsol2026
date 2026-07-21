@@ -263,20 +263,32 @@ const heroScale = useTransform(
       <main>
 
         {/* HERO */}
-        {/* HERO */}
+        {/* HERO CON PARALLAX */}
 <section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
 
-  <Image
-    src="/images/cabanas/hero.jpg"
-    alt="Cabañas Valle del Sol"
-    fill
-    className="object-cover"
-    priority
-  />
+  {/* IMAGEN PARALLAX */}
+  <motion.div
+    className="absolute -inset-y-32 inset-x-0"
+    style={{
+      y: heroY,
+      scale: heroScale,
+    }}
+  >
+    <Image
+      src="/images/cabanas/hero.jpg"
+      alt="Cabañas Valle del Sol"
+      fill
+      className="object-cover"
+      priority
+    />
+  </motion.div>
 
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
+  {/* CONTENIDO */}
   <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+
     <div className="max-w-6xl mx-auto text-center text-white">
 
       <motion.h1
@@ -294,13 +306,17 @@ const heroScale = useTransform(
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 1, delay: 0.4 }}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
         className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
       >
         Naturaleza, descanso y desconexión total
       </motion.p>
 
     </div>
+
   </div>
 
 </section>
@@ -358,7 +374,7 @@ const heroScale = useTransform(
 
                 {[
                   'Desayuno incluido',
-                  'Smart TV',
+                  'Smart TV + WIFI',
                   'Amenidades de baño',
                   'Acceso a piscina y áreas verdes',
                   'Acceso zona de picnic',

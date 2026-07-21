@@ -96,10 +96,10 @@ export default function Hero({
           <SecondaryButton
   href="https://www.eventi-app.com/public-quotation/1"
   className="
-    border-white/40
-    text-white
-    hover:bg-white
-    hover:text-black
+    !border-white/50
+    !text-white
+    hover:!bg-white
+    hover:!text-black
   "
 >
   Cotizar Evento
