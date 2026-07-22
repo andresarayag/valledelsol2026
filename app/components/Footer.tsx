@@ -98,41 +98,45 @@ export default function Footer() {
   </div>
 
   {/* SELLOS */}
-  <div className="flex flex-wrap gap-4 items-center">
+  {/* SELLOS */}
+<div className="mt-8 w-[204px]">
 
-  {[
-    {
-      src: "/images/tour/iconos/sellochilesustentable.png",
-      alt: "Chile Sustentable",
-      w: 78,
-      h: 78,
-    },
-    {
-      src: "/images/tour/iconos/sellosernatur.png",
-      alt: "Sernatur",
-      w: 78,
-      h: 78,
-    },
-    {
-      src: "/images/tour/iconos/spemundohosting.webp",
-      alt: "ChileCompra",
-      w: 120,
-      h: 52,
-    },
-  ].map((logo, index) => (
-    <div
-      key={index}
-      className="bg-white rounded-xl p-2 shadow-lg hover:scale-105 transition duration-300"
-    >
+  <div className="grid grid-cols-2 gap-3 items-center">
+
+    {/* Chile Sustentable */}
+    <div className="flex justify-center hover:scale-105 transition duration-300">
       <Image
-        src={logo.src}
-        alt={logo.alt}
-        width={logo.w}
-        height={logo.h}
+        src="/images/tour/iconos/sellochilesustentable.png"
+        alt="Chile Sustentable"
+        width={92}
+        height={92}
         className="object-contain"
       />
     </div>
-  ))}
+
+    {/* Sernatur */}
+    <div className="flex justify-center hover:scale-105 transition duration-300">
+      <Image
+        src="/images/tour/iconos/sellosernatur.png"
+        alt="Sernatur"
+        width={92}
+        height={92}
+        className="object-contain"
+      />
+    </div>
+
+    {/* ChileCompra */}
+    <div className="col-span-2 bg-white rounded-xl shadow-lg flex items-center justify-center py-2 hover:scale-105 transition duration-300">
+      <Image
+        src="/images/tour/iconos/spemundohosting.webp"
+        alt="Proveedor del Estado y ChileCompra"
+        width={170}
+        height={46}
+        className="object-contain"
+      />
+    </div>
+
+  </div>
 
 </div>
 

@@ -121,36 +121,107 @@ function Carousel({ images }: { images: string[] }) {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    const interval = setInterval(() => {
+    const interval = window.setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
     }, 3500);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [images.length]);
 
+  const next = () => {
+    setIndex((prev) => (prev + 1) % images.length);
+  };
+
+  const prev = () => {
+    setIndex((prev) =>
+      prev === 0 ? images.length - 1 : prev - 1
+    );
+  };
+
   return (
-    <div className="relative w-full h-[320px] md:h-[420px] rounded-2xl overflow-hidden">
+    <div
+  className="
+    relative
+    w-full
+    max-w-full
+    min-w-0
+    h-[260px]
+    sm:h-[320px]
+    md:h-[420px]
+    rounded-2xl
+    overflow-hidden
+  "
+>
       <Image
         src={images[index]}
-        alt="Cabaña Valle del Sol"
+        alt={`Cabaña Valle del Sol ${index + 1}`}
         fill
+        sizes="(max-width: 768px) 100vw, 50vw"
         className="object-cover"
       />
 
+      <div className="absolute inset-0 bg-gradient-to-r from-black/10 via-transparent to-black/10" />
+
       <button
-        onClick={() =>
-          setIndex((prev) => (prev === 0 ? images.length - 1 : prev - 1))
-        }
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-full"
+        type="button"
+        onClick={prev}
+        aria-label="Ver imagen anterior"
+        className="
+          absolute
+          left-3
+          sm:left-4
+          top-1/2
+          -translate-y-1/2
+          z-10
+          w-10
+          h-10
+          rounded-full
+          bg-black/45
+          backdrop-blur-sm
+          text-white
+          text-2xl
+          flex
+          items-center
+          justify-center
+          shadow-lg
+          transition-all
+          duration-300
+          hover:bg-black/70
+          hover:scale-110
+        "
       >
-        ‹
+        <span className="-mt-1">‹</span>
       </button>
 
       <button
-        onClick={() => setIndex((prev) => (prev + 1) % images.length)}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-black/40 text-white px-3 py-1 rounded-full"
+        type="button"
+        onClick={next}
+        aria-label="Ver imagen siguiente"
+        className="
+          absolute
+          right-3
+          sm:right-4
+          top-1/2
+          -translate-y-1/2
+          z-10
+          w-10
+          h-10
+          rounded-full
+          bg-black/45
+          backdrop-blur-sm
+          text-white
+          text-2xl
+          flex
+          items-center
+          justify-center
+          shadow-lg
+          transition-all
+          duration-300
+          hover:bg-black/70
+          hover:scale-110
+        "
       >
-        ›
+        <span className="-mt-1">›</span>
       </button>
     </div>
   );
@@ -165,75 +236,218 @@ function AmenitiesCarousel({
   amenities: { icon: string; label: string }[];
 }) {
   const [index, setIndex] = useState(0);
+  const [visibleItems, setVisibleItems] = useState(4);
 
-  const visibleItems = 4;
-  const maxIndex = Math.max(0, amenities.length - visibleItems);
+  const maxIndex = Math.max(
+    0,
+    amenities.length - visibleItems
+  );
 
+  /* ELEMENTOS VISIBLES SEGÚN PANTALLA */
   useEffect(() => {
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    const updateVisibleItems = () => {
+      const width = window.innerWidth;
+
+      if (width < 480) {
+        setVisibleItems(1);
+      } else if (width < 640) {
+        setVisibleItems(2);
+      } else if (width < 1024) {
+        setVisibleItems(3);
+      } else {
+        setVisibleItems(4);
+      }
+    };
+
+    updateVisibleItems();
+
+    window.addEventListener(
+      'resize',
+      updateVisibleItems
+    );
+
+    return () => {
+      window.removeEventListener(
+        'resize',
+        updateVisibleItems
+      );
+    };
+  }, []);
+
+  /* CORREGIR ÍNDICE AL CAMBIAR DE TAMAÑO */
+  useEffect(() => {
+    setIndex((prev) => Math.min(prev, maxIndex));
+  }, [maxIndex]);
+
+  /* AUTOPLAY */
+  useEffect(() => {
+    const interval = window.setInterval(() => {
+      setIndex((prev) =>
+        prev >= maxIndex ? 0 : prev + 1
+      );
     }, 2500);
 
-    return () => clearInterval(interval);
+    return () => window.clearInterval(interval);
   }, [maxIndex]);
 
   const next = () => {
-    setIndex((prev) => (prev >= maxIndex ? 0 : prev + 1));
+    setIndex((prev) =>
+      prev >= maxIndex ? 0 : prev + 1
+    );
   };
 
   const prev = () => {
-    setIndex((prev) => (prev <= 0 ? maxIndex : prev - 1));
+    setIndex((prev) =>
+      prev <= 0 ? maxIndex : prev - 1
+    );
   };
 
   return (
-    <div className="relative mt-8 px-12">
+    <div className="relative mt-8 w-full min-w-0 px-12 sm:px-14">
 
-      {/* PREV FUERA DEL CARRUSEL */}
+      {/* FLECHA ANTERIOR */}
       <button
+        type="button"
         onClick={prev}
-        className="absolute -left-2 md:-left-4 top-10 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
+        aria-label="Ver característica anterior"
+        className="
+          absolute
+          left-0
+          top-8
+          sm:top-10
+          z-20
+          w-10
+          h-10
+          rounded-full
+          bg-white
+          text-gray-600
+          text-2xl
+          shadow-lg
+          flex
+          items-center
+          justify-center
+          transition-all
+          duration-300
+          hover:bg-[#FBB03B]
+          hover:text-black
+          hover:scale-110
+        "
       >
-        ‹
+        <span className="-mt-1">‹</span>
       </button>
 
       {/* VIEWPORT */}
-      <div className="overflow-hidden w-full">
+      <div className="w-full min-w-0 overflow-hidden">
+
         <div
-          className="flex transition-transform duration-700 ease-in-out"
+          className="
+            flex
+            transition-transform
+            duration-700
+            ease-[cubic-bezier(0.22,1,0.36,1)]
+          "
           style={{
-            transform: `translateX(-${index * (100 / visibleItems)}%)`,
+            transform: `translateX(-${
+              index * (100 / visibleItems)
+            }%)`,
           }}
         >
           {amenities.map((item, i) => (
             <div
               key={i}
-              className="w-1/4 flex-shrink-0 flex flex-col items-center text-center px-3"
+              className="
+                flex-shrink-0
+                min-w-0
+                flex
+                flex-col
+                items-center
+                text-center
+                px-2
+                sm:px-3
+              "
+              style={{
+                width: `${100 / visibleItems}%`,
+              }}
             >
-              <div className="w-24 h-24 rounded-full bg-gray-100 flex items-center justify-center shadow-sm mb-3">
+              <div
+                className="
+                  w-20
+                  h-20
+                  sm:w-24
+                  sm:h-24
+                  rounded-full
+                  bg-gray-100
+                  flex
+                  items-center
+                  justify-center
+                  shadow-sm
+                  mb-3
+                "
+              >
                 <Image
                   src={item.icon}
                   alt={item.label}
                   width={42}
                   height={42}
-                  className="object-contain"
+                  className="
+                    w-9
+                    h-9
+                    sm:w-[42px]
+                    sm:h-[42px]
+                    object-contain
+                  "
                 />
               </div>
 
-              <p className="text-sm text-gray-700 leading-tight">
+              <p
+                className="
+                  text-sm
+                  text-gray-700
+                  leading-tight
+                  break-words
+                  max-w-[130px]
+                  sm:max-w-[150px]
+                "
+              >
                 {item.label}
               </p>
             </div>
           ))}
         </div>
+
       </div>
 
-      {/* NEXT FUERA DEL CARRUSEL */}
+      {/* FLECHA SIGUIENTE */}
       <button
+        type="button"
         onClick={next}
-        className="absolute -right-2 md:-right-4 top-10 z-20 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center hover:scale-110 transition"
+        aria-label="Ver característica siguiente"
+        className="
+          absolute
+          right-0
+          top-8
+          sm:top-10
+          z-20
+          w-10
+          h-10
+          rounded-full
+          bg-white
+          text-gray-600
+          text-2xl
+          shadow-lg
+          flex
+          items-center
+          justify-center
+          transition-all
+          duration-300
+          hover:bg-[#FBB03B]
+          hover:text-black
+          hover:scale-110
+        "
       >
-        ›
+        <span className="-mt-1">›</span>
       </button>
+
     </div>
   );
 }
@@ -256,11 +470,11 @@ const heroScale = useTransform(
   [1.15, 1.25]
 );
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen w-full max-w-full overflow-x-hidden">
 
       <Header />
 
-      <main>
+      <main className="w-full max-w-full overflow-x-hidden">
 
         {/* HERO */}
         {/* HERO CON PARALLAX */}
@@ -402,57 +616,100 @@ const heroScale = useTransform(
         </section>
 
         {/* CABAÑAS */}
-        <section className="py-20">
-          <div className="max-w-6xl mx-auto px-6 space-y-24">
+        {/* CABAÑAS */}
+<section className="w-full max-w-full overflow-x-hidden py-16 sm:py-20">
+  <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 space-y-20 sm:space-y-24">
 
-            {cabins.map((cabin, i) => (
-              <motion.div
-                key={i}
-                className="grid md:grid-cols-2 gap-12 items-start"
-                initial={{ opacity: 0, y: 80 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.9 }}
-                viewport={{ once: false }}
-              >
+    {cabins.map((cabin, i) => (
+      <motion.div
+        key={i}
+        className="
+          w-full
+          max-w-full
+          min-w-0
+          grid
+          grid-cols-1
+          md:grid-cols-2
+          gap-10
+          md:gap-12
+          items-start
+        "
+        initial={{ opacity: 0, y: 80 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: false }}
+      >
 
-                <div>
+        {/* IMÁGENES E ÍCONOS */}
+        <div className="w-full max-w-full min-w-0 overflow-hidden">
 
-                  <Carousel images={cabin.images} />
+          <Carousel images={cabin.images} />
 
-                  <AmenitiesCarousel amenities={cabin.icons} />
+          <AmenitiesCarousel amenities={cabin.icons} />
 
-                </div>
+        </div>
 
-                <div className="pt-2">
+        {/* INFORMACIÓN */}
+        <div className="w-full max-w-full min-w-0 pt-0 md:pt-2">
 
-                  <h3 className="text-3xl font-semibold">
-                    {cabin.title}
-                  </h3>
+          <h3 className="
+            text-3xl
+            sm:text-4xl
+            font-semibold
+            leading-tight
+            text-gray-950
+            break-words
+          ">
+            {cabin.title}
+          </h3>
 
-                  <p className="mt-4 text-gray-800 font-semibold text-lg">
-                    {cabin.description}
-                  </p>
+          <p className="
+            mt-4
+            text-base
+            sm:text-lg
+            text-gray-800
+            font-semibold
+            leading-relaxed
+            break-words
+          ">
+            {cabin.description}
+          </p>
 
-                  <p className="mt-5 text-gray-500 text-lg leading-relaxed">
-                    {cabin.details}
-                  </p>
+          <p className="
+            mt-5
+            text-base
+            sm:text-lg
+            text-gray-500
+            leading-relaxed
+            break-words
+            whitespace-normal
+          ">
+            {cabin.details}
+          </p>
 
-                  <div className="mt-8">
-                    <PrimaryButton
-                      href="https://wa.me/56926035311"
-                      className="px-8 py-3 text-base shadow-xl"
-                    >
-                      Reservar
-                    </PrimaryButton>
-                  </div>
-
-                </div>
-
-              </motion.div>
-            ))}
-
+          <div className="mt-8 w-full sm:w-auto">
+            <PrimaryButton
+              href="https://wa.me/56926035311"
+              className="
+                w-full
+                sm:w-auto
+                px-8
+                py-4
+                text-base
+                shadow-xl
+              "
+            >
+              Reservar
+            </PrimaryButton>
           </div>
-        </section>
+
+        </div>
+
+      </motion.div>
+    ))}
+
+  </div>
+</section>
 
         {/* CTA FINAL */}
         <section className="py-24 text-center bg-gray-50">

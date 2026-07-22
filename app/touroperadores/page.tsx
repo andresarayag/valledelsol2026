@@ -6,7 +6,7 @@ import PrimaryButton from '../components/PrimaryButton';
 import SecondaryButton from '../components/SecondaryButton';
 import { SocialLink } from '../components/types';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
 /* ===========================================================
    SOCIAL
 =========================================================== */
@@ -71,6 +71,20 @@ const galleryImages = [
 =========================================================== */
 
 export default function TourOperadoresPage() {
+  const { scrollYProgress } = useScroll();
+
+  const heroY = useTransform(
+    scrollYProgress,
+    [0, 0.25],
+    ['-15%', '45%']
+  );
+
+  const heroScale = useTransform(
+    scrollYProgress,
+    [0, 0.25],
+    [1.15, 1.25]
+  );
+
   return (
     <div className="min-h-screen flex flex-col overflow-hidden bg-white">
 
@@ -78,23 +92,31 @@ export default function TourOperadoresPage() {
 
       <main>
 
-        {/* ======================================================
-                            HERO
-        ======================================================= */}
 
-        {/* HERO */}
+{/* HERO CON PARALLAX */}
 <section className="relative h-screen -mt-24 overflow-hidden bg-black">
 
-  <Image
-    src="/images/tour/t3.jpg"
-    alt="Turismo para Grupos"
-    fill
-    priority
-    className="object-cover"
-  />
+  {/* IMAGEN PARALLAX */}
+  <motion.div
+    className="absolute -inset-y-32 inset-x-0"
+    style={{
+      y: heroY,
+      scale: heroScale,
+    }}
+  >
+    <Image
+      src="/images/tour/t3.jpg"
+      alt="Turismo para Grupos"
+      fill
+      priority
+      className="object-cover"
+    />
+  </motion.div>
 
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
+  {/* CONTENIDO */}
   <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
 
     <div className="max-w-6xl mx-auto text-center text-white">
@@ -282,7 +304,7 @@ export default function TourOperadoresPage() {
               </p>
 
               <h2 className="text-4xl md:text-6xl font-light">
-                Programas diseñados para <span className="font-semibold text-gray-900">recorrer el valle en grupo</span>
+                Programas diseñados para <span className="font-semibold text-gray-900">recorrer Ñuble en grupo</span>
               </h2>
 
               <motion.p

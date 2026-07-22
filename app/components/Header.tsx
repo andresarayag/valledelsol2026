@@ -240,7 +240,7 @@ export default function Header() {
 
       {/* MENÚ LATERAL MÓVIL */}
       <aside
-        className={`fixed top-0 right-0 z-40 h-screen w-[88%] max-w-sm bg-[#0f1b2d] text-white shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
+        className={`fixed top-0 right-0 z-40 h-screen w-[88%] max-w-sm bg-black text-white shadow-2xl transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] lg:hidden ${
           mobileMenuOpen
             ? 'translate-x-0'
             : 'translate-x-full'

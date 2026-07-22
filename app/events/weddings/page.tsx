@@ -10,7 +10,7 @@ import { useRef } from 'react';
 import PrimaryButton from '../../components/PrimaryButton';
 import SecondaryButton from '../../components/SecondaryButton';
 
-const backgroundIncludes = '/images/matrimonio/matri.JPG';
+const backgroundIncludes = '/images/matrimonio/matri.jpg';
 
 const weddingGallery = [
   '/images/matrimonio/m1.jpg',
@@ -155,36 +155,62 @@ export default function WeddingsPage() {
         </div>
 
         {/* INTRO */}
-        <section className="pt-10 pb-20 text-center">
-          <div className="max-w-6xl mx-auto px-6">
+        <section className="pt-10 pb-20 text-center overflow-hidden">
+  <div className="max-w-6xl mx-auto px-5 sm:px-6">
 
-            {/* TÍTULO */}
-            <motion.h2
-              className="text-4xl md:text-5xl font-light text-gray-700 leading-tight whitespace-nowrap"
-              initial={{ opacity: 0, x: -120 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: false, margin: '-100px' }}
-              transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            >
-              CELEBRA TU AMOR EN UN{' '}
-              <span className="font-semibold text-gray-900">
-                LUGAR MÁGICO
-              </span>
-            </motion.h2>
+    {/* TÍTULO */}
+    <motion.h2
+      className="
+        text-3xl
+        sm:text-4xl
+        md:text-5xl
+        font-light
+        text-gray-700
+        leading-tight
+        max-w-5xl
+        mx-auto
+        break-words
+      "
+      initial={{ opacity: 0, x: -120 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: false, margin: '-100px' }}
+      transition={{
+        duration: 1.4,
+        ease: [0.22, 1, 0.36, 1],
+      }}
+    >
+      CELEBRA TU AMOR EN UN{' '}
+      <span className="font-semibold text-gray-900">
+        LUGAR MÁGICO
+      </span>
+    </motion.h2>
 
-            {/* SUBTÍTULO */}
-            <motion.p
-              className="mt-6 text-xl md:text-2xl text-gray-600 leading-relaxed"
-              initial={{ opacity: 0, y: -20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: false }}
-              transition={{ duration: 0.8, delay: 0.3 }}
-            >
-              RODEADO DE NATURALEZA Y TRANQUILIDAD, DONDE CADA DETALLE SE CONVIERTE EN UN RECUERDO INOLVIDABLE.
-            </motion.p>
+    {/* SUBTÍTULO */}
+    <motion.p
+      className="
+        mt-6
+        text-lg
+        sm:text-xl
+        md:text-2xl
+        text-gray-600
+        leading-relaxed
+        max-w-5xl
+        mx-auto
+      "
+      initial={{ opacity: 0, y: -20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: false }}
+      transition={{
+        duration: 0.8,
+        delay: 0.3,
+      }}
+    >
+      RODEADO DE NATURALEZA Y TRANQUILIDAD, DONDE CADA DETALLE SE CONVIERTE EN
+      UN RECUERDO INOLVIDABLE.
+    </motion.p>
 
-          </div>
-        </section>
+  </div>
+</section>
 
 
 {/* BENEFICIOS MATRIMONIO */}
