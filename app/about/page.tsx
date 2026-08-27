@@ -32,15 +32,15 @@ const socialLinks: SocialLink[] = [
 ];
 
 const aboutGalleryImages: string[] = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/image00038-min.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/DSC01775.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/39A92BE4-761D-4997-A7B5-8EB850E096B9_1_105_c.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Ceviche-e1724896325930.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/image00033-min.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/DSC01866-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Matrimonio-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/image00005-min.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Jardines-1-min-e1723475875314.webp',
+  '/images/cabanas/cabana4/c4.jpg',
+  '/images/relajacion.jpg',
+  '/images/restaurante/rest4.webp',
+  '/images/restaurante/rest2.webp',
+  '/images/cabanas/cabana6/c2.jpg',
+  '/images/restaurante/rest5.webp',
+  '/images/matrimonio/m1.jpg',
+  '/images/cabanas/cabana4/c1.jpeg',
+  '/images/galeria/areas-verdes.jpg',
 ];
 
 export default function AboutPage() {

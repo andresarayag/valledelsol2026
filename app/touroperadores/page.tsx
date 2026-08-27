@@ -76,7 +76,7 @@ export default function TourOperadoresPage() {
   const heroY = useTransform(
     scrollYProgress,
     [0, 0.25],
-    ['-15%', '45%']
+    ['-5%', '35%']
   );
 
   const heroScale = useTransform(
@@ -94,7 +94,7 @@ export default function TourOperadoresPage() {
 
 
 {/* HERO CON PARALLAX */}
-<section className="relative h-screen -mt-24 overflow-hidden bg-black">
+<section className="relative min-h-[78vh] h-[85vh] -mt-24 overflow-hidden bg-black">
 
   {/* IMAGEN PARALLAX */}
   <motion.div
@@ -105,27 +105,49 @@ export default function TourOperadoresPage() {
     }}
   >
     <Image
-      src="/images/tour/t3.jpg"
-      alt="Turismo para Grupos"
-      fill
-      priority
-      className="object-cover"
-    />
+  src="/images/tour/t3.jpg"
+  alt="Turismo para Grupos"
+  fill
+  priority
+  className="object-cover object-[center_40%]"
+/>
   </motion.div>
 
   {/* OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
   {/* CONTENIDO */}
-  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
-
+  <div
+    className="
+      relative
+      z-10
+      h-full
+      flex
+      items-center
+      justify-center
+      px-6
+      pt-36
+      md:pt-40
+      lg:pt-44
+    "
+  >
     <div className="max-w-6xl mx-auto text-center text-white">
 
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9 }}
-        className="uppercase tracking-[0.45em] text-[#FBB03B] text-sm mb-8"
+        className="
+          uppercase
+          tracking-[0.3em]
+          sm:tracking-[0.4em]
+          md:tracking-[0.45em]
+          text-[#FBB03B]
+          text-xs
+          sm:text-sm
+          mb-6
+          md:mb-8
+        "
       >
         Turismo Receptivo • Tour Operadores
       </motion.p>
@@ -137,7 +159,17 @@ export default function TourOperadoresPage() {
           duration: 1.4,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+        className="
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+          font-bold
+          leading-[0.95]
+          tracking-tight
+          text-white
+        "
       >
         Turismo para
         <br />
@@ -151,9 +183,22 @@ export default function TourOperadoresPage() {
           duration: 0.9,
           delay: 0.25,
         }}
-        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+        className="
+          mt-6
+          md:mt-8
+          lg:mt-10
+          text-lg
+          sm:text-xl
+          md:text-2xl
+          text-white/90
+          max-w-5xl
+          mx-auto
+          leading-relaxed
+        "
       >
-        Diseñamos programas turísticos para delegaciones nacionales e internacionales que buscan descubrir el Valle del Itata desde un lugar único, rodeado de naturaleza, gastronomía y experiencias inolvidables.
+        Diseñamos programas turísticos para delegaciones nacionales e
+        internacionales que buscan descubrir el Valle del Itata desde un lugar
+        único, rodeado de naturaleza, gastronomía y experiencias inolvidables.
       </motion.p>
 
       <motion.div
@@ -163,9 +208,17 @@ export default function TourOperadoresPage() {
           duration: 0.9,
           delay: 0.45,
         }}
-        className="flex flex-col sm:flex-row gap-5 justify-center mt-14"
+        className="
+          flex
+          flex-col
+          sm:flex-row
+          gap-5
+          justify-center
+          mt-10
+          md:mt-12
+          lg:mt-14
+        "
       >
-
         <PrimaryButton href="https://wa.link/vjoaea">
           Solicitar Programa
         </PrimaryButton>
@@ -185,7 +238,6 @@ export default function TourOperadoresPage() {
       </motion.div>
 
     </div>
-
   </div>
 
 </section>

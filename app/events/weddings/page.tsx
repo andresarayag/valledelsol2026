@@ -26,31 +26,31 @@ const services = [
   {
     title: 'Banquetería y Menú',
     description: 'Servicio de alimentación completo, con alternativas de menú y opción buffet.',
-    iconUrl: '/images/matrimonio/sombrero-de-cocinero.WEBP',
+    iconUrl: '/images/matrimonio/sombrero-de-cocinero.webp',
     iconAlt: 'Banquetería y Menú',
   },
   {
     title: 'Ambientación y Decoración',
     description: 'Espacios preparados para una celebración cálida, personalizada y memorable.',
-    iconUrl: '/images/matrimonio/pasillo-1.WEBP',
+    iconUrl: '/images/matrimonio/pasillo-1.webp',
     iconAlt: 'Decoración',
   },
   {
     title: 'Wedding Planner',
     description: 'Apoyo en la organización del día para que cada momento fluya con tranquilidad.',
-    iconUrl: '/images/matrimonio/planificador-de-la-boda.WEBP',
+    iconUrl: '/images/matrimonio/planificador-de-la-boda.webp',
     iconAlt: 'Wedding Planner',
   },
   {
     title: 'Música y Audiovisuales',
     description: 'DJ, animación, sonido e iluminación.',
-    iconUrl: '/images/matrimonio/sistema-de-sonido.WEBP',
+    iconUrl: '/images/matrimonio/sistema-de-sonido.webp',
     iconAlt: 'Audio',
   },
   {
     title: 'Experiencias',
     description: 'Cabina 360°, tatuajes, artistas, carritos de comida, cotillón y más.',
-    iconUrl: '/images/matrimonio/fotografo.WEBP',
+    iconUrl: '/images/matrimonio/fotografo.webp',
     iconAlt: 'Experiencias',
   },
   {
@@ -78,18 +78,23 @@ export default function WeddingsPage() {
       <main>
 
        {/* HERO VIDEO */}
-<section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
+<section className="relative min-h-[78vh] h-[85vh] -mt-24 overflow-hidden bg-black">
 
   {/* VIDEO */}
   <div className="absolute inset-0 w-full h-full overflow-hidden">
 
     <iframe
       className="
-        absolute top-1/2 left-1/2
-        min-w-full min-h-full
-        w-auto h-auto
+        absolute
+        top-1/2
+        left-1/2
+        min-w-full
+        min-h-full
+        w-auto
+        h-auto
         aspect-video
-        -translate-x-1/2 -translate-y-1/2
+        -translate-x-1/2
+        -translate-y-1/2
         pointer-events-none
       "
       src="https://www.youtube.com/embed/br3Qe9JXdVU?autoplay=1&mute=1&controls=0&loop=1&playlist=br3Qe9JXdVU&modestbranding=1&showinfo=0&rel=0"
@@ -99,11 +104,24 @@ export default function WeddingsPage() {
 
   </div>
 
-  {/* Overlay */}
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
   {/* CONTENIDO */}
-  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+  <div
+    className="
+      relative
+      z-10
+      h-full
+      flex
+      items-center
+      justify-center
+      px-6
+      pt-36
+      md:pt-40
+      lg:pt-44
+    "
+  >
 
     <div className="max-w-5xl mx-auto text-center text-white">
 
@@ -114,7 +132,15 @@ export default function WeddingsPage() {
           duration: 1.4,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="text-6xl md:text-8xl lg:text-9xl text-white leading-none"
+        className="
+          text-5xl
+          sm:text-6xl
+          md:text-7xl
+          lg:text-8xl
+          xl:text-9xl
+          text-white
+          leading-none
+        "
         style={{
           fontFamily: '"Cormorant Garamond", serif',
           fontStyle: 'italic',
@@ -132,7 +158,18 @@ export default function WeddingsPage() {
           duration: 1,
           delay: 0.4,
         }}
-        className="mt-10 text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed"
+        className="
+          mt-6
+          md:mt-8
+          lg:mt-10
+          text-lg
+          sm:text-xl
+          md:text-2xl
+          text-white/90
+          max-w-4xl
+          mx-auto
+          leading-relaxed
+        "
       >
         Cotiza con nuestro formato all inclusive
       </motion.p>

@@ -151,14 +151,12 @@ const heroScale = useTransform(
 
       <main>
 
-        {/* HERO */}
-
-        {/* HERO */}
 {/* HERO */}
 <section
   ref={heroRef}
-  className="relative h-[85vh] -mt-24 overflow-hidden bg-black"
+  className="relative min-h-[78vh] h-[85vh] -mt-24 overflow-hidden bg-black"
 >
+  {/* IMAGEN PARALLAX */}
   <motion.div
     className="absolute -inset-y-32 inset-x-0"
     style={{
@@ -175,9 +173,24 @@ const heroScale = useTransform(
     />
   </motion.div>
 
+  {/* OVERLAY */}
   <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-  <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+  {/* CONTENIDO */}
+  <div
+    className="
+      relative
+      z-10
+      h-full
+      flex
+      items-center
+      justify-center
+      px-6
+      pt-36
+      md:pt-40
+      lg:pt-44
+    "
+  >
     <div className="max-w-6xl mx-auto text-center text-white">
 
       <motion.h1
@@ -187,7 +200,17 @@ const heroScale = useTransform(
           duration: 1.4,
           ease: [0.22, 1, 0.36, 1],
         }}
-        className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
+        className="
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+          font-bold
+          leading-[0.95]
+          tracking-tight
+          text-white
+        "
       >
         Servicios Corporativos
       </motion.h1>
@@ -199,9 +222,21 @@ const heroScale = useTransform(
           duration: 1,
           delay: 0.4,
         }}
-        className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
+        className="
+          mt-6
+          md:mt-8
+          lg:mt-10
+          text-lg
+          sm:text-xl
+          md:text-2xl
+          text-white/90
+          max-w-5xl
+          mx-auto
+          leading-relaxed
+        "
       >
-        Espacios premium para reuniones, capacitaciones, celebraciones y experiencias inolvidables.
+        Espacios premium para reuniones, capacitaciones, celebraciones y
+        experiencias inolvidables.
       </motion.p>
 
     </div>

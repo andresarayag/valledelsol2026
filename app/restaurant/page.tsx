@@ -34,10 +34,11 @@ const socialLinks: SocialLink[] = [
 ];
 
 const galleryImages = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/4497900C-2782-40DB-A962-B38470044A37_1_102_o-e1725501882844.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/1000028807-min.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/20240824_215030157_iOS-min-e1724725751972.jpg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Cordero-Patagonico-e1724621972959.jpeg',
+  '/images/restaurante/rest1.webp',
+  '/images/restaurante/rest2.webp',
+  '/images/restaurante/rest3.webp',
+  '/images/restaurante/rest4.webp',
+  '/images/restaurante/rest5.webp',
 ];
 
 export default function RestaurantPage() {
@@ -64,78 +65,121 @@ export default function RestaurantPage() {
       <main>
 
         {/* HERO CON PARALLAX */}
-        <section className="relative h-[85vh] -mt-24 overflow-hidden bg-black">
+<section className="relative min-h-[78vh] h-[85vh] -mt-24 overflow-hidden bg-black">
 
-          {/* IMAGEN PARALLAX */}
-          <motion.div
-            className="absolute -inset-y-32 inset-x-0"
-            style={{
-              y: heroY,
-              scale: heroScale,
-            }}
-          >
-            <Image
-              src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Restaurante-3-1.jpeg"
-              alt="Restaurant Valle del Sol"
-              fill
-              className="object-cover"
-              priority
-            />
-          </motion.div>
+  {/* IMAGEN PARALLAX */}
+  <motion.div
+    className="absolute -inset-y-32 inset-x-0"
+    style={{
+      y: heroY,
+      scale: heroScale,
+    }}
+  >
+    <Image
+      src="/images/restaurante/resthero.webp"
+      alt="Restaurant Valle del Sol"
+      fill
+      className="object-cover"
+      priority
+    />
+  </motion.div>
 
-          {/* OVERLAY */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
+  {/* OVERLAY */}
+  <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/35 to-black/75" />
 
-          {/* CONTENIDO */}
-          <div className="relative z-10 h-full flex items-center justify-center px-6 pt-24">
+  {/* CONTENIDO */}
+  <div
+    className="
+      relative
+      z-10
+      h-full
+      flex
+      items-center
+      justify-center
+      px-6
+      pt-36
+      md:pt-40
+      lg:pt-44
+    "
+  >
+    <div className="max-w-6xl mx-auto text-center text-white">
 
-            <div className="max-w-6xl mx-auto text-center text-white">
+      <motion.h1
+        initial={{ opacity: 0, x: -120 }}
+        animate={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        className="
+          text-4xl
+          sm:text-5xl
+          md:text-6xl
+          lg:text-7xl
+          xl:text-8xl
+          font-bold
+          leading-[0.95]
+          tracking-tight
+          text-white
+        "
+      >
+        Nuestro Restaurant
+      </motion.h1>
 
-              <motion.h1
-                initial={{ opacity: 0, x: -120 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{
-                  duration: 1.4,
-                  ease: [0.22, 1, 0.36, 1],
-                }}
-                className="text-5xl md:text-7xl lg:text-8xl font-bold leading-[0.95] tracking-tight text-white"
-              >
-                Nuestro Restaurant
-              </motion.h1>
+      <motion.p
+        initial={{ opacity: 0, y: -20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{
+          duration: 1,
+          delay: 0.4,
+        }}
+        className="
+          mt-6
+          md:mt-8
+          lg:mt-10
+          text-lg
+          sm:text-xl
+          md:text-2xl
+          text-white/90
+          max-w-5xl
+          mx-auto
+          leading-relaxed
+        "
+      >
+        Una experiencia gastronómica en medio de la naturaleza
+      </motion.p>
 
-              <motion.p
-                initial={{ opacity: 0, y: -20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{
-                  duration: 1,
-                  delay: 0.4,
-                }}
-                className="mt-10 text-xl md:text-2xl text-white/90 max-w-5xl mx-auto leading-relaxed"
-              >
-                Una experiencia gastronómica en medio de la naturaleza
-              </motion.p>
+    </div>
+  </div>
 
-            </div>
+</section>
 
-          </div>
+{/* CTA HERO */}
+<div className="text-center -mt-10 mb-16 relative z-10">
 
-        </section>
+  <Link
+    href="https://menu.fu.do/entrepinosquillon/qr-menu"
+    target="_blank"
+    className="
+      inline-block
+      px-10
+      py-4
+      rounded-full
+      font-semibold
+      text-black
+      shadow-xl
+      transition-all
+      duration-300
+      hover:scale-105
+    "
+    style={{
+      backgroundColor: '#FBB03B',
+    }}
+  >
+    Ver Carta
+  </Link>
 
-        {/* CTA HERO */}
-        <div className="text-center -mt-10 mb-16 relative z-10">
-
-          <Link
-            href="https://menu.fu.do/entrepinosquillon/qr-menu"
-            target="_blank"
-            className="inline-block px-10 py-4 rounded-full font-semibold text-black shadow-xl transition-all duration-300 hover:scale-105"
-            style={{
-              backgroundColor: '#FBB03B',
-            }}
-          >
-            Ver Carta
-          </Link>
-
-        </div>
+</div>
 
         {/* DESCRIPCIÓN RESTAURANT */}
         <section className="pb-20">

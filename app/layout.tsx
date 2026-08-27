@@ -1,22 +1,24 @@
-import type { Metadata } from "next";
-import { Montserrat, Geist_Mono } from "next/font/google";
-import "./globals.css";
+import type { Metadata } from 'next';
+import { Geist_Mono, Montserrat } from 'next/font/google';
+import './globals.css';
+
+import { AlohaBookingProvider } from './components/AlohaBookingProvider';
 
 const montserrat = Montserrat({
-  variable: "--font-montserrat",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
+  variable: '--font-montserrat',
+  subsets: ['latin'],
+  weight: ['300', '400', '500', '600', '700'],
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  variable: '--font-geist-mono',
+  subsets: ['latin'],
 });
 
 export const metadata: Metadata = {
-  title: "Valle del Sol - Complejo Turístico Quillón",
+  title: 'Valle del Sol - Complejo Turístico Quillón',
   description:
-    "Descubre en Valle del sol la Magia de la Naturaleza, Relajación y hospitalidad. Cabañas, restaurante, eventos y más en Quillón.",
+    'Descubre en Valle del Sol la magia de la naturaleza, la relajación y la hospitalidad. Cabañas, restaurante, eventos y más en Quillón.',
 };
 
 export default function RootLayout({
@@ -26,8 +28,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className={montserrat.variable}>
-      <body className={`${geistMono.variable} font-sans antialiased`}>
-        {children}
+      <body
+        className={`${montserrat.variable} ${geistMono.variable} font-sans antialiased`}
+      >
+        <AlohaBookingProvider>
+          {children}
+        </AlohaBookingProvider>
       </body>
     </html>
   );
