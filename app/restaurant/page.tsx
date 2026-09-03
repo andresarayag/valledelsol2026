@@ -34,11 +34,18 @@ const socialLinks: SocialLink[] = [
 ];
 
 const galleryImages = [
-  '/images/restaurante/rest1.webp',
-  '/images/restaurante/rest2.webp',
-  '/images/restaurante/rest3.webp',
-  '/images/restaurante/rest4.webp',
-  '/images/restaurante/rest5.webp',
+  '/images/restaurante/r1.jpg',
+  '/images/restaurante/r2.jpg',
+  '/images/restaurante/r4.jpg',
+  '/images/restaurante/r7.jpg',
+  '/images/restaurante/r8.jpg',
+  '/images/restaurante/r9.jpg',
+  '/images/restaurante/r10.jpg',
+  '/images/restaurante/r11.jpg',
+  '/images/restaurante/r12.jpg',
+  '/images/restaurante/r13.jpg',
+  '/images/restaurante/r14.jpg',
+  '/images/restaurante/r15.jpg',
 ];
 
 export default function RestaurantPage() {

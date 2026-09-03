@@ -4,9 +4,11 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import PrimaryButton from '../components/PrimaryButton';
 import SecondaryButton from '../components/SecondaryButton';
+import { useAlohaBooking } from '../components/AlohaBookingProvider';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+
 
 /* =========================
    DATA CABAÑAS
@@ -14,21 +16,18 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const cabins = [
   {
     title: 'Cabaña para 2 personas',
+
+    unitSlug: 'cabana-para-2-xkbp7',
+
     description: 'Un rincón perfecto para disfrutar en pareja.',
     details:
       'Suite de un ambiente con techo panorámico de 30m2. Se ubica escondida entre arbustos y árboles frente a la piscina principal, cuenta con una terraza de 15m2.',
 
     images: [
-      '/images/cabanas/cabana2/c1.jpg',
-      '/images/cabanas/cabana2/c2.jpg',
-      '/images/cabanas/cabana2/c3.jpg',
-      '/images/cabanas/cabana2/c4.jpg',
-      '/images/cabanas/cabana2/c5.jpg',
-      '/images/cabanas/cabana2/c6.jpg',
-      '/images/cabanas/cabana2/c7.jpg',
-      '/images/cabanas/cabana2/c8.jpg',
-      '/images/cabanas/cabana2/c9.jpg',
-      '/images/cabanas/cabana2/c10.jpg',
+      '/images/cabanas/cabana2/ca1.jpg',
+      '/images/cabanas/cabana2/ca2.jpg',
+      '/images/cabanas/cabana2/ca3.jpg',
+      '/images/cabanas/cabana2/ca4.jpg',
     ],
 
     icons: [
@@ -48,17 +47,20 @@ const cabins = [
 
   {
     title: 'Cabaña para 4 personas',
+
+    unitSlug: 'cabana-para-4-personas-fedqr',
+
     description: 'Espacio acogedor ideal para experiencias familiares inolvidables.',
     details:
       'Cabaña familiar de dos habitaciones más cocina americana de 40m2. Se ubica frente a una zona de juegos infantiles bajo la sombra de pinos, cuenta con una terraza de 20m2.',
 
     images: [
-      '/images/cabanas/cabana4/c1.jpeg',
-      '/images/cabanas/cabana4/c2.jpg',
-      '/images/cabanas/cabana4/c3.jpg',
-      '/images/cabanas/cabana4/c4.jpg',
-      '/images/cabanas/cabana4/c5.jpg',
-      '/images/cabanas/cabana4/c6.jpeg',
+      '/images/cabanas/cabana4/ca1.jpg',
+      '/images/cabanas/cabana4/ca2.jpg',
+      '/images/cabanas/cabana4/ca3.jpg',
+      '/images/cabanas/cabana4/ca4.jpg',
+      '/images/cabanas/cabana4/ca5.jpg',
+      '/images/cabanas/cabana4/ca6.jpg',
     ],
 
     icons: [
@@ -79,21 +81,20 @@ const cabins = [
 
   {
     title: 'Cabaña para 6 personas',
+
+    unitSlug: 'cabana-para-6-personas-v8ujy',
+
     description: 'Cabaña acogedora para familias grandes y grupos de amigos.',
     details:
       'Cabaña familiar de tres habitaciones más cocina americana de 65m2. Se ubica frente a la fuente con cascada de agua, cuenta con una terraza de 30m2.',
 
     images: [
-      '/images/cabanas/cabana6/c1.jpg',
-      '/images/cabanas/cabana6/c2.jpg',
-      '/images/cabanas/cabana6/c3.jpg',
-      '/images/cabanas/cabana6/c4.jpg',
-      '/images/cabanas/cabana6/c5.jpg',
-      '/images/cabanas/cabana6/c6.jpg',
-      '/images/cabanas/cabana6/c10.jpg',
-      '/images/cabanas/cabana6/c8.jpg',
-      '/images/cabanas/cabana6/c9.jpg',
-      '/images/cabanas/cabana6/c7.jpg',
+      '/images/cabanas/cabana6/ca1.jpg',
+      '/images/cabanas/cabana6/ca2.jpg',
+      '/images/cabanas/cabana6/ca3.jpg',
+      '/images/cabanas/cabana6/ca4.jpg',
+      '/images/cabanas/cabana6/ca5.jpg',
+      '/images/cabanas/cabana6/ca6.jpg',
     ],
 
     icons: [
@@ -456,7 +457,9 @@ function AmenitiesCarousel({
    PAGE
 ========================= */
 export default function CabanasPage() {
-const { scrollYProgress } = useScroll();
+  const { isReady, openBooking } = useAlohaBooking();
+
+  const { scrollYProgress } = useScroll();
 
 const heroY = useTransform(
   scrollYProgress,
@@ -719,20 +722,39 @@ const heroScale = useTransform(
           </p>
 
           <div className="mt-8 w-full sm:w-auto">
-            <PrimaryButton
-              href="https://wa.me/56926035311"
-              className="
-                w-full
-                sm:w-auto
-                px-8
-                py-4
-                text-base
-                shadow-xl
-              "
-            >
-              Reservar
-            </PrimaryButton>
-          </div>
+  <button
+    type="button"
+    onClick={() =>
+      openBooking({
+        unitSlug: cabin.unitSlug,
+      })
+    }
+    disabled={!isReady}
+    className="
+      w-full
+      sm:w-auto
+      inline-flex
+      items-center
+      justify-center
+      px-8
+      py-4
+      rounded-full
+      bg-[#FBB03B]
+      text-black
+      text-base
+      font-semibold
+      shadow-xl
+      transition-all
+      duration-300
+      hover:scale-105
+      hover:shadow-2xl
+      disabled:opacity-70
+      disabled:cursor-wait
+    "
+  >
+    Reservar
+  </button>
+</div>
 
         </div>
 
@@ -745,40 +767,69 @@ const heroScale = useTransform(
         {/* CTA FINAL */}
         <section className="py-24 text-center bg-gray-50">
 
-          <div className="max-w-3xl mx-auto px-6">
+  <div className="max-w-3xl mx-auto px-6">
 
-            <p className="text-xl text-gray-700 mb-10">
-              Reserva tu cabaña ideal o cotiza tu evento con nosotros.
-            </p>
+    <p className="text-xl text-gray-700 mb-10">
+      Reserva tu cabaña ideal o cotiza tu evento con nosotros.
+    </p>
 
-            <div className="flex flex-col md:flex-row gap-6 justify-center">
-              <PrimaryButton
-                href="https://www.eventi-app.com/public-quotation/1"
-                className="px-10 py-4"
-              >
-                Cotiza tu evento
-              </PrimaryButton>
-              
-              <SecondaryButton
-                href="https://wa.me/56926035311"
-                className="
-                  px-10 py-4
-                  border-gray-900
-                  text-gray-900
-                  hover:bg-gray-900
-                  hover:text-white
-                "
-              >
-                WhatsApp
-              </SecondaryButton>
+    <div className="flex flex-col md:flex-row gap-6 justify-center">
 
-              
+      {/* COTIZAR EVENTO */}
+      <PrimaryButton
+        href="https://www.eventi-app.com/public-quotation/1"
+        className="px-10 py-4"
+      >
+        Cotiza tu evento
+      </PrimaryButton>
 
-            </div>
+      {/* RESERVAR CABAÑA - ALOHA */}
+      <button
+        type="button"
+        onClick={() => openBooking()}
+        disabled={!isReady}
+        className="
+          inline-flex
+          items-center
+          justify-center
+          px-10
+          py-4
+          rounded-full
+          bg-[#FBB03B]
+          text-black
+          font-semibold
+          shadow-xl
+          transition-all
+          duration-300
+          hover:scale-105
+          hover:shadow-2xl
+          disabled:opacity-70
+          disabled:cursor-wait
+        "
+      >
+        Reservar cabaña
+      </button>
 
-          </div>
+      {/* WHATSAPP */}
+      <SecondaryButton
+        href="https://wa.me/56926035311"
+        className="
+          px-10
+          py-4
+          border-gray-900
+          text-gray-900
+          hover:bg-gray-900
+          hover:text-white
+        "
+      >
+        WhatsApp
+      </SecondaryButton>
 
-        </section>
+    </div>
+
+  </div>
+
+</section>
 
       </main>
 

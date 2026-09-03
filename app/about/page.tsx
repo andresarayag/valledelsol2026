@@ -81,7 +81,7 @@ const heroScale = useTransform(
   }}
 >
     <Image
-      src="/images/galeria/areas-verdes.jpg"
+      src="/images/galeria/piscinas.jpg"
       alt="Valle del Sol"
       fill
       className="object-cover"
@@ -130,27 +130,149 @@ const heroScale = useTransform(
 </section>
 
         {/* INTRO */}
-        <section className="py-20 bg-white">
-          <div className="max-w-4xl mx-auto text-center px-6 space-y-8">
+        {/* HISTORIA / NOSOTROS */}
+<section className="py-24 md:py-32 bg-white overflow-hidden">
 
-            <h2 className="text-3xl md:text-4xl font-bold">
-              Una escapada llena de cultura y naturaleza
-            </h2>
+  <div className="max-w-7xl mx-auto px-6">
 
-            <div className="flex justify-center">
-              <img
-                src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/08/Negro.png?fit=300%2C247&ssl=1"
-                alt="Logo Valle del Sol"
-                className="h-24"
-              />
-            </div>
+    <div className="grid lg:grid-cols-2 gap-14 lg:gap-24 items-center">
 
-            <p className="text-gray-700 leading-relaxed text-lg">
-              Nuestra historia comenzó en 2023, cuando decidimos dejar atrás la vida de oficina en Santiago para perseguir un sueño compartido: crear una experiencia turística única, que conectara a nuestros visitantes con la naturaleza y la cultura local. Con esta visión clara, nos aventuramos en un proyecto que integra una red de proveedores y productores locales, aportando autenticidad y apoyando el crecimiento económico de nuestra comunidad.
-            </p>
+      {/* TEXTO */}
+      <motion.div
+        initial={{ opacity: 0, x: -120 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        viewport={{ once: true }}
+      >
 
-          </div>
-        </section>
+        {/* ETIQUETA */}
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.9 }}
+          viewport={{ once: true }}
+          className="
+            uppercase
+            tracking-[0.35em]
+            text-[#FBB03B]
+            text-sm
+            font-medium
+            mb-7
+          "
+        >
+          Nuestra Historia
+        </motion.p>
+
+        {/* TÍTULO */}
+        <h2
+          className="
+            text-4xl
+            md:text-5xl
+            lg:text-6xl
+            font-light
+            leading-[1.08]
+            tracking-tight
+            text-gray-900
+          "
+        >
+          Una escapada llena de{' '}
+          <span className="font-semibold">
+            cultura y naturaleza
+          </span>
+        </h2>
+
+        {/* TEXTO */}
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.9,
+            delay: 0.2,
+          }}
+          viewport={{ once: true }}
+          className="
+            mt-10
+            text-lg
+            md:text-xl
+            text-gray-600
+            leading-relaxed
+          "
+        >
+          Nuestra historia comenzó en 2023, cuando decidimos dejar atrás la
+          vida de oficina en Santiago para perseguir un sueño compartido:
+          crear una experiencia turística única, que conectara a nuestros
+          visitantes con la naturaleza y la cultura local.
+        </motion.p>
+
+        <motion.p
+          initial={{ opacity: 0, y: -20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{
+            duration: 0.9,
+            delay: 0.35,
+          }}
+          viewport={{ once: true }}
+          className="
+            mt-6
+            text-lg
+            md:text-xl
+            text-gray-600
+            leading-relaxed
+          "
+        >
+          Con esta visión clara, nos aventuramos en un proyecto que integra
+          una red de proveedores y productores locales, aportando
+          autenticidad y apoyando el crecimiento económico de nuestra
+          comunidad.
+        </motion.p>
+
+      </motion.div>
+
+
+      {/* IMAGEN */}
+      <motion.div
+        initial={{ opacity: 0, x: 120 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{
+          duration: 1.4,
+          ease: [0.22, 1, 0.36, 1],
+        }}
+        viewport={{ once: true }}
+        className="
+          relative
+          w-full
+          h-[450px]
+          md:h-[560px]
+          lg:h-[620px]
+          rounded-[32px]
+          overflow-hidden
+          shadow-2xl
+        "
+      >
+
+        <Image
+          src="/images/galeria/letrero2.jpg"
+          alt="Valle del Sol Quillón"
+          fill
+          priority
+          className="
+            object-cover
+            transition-transform
+            duration-700
+            hover:scale-[1.03]
+          "
+        />
+
+      </motion.div>
+
+    </div>
+
+  </div>
+
+</section>
 
         {/* EQUIPO */}
         <section className="py-20 bg-gray-50">
@@ -168,21 +290,21 @@ const heroScale = useTransform(
                 name="Felipe Vargas"
                 role="Socio · Estrategia"
                 description="Ingeniero Civil Industrial, encargado de relaciones comerciales y desarrollo estratégico."
-                imageUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Nosotros-Felipe.jpeg"
+                imageUrl="/images/galeria/Nosotros-Felipe.webp"
               />
 
               <TeamMemberCard
                 name="Camila Carvajal"
                 role="Operaciones"
                 description="Encargada de que todo funcione perfecto en cada experiencia."
-                imageUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Nosotros-Camila.jpeg"
+                imageUrl="/images/galeria/Nosotros-Camila.webp"
               />
 
               <TeamMemberCard
                 name="Bela"
                 role="Relaciones Públicas"
-                description="Nuestra encargada de felicidad y bienvenida 🐶"
-                imageUrl="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Bela-7.jpeg"
+                description="Nuestra encargada de felicidad y bienvenida."
+                imageUrl="/images/galeria/Bela-7.webp"
               />
 
             </div>

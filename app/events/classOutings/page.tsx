@@ -33,14 +33,14 @@ const socialLinks: SocialLink[] = [
 
 /* GALERÍA PASEOS */
 const outingGallery = [
-  '/images/colegios/paseos/p1.jpg',
-  '/images/colegios/paseos/p2.jpg',
-  '/images/colegios/paseos/p4.jpg',
-  '/images/colegios/paseos/p5.jpg',
-  '/images/colegios/paseos/p6.jpg',
-  '/images/colegios/paseos/p7.jpg',
-  '/images/colegios/paseos/p8.jpg',
-  '/images/colegios/paseos/p10.jpg',
+  '/images/colegios/paseos/c2.jpg',
+  '/images/colegios/paseos/c3.jpg',
+  '/images/colegios/paseos/c4.jpg',
+  '/images/colegios/paseos/c5.jpg',
+  '/images/colegios/paseos/c6.jpg',
+  '/images/colegios/paseos/c7.jpg',
+  '/images/colegios/paseos/c8.jpg',
+  '/images/colegios/paseos/c9.jpg',
 ];
 
 /* GALERÍA GRADUACIONES */
@@ -125,7 +125,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
     }}
   >
     <Image
-      src="/images/colegios/paseos/g1.jpg"
+      src="/images/colegios/paseos/c10.jpg"
       alt="Paseos de Curso"
       fill
       className="object-cover"
@@ -332,7 +332,7 @@ const heroScale = useTransform(scrollYProgress, [0, 1], [1.15, 1.28]);
               >
 
                 <Image
-                  src='/images/colegios/paseos/p3.jpg'
+                  src='/images/colegios/paseos/c1.jpg'
                   alt="Paseos"
                   fill
                   className="object-cover hover:scale-105 transition duration-700"

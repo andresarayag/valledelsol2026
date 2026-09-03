@@ -31,100 +31,59 @@ const highlightStats = [
     title: 'Ubicación privilegiada',
     description: 'La mejor ubicación de Quillón.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/ubicacion-1.webp',
+      '/images/empresas/em1.webp',
   },
   {
     title: 'Hasta 1.000 personas',
     description: 'Espacios para eventos de gran convocatoria.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/personas.png',
+      '/images/empresas/em2.webp',
   },
   {
     title: 'Salones equipados',
     description: 'Configurables para cada tipo de actividad.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/conferencia.png',
+      '/images/empresas/em3.webp',
   },
   {
     title: 'Team Building',
     description: 'Actividades para fortalecer la integración y motivación de los equipos.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/escenario.png',
+      '/images/empresas/em4.webp',
   },
   {
     title: 'Banquetería',
     description: 'Coffee break, almuerzos y cenas corporativas.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/banquete.png',
+      '/images/empresas/em5.webp',
   },
   {
     title: 'Estacionamientos',
     description: 'Amplios espacios para colaboradores y visitantes.',
     iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/coche.png',
+      '/images/empresas/em6.webp',
   },
 ];
 
 const trainingGalleryImages = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Auditorio-2-min-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6617-min-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6620-min.webp',
+  '/images/empresas/e1.jpg',
+  '/images/empresas/e2.jpg',
+  '/images/empresas/e3.jpg',
+  '/images/empresas/e4.jpg',
+  '/images/empresas/e5.jpg',
 ];
 
-/* EXPERIENCIAS */
-
-const experiences = [
-  {
-    title: 'Tour de Viñas',
-    description:
-      'Recorridos y degustaciones en las mejores viñas del Valle del Itata.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/tour-vinos-min.webp',
-  },
-  {
-    title: 'Ruta de Licorerías',
-    description:
-      'Conoce la tradición local mediante experiencias de destilados y licores.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8756-min.webp',
-  },
-  {
-    title: 'Atractivos Naturales',
-    description:
-      'Playas, lagunas, senderos y paisajes ideales para desconectarse.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01773-min.webp',
-  },
-  {
-    title: 'Coaching Empresarial',
-    description:
-      'Programas orientados al liderazgo, comunicación y trabajo colaborativo.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Auditorio-2-min-1.webp',
-  },
-  {
-    title: 'Team Building',
-    description:
-      'Actividades diseñadas para fortalecer la integración y motivación de los equipos.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-5-min-e1725423897963.jpeg',
-  },
-  {
-    title: 'Actividades Outdoor',
-    description:
-      'Experiencias recreativas y deportivas en un entorno natural privilegiado.',
-    iconUrl:
-      'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6617-min-1.webp',
-  },
-];
 
 const corporateGallery = [
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-5-min-e1725423897963.jpeg',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8756-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/DSC01773-min.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Auditorio-2-min-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6617-min-1.webp',
-  'https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6620-min.webp',
+  '/images/empresas/e1.jpg',
+  '/images/empresas/e2.jpg',
+  '/images/empresas/e3.jpg',
+  '/images/empresas/e4.jpg',
+  '/images/empresas/e5.jpg',
+  '/images/empresas/e6.jpg',
+  '/images/empresas/e7.jpg',
+  '/images/empresas/e8.jpg',
+  '/images/empresas/e9.jpg',
 ];
 
 /* PAGE */
@@ -325,7 +284,7 @@ const heroScale = useTransform(
 <section className="relative py-36 bg-[#071827] overflow-hidden text-white">
 
   <Image
-    src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_8756-min.webp"
+    src='/images/empresas/e9.jpg'
     alt="Paseos Fin de Año"
     fill
     className="object-cover scale-105"
@@ -454,7 +413,7 @@ const heroScale = useTransform(
     >
 
       <Image
-        src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/Eventos-5-min-e1725423897963.jpeg"
+        src='/images/empresas/e8.jpg'
         alt="Celebración corporativa de fin de año"
         fill
         className="object-cover hover:scale-110 transition duration-700"
@@ -598,102 +557,171 @@ const heroScale = useTransform(
   </div>
 
 </section>
-{/* EXPERIENCIAS */}
+{/* SOLUCIONES PARA EMPRESAS */}
 
-<section className="relative py-32 bg-black overflow-hidden text-white">
+<section className="relative py-24 md:py-28 bg-black overflow-hidden text-white">
 
+  {/* FONDO */}
   <div className="absolute inset-0 bg-gradient-to-b from-black via-zinc-900 to-black opacity-95" />
 
-  <div className="relative max-w-7xl mx-auto px-6">
+  <div className="relative max-w-7xl mx-auto px-5 md:px-6">
 
+    {/* ENCABEZADO */}
     <motion.div
       initial={{ opacity: 0, x: -120 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{
         duration: 1.4,
-        ease: [0.22,1,0.36,1],
+        ease: [0.22, 1, 0.36, 1],
       }}
       viewport={{ once: true }}
-      className="text-center mb-20"
+      className="text-center mb-14 md:mb-16"
     >
 
-      <p className="uppercase tracking-[0.35em] text-[#FBB03B] text-sm mb-5">
-
-        Más que un evento
-
+      <p className="uppercase tracking-[0.3em] text-[#FBB03B] text-xs md:text-sm mb-4">
+        Empresas
       </p>
 
-      <h2 className="text-4xl md:text-5xl font-light text-white leading-tight uppercase">
-                    SERVICIOS <span className="font-semibold text-white">CORPORATIVOS</span>
-                  </h2>
+      <h2 className="text-3xl md:text-5xl font-semibold text-white leading-tight">
+        Soluciones para empresas
+      </h2>
 
       <motion.p
-        initial={{ opacity:0,y:-20 }}
-        whileInView={{ opacity:1,y:0 }}
-        transition={{ duration:.9 }}
-        viewport={{ once:true }}
-        className="mt-8 text-white/70 text-lg max-w-4xl mx-auto leading-relaxed"
+        initial={{ opacity: 0, y: -20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.9 }}
+        viewport={{ once: true }}
+        className="mt-4 text-white/70 text-base md:text-lg max-w-3xl mx-auto leading-relaxed"
       >
-
-        Diseñamos programas corporativos completamente personalizados que
-        combinan naturaleza, gastronomía, cultura y actividades de integración,
-        fortaleciendo el trabajo en equipo y transformando cada encuentro en una
-        experiencia memorable.
-
+        Del alojamiento en faena a la celebración de fin de año,
+        todo en un solo lugar.
       </motion.p>
 
     </motion.div>
 
-    <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-10">
+    {/* TARJETAS */}
+    {/* TARJETAS */}
+<div className="grid md:grid-cols-2 xl:grid-cols-3 gap-5">
 
-      {experiences.map((exp, i) => (
+  {[
+    {
+      title: 'Alojamiento para faenas',
+      description:
+        'Tarifas paquetizadas con pensión completa para personal en terreno.',
+    },
+    {
+      title: 'Juntas directivas y capacitaciones',
+      description:
+        'Jornadas de trabajo con salones equipados y alojamiento incluido.',
+    },
+    {
+      title: 'Seminarios, foros y congresos',
+      description:
+        'Dos salones con capacidad para 100 y 250 personas.',
+    },
+    {
+      title: 'Cenas corporativas',
+      description:
+        'Restaurante con capacidad para 200 personas, ideal para aniversarios y premiaciones.',
+    },
+    {
+      title: 'Paseos de fin de año',
+      description:
+        'Alimentación, piscinas y actividades de team building para tu equipo.',
+    },
+    {
+      title: 'Tours por la región',
+      description:
+        'Cierres de jornada con viñas, licorerías y atractivos del Valle del Itata.',
+    },
+  ].map((item, index) => (
 
-        <motion.div
-          key={i}
-          initial={{ opacity:0, y:60 }}
-          whileInView={{ opacity:1, y:0 }}
-          transition={{
-            duration:.8,
-            delay:i*.08,
-          }}
-          viewport={{ once:true }}
-          className="group rounded-[32px] overflow-hidden bg-white/5 backdrop-blur-sm border border-white/10 hover:border-[#FBB03B]/60 transition-all duration-500"
+    <motion.div
+      key={index}
+      initial={{ opacity: 0, y: 40 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{
+        duration: 0.7,
+        delay: index * 0.08,
+      }}
+      viewport={{ once: true }}
+      className="
+        group
+        rounded-[24px]
+        bg-[#1b1a17]
+        border
+        border-white/10
+        p-7
+        md:p-8
+        min-h-[190px]
+        flex
+        flex-col
+        justify-center
+        transition-all
+        duration-500
+        hover:-translate-y-2
+        hover:border-[#FBB03B]/60
+        hover:shadow-[0_25px_60px_rgba(0,0,0,0.35)]
+      "
+    >
+
+      {/* TÍTULO + TICKET */}
+      <div className="flex items-start gap-4 mb-4">
+
+        {/* TICKET NARANJO */}
+        <div
+          className="
+            shrink-0
+            w-8
+            h-8
+            rounded-full
+            bg-[#FBB03B]/15
+            flex
+            items-center
+            justify-center
+            transition-all
+            duration-300
+            group-hover:bg-[#FBB03B]
+            group-hover:scale-110
+          "
         >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="17"
+            height="17"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="
+              text-[#FBB03B]
+              transition-colors
+              duration-300
+              group-hover:text-black
+            "
+          >
+            <path d="M20 6 9 17l-5-5" />
+          </svg>
+        </div>
 
-          <div className="relative h-64 overflow-hidden">
+        <h3 className="text-xl md:text-2xl font-semibold text-white leading-tight pt-0.5">
+          {item.title}
+        </h3>
 
-            <Image
-              src={exp.iconUrl}
-              alt={exp.title}
-              fill
-              className="object-cover group-hover:scale-110 transition duration-700"
-            />
+      </div>
 
-            <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent"/>
+      {/* DESCRIPCIÓN */}
+      <p className="text-white/65 text-base leading-relaxed pl-12">
+        {item.description}
+      </p>
 
-          </div>
+    </motion.div>
 
-          <div className="p-8">
+  ))}
 
-            <h3 className="text-2xl font-light mb-4">
-
-              {exp.title}
-
-            </h3>
-
-            <p className="text-white/70 leading-relaxed">
-
-              {exp.description}
-
-            </p>
-
-          </div>
-
-        </motion.div>
-
-      ))}
-
-    </div>
+</div>
 
   </div>
 
@@ -704,7 +732,7 @@ const heroScale = useTransform(
 <section className="relative py-36 overflow-hidden">
 
   <Image
-    src="https://i0.wp.com/valledelsolquillon.cl/wp-content/uploads/2024/09/IMG_6617-min-1.webp"
+    src='/images/empresas/e1.jpg'
     alt="Convenios Corporativos"
     fill
     className="object-cover scale-105"

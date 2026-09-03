@@ -20,6 +20,22 @@ const weddingGallery = [
   '/images/matrimonio/m5.jpg',
   '/images/matrimonio/m6.jpg',
   '/images/matrimonio/m7.jpg',
+  '/images/matrimonio/ma1.jpg',
+  '/images/matrimonio/ma2.jpg',
+  '/images/matrimonio/ma3.jpg',
+  '/images/matrimonio/ma4.jpg',
+  '/images/matrimonio/ma5.jpg',
+  '/images/matrimonio/ma6.jpg',
+  '/images/matrimonio/ma7.jpg',
+  '/images/matrimonio/ma8.jpg',
+  '/images/matrimonio/ma9.jpg',
+  '/images/matrimonio/ma10.jpg',
+  '/images/matrimonio/ma11.jpg',
+  '/images/matrimonio/ma12.jpg',
+  '/images/matrimonio/ma13.jpg',
+  '/images/matrimonio/ma14.jpg',
+  '/images/matrimonio/ma15.jpg',
+  '/images/matrimonio/ma16.jpg',
 ];
 
 const services = [
@@ -56,7 +72,7 @@ const services = [
   {
     title: 'Bar y Barra libre',
     description: 'Una barra pensada para que tus invitados disfruten la fiesta.',
-    iconUrl: '/images/matrimonio/copa-de-vino.WEBP',
+    iconUrl: '/images/matrimonio/copa-de-vino.webp',
     iconAlt: 'Bar',
   },
 ];
