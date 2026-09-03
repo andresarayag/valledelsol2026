@@ -94,7 +94,20 @@ export default function TourOperadoresPage() {
 
 
 {/* HERO CON PARALLAX */}
-<section className="relative min-h-[78vh] h-[85vh] -mt-24 overflow-hidden bg-black">
+<section
+  className="
+    relative
+    min-h-[680px]
+    h-auto
+    md:min-h-[720px]
+    lg:min-h-[780px]
+    xl:min-h-[85vh]
+    2xl:min-h-[88vh]
+    -mt-24
+    overflow-hidden
+    bg-black
+  "
+>
 
   {/* IMAGEN PARALLAX */}
   <motion.div
@@ -105,12 +118,12 @@ export default function TourOperadoresPage() {
     }}
   >
     <Image
-  src="/images/tour/t3.jpg"
-  alt="Turismo para Grupos"
-  fill
-  priority
-  className="object-cover object-[center_40%]"
-/>
+      src="/images/tour/t3.jpg"
+      alt="Turismo para Grupos"
+      fill
+      priority
+      className="object-cover object-[center_40%]"
+    />
   </motion.div>
 
   {/* OVERLAY */}
@@ -118,40 +131,50 @@ export default function TourOperadoresPage() {
 
   {/* CONTENIDO */}
   <div
-    className="
-      relative
-      z-10
-      h-full
-      flex
-      items-center
-      justify-center
-      px-6
-      pt-36
-      md:pt-40
-      lg:pt-44
-    "
-  >
-    <div className="max-w-6xl mx-auto text-center text-white">
+  className="
+    relative
+    z-10
+    min-h-[680px]
+    md:min-h-[720px]
+    lg:min-h-[780px]
+    xl:min-h-[85vh]
+    2xl:min-h-[92vh]
+    flex
+    items-center
+    justify-center
+    px-5
+    sm:px-6
+    pt-32
+    pb-14
+    md:pt-36
+    md:pb-16
+    lg:pt-40
+    lg:pb-16
+  "
+>
+    <div className="w-full max-w-6xl mx-auto text-center text-white">
 
+      {/* ETIQUETA */}
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.9 }}
         className="
           uppercase
-          tracking-[0.3em]
-          sm:tracking-[0.4em]
-          md:tracking-[0.45em]
+          tracking-[0.25em]
+          sm:tracking-[0.35em]
+          md:tracking-[0.4em]
           text-[#FBB03B]
           text-xs
           sm:text-sm
-          mb-6
-          md:mb-8
+          mb-5
+          md:mb-6
         "
       >
         Turismo Receptivo • Tour Operadores
       </motion.p>
 
+      {/* TÍTULO */}
       <motion.h1
         initial={{ opacity: 0, x: -120 }}
         animate={{ opacity: 1, x: 0 }}
@@ -176,6 +199,7 @@ export default function TourOperadoresPage() {
         Grupos
       </motion.h1>
 
+      {/* DESCRIPCIÓN */}
       <motion.p
         initial={{ opacity: 0, y: -20 }}
         animate={{ opacity: 1, y: 0 }}
@@ -184,12 +208,13 @@ export default function TourOperadoresPage() {
           delay: 0.25,
         }}
         className="
-          mt-6
+          mt-5
+          sm:mt-6
           md:mt-8
-          lg:mt-10
-          text-lg
-          sm:text-xl
-          md:text-2xl
+          text-base
+          sm:text-lg
+          md:text-xl
+          lg:text-2xl
           text-white/90
           max-w-5xl
           mx-auto
@@ -201,6 +226,7 @@ export default function TourOperadoresPage() {
         único, rodeado de naturaleza, gastronomía y experiencias inolvidables.
       </motion.p>
 
+      {/* BOTONES */}
       <motion.div
         initial={{ opacity: 0, y: 30 }}
         animate={{ opacity: 1, y: 0 }}
@@ -212,11 +238,12 @@ export default function TourOperadoresPage() {
           flex
           flex-col
           sm:flex-row
-          gap-5
+          gap-4
+          sm:gap-5
           justify-center
-          mt-10
-          md:mt-12
-          lg:mt-14
+          items-center
+          mt-8
+          md:mt-10
         "
       >
         <PrimaryButton href="https://wa.link/vjoaea">

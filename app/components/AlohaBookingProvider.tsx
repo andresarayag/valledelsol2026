@@ -36,9 +36,7 @@ export function AlohaBookingProvider({
   const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
 
   /*
-   * ==========================================================
-   * RECUPERAR RESERVA DESPUÉS DEL PAGO
-   * ==========================================================
+   * RECUPERAR RESERVA AL VOLVER DEL PAGO
    */
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
@@ -54,9 +52,7 @@ export function AlohaBookingProvider({
   }, []);
 
   /*
-   * ==========================================================
    * ABRIR ALOHA
-   * ==========================================================
    */
   const openBooking = useCallback(
     (options?: OpenBookingOptions) => {
@@ -76,9 +72,7 @@ export function AlohaBookingProvider({
   );
 
   /*
-   * ==========================================================
-   * CERRAR COMPLETAMENTE ALOHA
-   * ==========================================================
+   * CERRAR ALOHA COMPLETAMENTE
    */
   const closeBooking = useCallback(() => {
     setIsOpen(false);
@@ -86,39 +80,12 @@ export function AlohaBookingProvider({
     setBookingId(null);
     setPaymentStatus(null);
 
-    /*
-     * Restaurar scroll por seguridad.
-     */
     document.body.style.overflow = '';
     document.documentElement.style.overflow = '';
   }, []);
 
   /*
-   * ==========================================================
-   * RECIBIR AVISO DESDE EL IFRAME
-   * ==========================================================
-   */
-  useEffect(() => {
-    const handleMessage = (event: MessageEvent) => {
-      if (event.data?.type === 'ALOHA_WIDGET_CLOSED') {
-        closeBooking();
-      }
-    };
-
-    window.addEventListener('message', handleMessage);
-
-    return () => {
-      window.removeEventListener(
-        'message',
-        handleMessage
-      );
-    };
-  }, [closeBooking]);
-
-  /*
-   * ==========================================================
-   * DOCUMENTO AISLADO DE ALOHA
-   * ==========================================================
+   * HTML AISLADO DEL WIDGET
    */
   const iframeDocument = useMemo(() => {
     if (!isOpen || !ALOHA_PROPERTY_KEY) {
@@ -139,15 +106,13 @@ export function AlohaBookingProvider({
       widgetConfig.payment_status = paymentStatus;
     }
 
-    const serializedConfig =
-      JSON.stringify(widgetConfig).replace(
-        /</g,
-        '\\u003c'
-      );
+    const serializedConfig = JSON.stringify(widgetConfig).replace(
+      /</g,
+      '\\u003c'
+    );
 
     return `
       <!DOCTYPE html>
-
       <html lang="es">
 
         <head>
@@ -165,7 +130,6 @@ export function AlohaBookingProvider({
           />
 
           <style>
-
             html,
             body {
               width: 100%;
@@ -181,7 +145,6 @@ export function AlohaBookingProvider({
               height: 100%;
               background: transparent !important;
             }
-
           </style>
 
         </head>
@@ -195,115 +158,24 @@ export function AlohaBookingProvider({
           ></script>
 
           <script>
-
             window.addEventListener(
               'load',
               function () {
-
                 try {
-
                   var widget =
                     new AlohaBookingWidget(
                       ${serializedConfig}
                     );
 
                   widget.open();
-
-
-                  /*
-                   * ==================================================
-                   * DETECTAR CUANDO ALOHA SE CIERRA
-                   * ==================================================
-                   *
-                   * Mientras Aloha está abierto aparece permanentemente
-                   * el texto "Impulsado por".
-                   *
-                   * Cuando el usuario presiona la X nativa de Aloha,
-                   * el widget elimina su contenido.
-                   *
-                   * En ese momento avisamos al sitio principal para
-                   * desmontar completamente el iframe.
-                   */
-
-                  var widgetWasVisible = false;
-                  var missingChecks = 0;
-
-                  var closeDetector =
-                    window.setInterval(
-                      function () {
-
-                        var bodyText =
-                          (
-                            document.body.innerText ||
-                            ''
-                          ).toLowerCase();
-
-                        var alohaVisible =
-                          bodyText.includes(
-                            'impulsado por'
-                          );
-
-                        /*
-                         * Primero esperamos a confirmar que
-                         * el widget realmente abrió.
-                         */
-                        if (alohaVisible) {
-
-                          widgetWasVisible = true;
-                          missingChecks = 0;
-
-                          return;
-
-                        }
-
-                        /*
-                         * Si todavía nunca se mostró,
-                         * seguimos esperando.
-                         */
-                        if (!widgetWasVisible) {
-                          return;
-                        }
-
-                        /*
-                         * Si desapareció después de haber
-                         * estado visible, contamos varias
-                         * comprobaciones para evitar falsos
-                         * positivos durante transiciones.
-                         */
-                        missingChecks++;
-
-                        if (missingChecks >= 4) {
-
-                          window.clearInterval(
-                            closeDetector
-                          );
-
-                          window.parent.postMessage(
-                            {
-                              type:
-                                'ALOHA_WIDGET_CLOSED'
-                            },
-                            '*'
-                          );
-
-                        }
-
-                      },
-                      250
-                    );
-
                 } catch (error) {
-
                   console.error(
                     'No fue posible abrir el widget de Aloha:',
                     error
                   );
-
                 }
-
               }
             );
-
           </script>
 
         </body>
@@ -318,15 +190,12 @@ export function AlohaBookingProvider({
   ]);
 
   /*
-   * ==========================================================
-   * BLOQUEAR SCROLL SOLO MIENTRAS ALOHA ESTÁ ABIERTO
-   * ==========================================================
+   * BLOQUEAR SCROLL MIENTRAS EL MODAL ESTÁ ABIERTO
    */
   useEffect(() => {
     if (!isOpen) {
       document.body.style.overflow = '';
       document.documentElement.style.overflow = '';
-
       return;
     }
 
@@ -340,18 +209,14 @@ export function AlohaBookingProvider({
   }, [isOpen]);
 
   /*
-   * ==========================================================
-   * ESCAPE TAMBIÉN CIERRA ALOHA
-   * ==========================================================
+   * ESCAPE CIERRA TODO
    */
   useEffect(() => {
     if (!isOpen) {
       return;
     }
 
-    const handleEscape = (
-      event: KeyboardEvent
-    ) => {
+    const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
         closeBooking();
       }
@@ -373,28 +238,62 @@ export function AlohaBookingProvider({
   return (
     <AlohaBookingContext.Provider
       value={{
-        isReady: Boolean(
-          ALOHA_PROPERTY_KEY
-        ),
+        isReady: Boolean(ALOHA_PROPERTY_KEY),
         openBooking,
       }}
     >
-
       {children}
 
       {isOpen && (
-
         <div
           className="
             fixed
             inset-0
             z-[9999]
+            bg-black/70
+            backdrop-blur-sm
           "
           role="dialog"
           aria-modal="true"
           aria-label="Sistema de reservas"
         >
 
+          {/* BOTÓN DE CIERRE PROPIO */}
+<button
+  type="button"
+  onClick={closeBooking}
+  aria-label="Cerrar reservas"
+  className="
+    fixed
+    top-4
+    right-4
+    z-[10001]
+    inline-flex
+    items-center
+    gap-2
+    rounded-full
+    bg-[#FBB03B]
+    px-5
+    py-3
+    text-sm
+    font-semibold
+    text-black
+    shadow-xl
+    transition-all
+    duration-300
+    hover:bg-black
+    hover:text-white
+    hover:scale-105
+  "
+>
+  Cerrar reservas
+
+  <span className="text-xl leading-none">
+    ×
+  </span>
+</button>
+
+          {/* IFRAME ALOHA */}
           <iframe
             title="Reservas Aloha"
             srcDoc={iframeDocument}
@@ -410,7 +309,6 @@ export function AlohaBookingProvider({
           />
 
         </div>
-
       )}
 
     </AlohaBookingContext.Provider>
@@ -418,10 +316,9 @@ export function AlohaBookingProvider({
 }
 
 export function useAlohaBooking() {
-  const context =
-    useContext(
-      AlohaBookingContext
-    );
+  const context = useContext(
+    AlohaBookingContext
+  );
 
   if (!context) {
     throw new Error(

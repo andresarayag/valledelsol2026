@@ -81,7 +81,7 @@ const heroScale = useTransform(
   }}
 >
     <Image
-      src="/images/galeria/piscinas.jpg"
+      src="/images/galeria/letrero4.jpg"
       alt="Valle del Sol"
       fill
       className="object-cover"

@@ -79,7 +79,7 @@ const corporateGallery = [
   '/images/empresas/e2.jpg',
   '/images/empresas/e3.jpg',
   '/images/empresas/e4.jpg',
-  '/images/empresas/e5.jpg',
+  '/images/matrimonio/ma9.jpg',
   '/images/empresas/e6.jpg',
   '/images/empresas/e7.jpg',
   '/images/empresas/e8.jpg',

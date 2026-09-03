@@ -13,7 +13,7 @@ import SecondaryButton from '../../components/SecondaryButton';
 const backgroundIncludes = '/images/matrimonio/matri.jpg';
 
 const weddingGallery = [
-  '/images/matrimonio/m1.jpg',
+  '/images/matrimonio/ma10.jpg',
   '/images/matrimonio/m2.jpg',
   '/images/matrimonio/m3.jpg',
   '/images/matrimonio/m4.jpg',
@@ -29,7 +29,7 @@ const weddingGallery = [
   '/images/matrimonio/ma7.jpg',
   '/images/matrimonio/ma8.jpg',
   '/images/matrimonio/ma9.jpg',
-  '/images/matrimonio/ma10.jpg',
+  '/images/matrimonio/m1.jpg',
   '/images/matrimonio/ma11.jpg',
   '/images/matrimonio/ma12.jpg',
   '/images/matrimonio/ma13.jpg',
