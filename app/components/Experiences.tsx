@@ -18,9 +18,9 @@ const experiences = [
     href: '/restaurante',
   },
   {
-    title: 'Seminarios y Capacitaciones',
-    subtitle: 'Eventos que conectan',
-    image: '/images/experiencia/seminarios.jpg',
+    title: 'Empresas',
+    subtitle: 'Experiencias corporativas a medida',
+    image: '/images/experiencia/empresa.jpg',
     href: '/empresas',
   },
   {

@@ -4,10 +4,7 @@ import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import {
-  Facebook,
-  Instagram,
   Menu,
-  Phone,
   ShoppingBag,
   X,
 } from 'lucide-react';
@@ -56,7 +53,7 @@ export default function Header() {
     { name: 'Colegios', href: '/colegios' },
     { name: 'Empresas', href: '/empresas' },
     { name: 'Tour Operadores', href: '/touroperadores' },
-    { name: 'Nosotros', href: '/about' },
+    { name: 'Nosotros', href: '/nosotros' },
   ];
 
   const closeMobileMenu = () => {
@@ -68,7 +65,6 @@ export default function Header() {
    */
   const handleReservation = () => {
     closeMobileMenu();
-
     openBooking();
   };
 
@@ -104,7 +100,6 @@ export default function Header() {
             />
           </Link>
 
-
           {/* MENÚ ESCRITORIO */}
           <nav className="hidden lg:flex items-center gap-4 xl:gap-5 text-[13px] xl:text-sm font-medium">
 
@@ -126,9 +121,8 @@ export default function Header() {
 
           </nav>
 
-
           {/* LADO DERECHO ESCRITORIO */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-5 ml-4 xl:ml-6">
+          <div className="hidden lg:flex items-center gap-3 xl:gap-4 ml-4 xl:ml-6">
 
             {/* TIENDA */}
             <Link
@@ -150,7 +144,6 @@ export default function Header() {
               <span>Tienda</span>
             </Link>
 
-
             {/* RESERVAR - ALOHA */}
             <button
               type="button"
@@ -160,6 +153,7 @@ export default function Header() {
                 inline-flex
                 items-center
                 justify-center
+                whitespace-nowrap
                 px-5
                 py-2.5
                 rounded-full
@@ -178,61 +172,35 @@ export default function Header() {
               Reservar
             </button>
 
-
-            {/* REDES */}
-            <div className="flex items-center gap-3">
-
-              <Link
-                href="https://www.facebook.com/valledelsolquillon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook de Valle del Sol"
-                className="transition-transform duration-300 hover:scale-110"
-              >
-                <Facebook
-                  size={18}
-                  className={
-                    scrolled
-                      ? 'text-gray-700 hover:text-[#FBB03B]'
-                      : 'text-white hover:text-[#FBB03B]'
-                  }
-                />
-              </Link>
-
-              <Link
-                href="https://www.instagram.com/valledelsolquillon.cl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram de Valle del Sol"
-                className="transition-transform duration-300 hover:scale-110"
-              >
-                <Instagram
-                  size={18}
-                  className={
-                    scrolled
-                      ? 'text-gray-700 hover:text-[#FBB03B]'
-                      : 'text-white hover:text-[#FBB03B]'
-                  }
-                />
-              </Link>
-
-            </div>
-
-
-            {/* TELÉFONO */}
-            <a
-              href="tel:+56940588585"
-              className={`whitespace-nowrap text-sm font-medium transition-colors duration-300 hover:text-[#FBB03B] ${
-                scrolled
-                  ? 'text-gray-800'
-                  : 'text-white'
-              }`}
+            {/* COTIZAR EVENTO */}
+            <Link
+              href="https://www.eventi-app.com/public-quotation/1"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`
+                inline-flex
+                items-center
+                justify-center
+                whitespace-nowrap
+                px-5
+                py-2.5
+                rounded-full
+                border
+                font-semibold
+                transition-all
+                duration-300
+                hover:scale-105
+                ${
+                  scrolled
+                    ? 'border-gray-900 text-gray-900 hover:bg-gray-900 hover:text-white'
+                    : 'border-white text-white hover:bg-white hover:text-black'
+                }
+              `}
             >
-              +56 9 4058 8585
-            </a>
+              Cotizar evento
+            </Link>
 
           </div>
-
 
           {/* CONTROLES MÓVILES */}
           <div className="flex lg:hidden items-center gap-3">
@@ -265,7 +233,6 @@ export default function Header() {
               Reservar
             </button>
 
-
             {/* BOTÓN MENÚ */}
             <button
               type="button"
@@ -296,7 +263,6 @@ export default function Header() {
         </div>
       </header>
 
-
       {/* FONDO OSCURO MÓVIL */}
       <button
         type="button"
@@ -308,7 +274,6 @@ export default function Header() {
             : 'opacity-0 pointer-events-none'
         }`}
       />
-
 
       {/* MENÚ LATERAL MÓVIL */}
       <aside
@@ -352,8 +317,7 @@ export default function Header() {
 
           </nav>
 
-
-          {/* TIENDA + RESERVAR */}
+          {/* TIENDA + RESERVAR + COTIZAR */}
           <div className="mt-8 space-y-3">
 
             {/* TIENDA */}
@@ -386,7 +350,6 @@ export default function Header() {
               Tienda
             </Link>
 
-
             {/* RESERVAR ALOHA */}
             <button
               type="button"
@@ -414,88 +377,33 @@ export default function Header() {
               Reservar
             </button>
 
-          </div>
-
-
-          {/* CONTACTO + REDES */}
-          <div className="mt-auto pt-10">
-
-            <a
-              href="tel:+56940588585"
+            {/* COTIZAR EVENTO */}
+            <Link
+              href="https://www.eventi-app.com/public-quotation/1"
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={closeMobileMenu}
               className="
                 flex
+                w-full
                 items-center
-                gap-3
-                text-white/80
-                hover:text-[#FBB03B]
-                transition-colors
+                justify-center
+                rounded-full
+                border
+                border-white/40
+                px-6
+                py-4
+                text-white
+                font-semibold
+                transition-all
+                duration-300
+                hover:bg-white
+                hover:text-black
+                hover:scale-[1.02]
               "
             >
-              <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
-                <Phone size={18} />
-              </div>
-
-              <span className="font-medium">
-                +56 9 4058 8585
-              </span>
-            </a>
-
-
-            <div className="flex items-center gap-4 mt-7">
-
-              <Link
-                href="https://www.facebook.com/valledelsolquillon"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Facebook de Valle del Sol"
-                className="
-                  w-11
-                  h-11
-                  rounded-full
-                  border
-                  border-white/15
-                  bg-white/5
-                  flex
-                  items-center
-                  justify-center
-                  text-white/80
-                  transition-all
-                  duration-300
-                  hover:bg-[#FBB03B]
-                  hover:text-black
-                  hover:scale-110
-                "
-              >
-                <Facebook size={19} />
-              </Link>
-
-              <Link
-                href="https://www.instagram.com/valledelsolquillon.cl/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram de Valle del Sol"
-                className="
-                  w-11
-                  h-11
-                  rounded-full
-                  border
-                  border-white/15
-                  bg-white/5
-                  flex
-                  items-center
-                  justify-center
-                  text-white/80
-                  transition-all
-                  duration-300
-                  hover:bg-[#FBB03B]
-                  hover:text-black
-                  hover:scale-110
-                "
-              >
-                <Instagram size={19} />
-              </Link>
-
-            </div>
+              Cotizar evento
+            </Link>
 
           </div>
 

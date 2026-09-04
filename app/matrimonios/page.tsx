@@ -18,8 +18,6 @@ const weddingGallery = [
   '/images/matrimonio/m3.jpg',
   '/images/matrimonio/m4.jpg',
   '/images/matrimonio/m5.jpg',
-  '/images/matrimonio/m6.jpg',
-  '/images/matrimonio/m7.jpg',
   '/images/matrimonio/ma1.jpg',
   '/images/matrimonio/ma2.jpg',
   '/images/matrimonio/ma3.jpg',

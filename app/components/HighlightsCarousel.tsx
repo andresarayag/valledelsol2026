@@ -70,7 +70,7 @@ export default function HighlightsCarousel() {
     };
   }, []);
 
-  /* EVITA QUE EL ÍNDICE QUEDE FUERA DE RANGO AL CAMBIAR DE PANTALLA */
+  /* EVITA QUE EL ÍNDICE QUEDE FUERA DE RANGO */
   useEffect(() => {
     setIndex((prev) => Math.min(prev, maxIndex));
   }, [maxIndex]);
@@ -95,54 +95,54 @@ export default function HighlightsCarousel() {
   };
 
   return (
-    <section className="bg-gray-100 py-20 sm:py-24 lg:pt-28 lg:pb-40 overflow-hidden">
+    <section className="bg-gray-100 py-12 sm:py-14 lg:py-16 overflow-hidden">
 
       <div className="w-full px-5 sm:px-6 md:px-10 lg:px-16 xl:px-20">
 
-        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
+        <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
 
           {/* TEXTO */}
           <motion.div
-  className="lg:col-span-5 text-left"
-  initial={{ opacity: 0, x: -120 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{
-    once: false,
-    margin: '-100px',
-  }}
-  transition={{
-    duration: 1.2,
-    ease: [0.22, 1, 0.36, 1],
-  }}
->
-  <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-    LO QUE NOS{' '}
-    <span className="font-semibold text-gray-900">
-      DESTACA
-    </span>
-  </h2>
+            className="lg:col-span-5 text-left"
+            initial={{ opacity: 0, x: -120 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{
+              once: false,
+              margin: '-100px',
+            }}
+            transition={{
+              duration: 1.2,
+              ease: [0.22, 1, 0.36, 1],
+            }}
+          >
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-light text-gray-700 leading-tight">
+              LO QUE NOS{' '}
+              <span className="font-semibold text-gray-900">
+                DESTACA
+              </span>
+            </h2>
 
-  <motion.p
-    className="mt-4 text-base sm:text-lg text-gray-600"
-    initial={{
-      opacity: 0,
-      y: -20,
-    }}
-    whileInView={{
-      opacity: 1,
-      y: 0,
-    }}
-    viewport={{
-      once: false,
-    }}
-    transition={{
-      duration: 0.8,
-      delay: 0.3,
-    }}
-  >
-    BENEFICIOS A SU ALCANCE
-  </motion.p>
-</motion.div>
+            <motion.p
+              className="mt-4 text-base sm:text-lg text-gray-600"
+              initial={{
+                opacity: 0,
+                y: -20,
+              }}
+              whileInView={{
+                opacity: 1,
+                y: 0,
+              }}
+              viewport={{
+                once: false,
+              }}
+              transition={{
+                duration: 0.8,
+                delay: 0.3,
+              }}
+            >
+              BENEFICIOS A SU ALCANCE
+            </motion.p>
+          </motion.div>
 
           {/* CARRUSEL */}
           <div className="lg:col-span-7 min-w-0">
@@ -185,7 +185,7 @@ export default function HighlightsCarousel() {
               </button>
 
               {/* VIEWPORT */}
-              <div className="overflow-hidden w-full mx-12 sm:mx-16 py-8 sm:py-10">
+              <div className="overflow-hidden w-full mx-12 sm:mx-16 py-5 sm:py-6">
 
                 {/* TRACK */}
                 <div
@@ -216,6 +216,7 @@ export default function HighlightsCarousel() {
                         width: `${100 / visibleItems}%`,
                       }}
                     >
+
                       {/* ÍCONO */}
                       <div
                         className="
@@ -258,6 +259,7 @@ export default function HighlightsCarousel() {
                       <p className="text-sm sm:text-base text-gray-700 leading-snug font-medium max-w-[170px]">
                         {item.text}
                       </p>
+
                     </div>
                   ))}
                 </div>
@@ -302,7 +304,7 @@ export default function HighlightsCarousel() {
             </div>
 
             {/* INDICADORES */}
-            <div className="flex justify-center gap-2 mt-3">
+            <div className="flex justify-center gap-2 mt-2">
 
               {Array.from({
                 length: maxIndex + 1,
