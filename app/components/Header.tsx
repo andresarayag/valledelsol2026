@@ -51,10 +51,10 @@ export default function Header() {
 
   const menu = [
     { name: 'Cabañas', href: '/cabanas' },
-    { name: 'Restaurante', href: '/restaurant' },
-    { name: 'Matrimonios', href: '/events/weddings' },
-    { name: 'Colegios', href: '/events/classOutings' },
-    { name: 'Empresas', href: '/events/corporateEvents' },
+    { name: 'Restaurante', href: '/restaurante' },
+    { name: 'Matrimonios', href: '/matrimonios' },
+    { name: 'Colegios', href: '/colegios' },
+    { name: 'Empresas', href: '/empresas' },
     { name: 'Tour Operadores', href: '/touroperadores' },
     { name: 'Nosotros', href: '/about' },
   ];

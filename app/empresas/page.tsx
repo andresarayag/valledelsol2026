@@ -1,10 +1,10 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import HorizontalGallery from '../../components/HorizontalGallery';
-import EventFeatureCard from '../../components/EventFeatureCard';
-import { SocialLink } from '../../components/types';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import HorizontalGallery from '../components/HorizontalGallery';
+import EventFeatureCard from '../components/EventFeatureCard';
+import { SocialLink } from '../components/types';
 import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
@@ -76,9 +76,9 @@ const trainingGalleryImages = [
 
 const corporateGallery = [
   '/images/empresas/e1.jpg',
-  '/images/empresas/e2.jpg',
-  '/images/empresas/e3.jpg',
   '/images/empresas/e4.jpg',
+  '/images/colegios/graduaciones/g17.jpg',
+  '/images/matrimonio/ma8.jpg',
   '/images/matrimonio/ma9.jpg',
   '/images/empresas/e6.jpg',
   '/images/empresas/e7.jpg',
@@ -413,7 +413,7 @@ const heroScale = useTransform(
     >
 
       <Image
-        src='/images/empresas/e8.jpg'
+        src='/images/empresas/e10.jpg'
         alt="Celebración corporativa de fin de año"
         fill
         className="object-cover hover:scale-110 transition duration-700"

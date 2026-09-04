@@ -2,11 +2,11 @@
 
 import { useRef } from 'react';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import PrimaryButton from '../../components/PrimaryButton';
-import SecondaryButton from '../../components/SecondaryButton';
-import { SocialLink } from '../../components/types';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
+import { SocialLink } from '../components/types';
 
 import Image from 'next/image';
 

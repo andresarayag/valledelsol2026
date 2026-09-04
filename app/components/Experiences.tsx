@@ -21,19 +21,19 @@ const experiences = [
     title: 'Seminarios y Capacitaciones',
     subtitle: 'Eventos que conectan',
     image: '/images/experiencia/seminarios.jpg',
-    href: '/eventos',
+    href: '/empresas',
   },
   {
-    title: 'Empresas',
-    subtitle: 'Experiencias corporativas a medida',
-    image: '/images/experiencia/empresa.jpg',
-    href: '/empresas',
+    title: 'Colegios',
+    subtitle: 'Paseos de curso y graduaciones',
+    image: '/images/colegios.jpg',
+    href: '/colegios',
   },
   {
     title: 'Tour Operadores',
     subtitle: 'Programas diseñados para agencias',
     image: '/images/experiencia/tour-operadores.jpg',
-    href: '/tour-operadores',
+    href: '/touroperadores',
   },
 ];
 

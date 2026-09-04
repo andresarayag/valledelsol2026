@@ -11,16 +11,19 @@ const slides = [
     title: 'Convenios con empresas',
     text: 'Ofrecemos planes especiales para empresas que buscan entregar beneficios reales a sus colaboradores. Accede a tarifas preferenciales, experiencias personalizadas y un entorno ideal para el descanso.',
     image: '/images/convenios.jpg',
+    href: '/empresas',
   },
   {
     title: 'Programas para Tour Operadores',
     text: 'Trabajamos junto a tour operadores para crear experiencias únicas en Valle del Sol. Diseñamos programas flexibles, atractivos y con alto valor agregado.',
     image: '/images/tour-operadores.jpg',
+    href: '/touroperadores',
   },
   {
     title: 'Beneficios para Colegios',
     text: 'Programas ideales para giras de estudio y actividades educativas en un entorno seguro, natural y enriquecedor.',
     image: '/images/colegios.jpg',
+    href: '/colegios',
   },
 ];
 
@@ -64,10 +67,16 @@ export default function ContactSection() {
           initial={{ opacity: 0, x: -120 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: false, margin: '-100px' }}
-          transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
+          transition={{
+            duration: 1.4,
+            ease: [0.22, 1, 0.36, 1],
+          }}
         >
           <h2 className="text-4xl md:text-5xl font-light text-gray-700 leading-tight">
-            PROGRAMAS <span className="font-semibold text-gray-900">EXCLUSIVOS</span>
+            PROGRAMAS{' '}
+            <span className="font-semibold text-gray-900">
+              EXCLUSIVOS
+            </span>
           </h2>
         </motion.div>
 
@@ -76,7 +85,10 @@ export default function ContactSection() {
           initial={{ opacity: 0, y: -25 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false }}
-          transition={{ duration: 0.8, delay: 0.3 }}
+          transition={{
+            duration: 0.8,
+            delay: 0.3,
+          }}
         >
           ACCEDE A TARIFAS PREFERENTES
         </motion.p>
@@ -88,7 +100,9 @@ export default function ContactSection() {
         >
           <div
             className="flex transition-transform duration-700 ease-[cubic-bezier(0.22,1,0.36,1)]"
-            style={{ transform: `translateX(-${current * 100}%)` }}
+            style={{
+              transform: `translateX(-${current * 100}%)`,
+            }}
           >
             {slides.map((slide, index) => (
               <div
@@ -118,24 +132,24 @@ export default function ContactSection() {
 
                   <div className="flex flex-col sm:flex-row gap-4">
                     <PrimaryButton
-                      href="/touroperadores"
+                      href={slide.href}
                       className="px-6 py-3 text-base shadow-xl"
                     >
                       Más información
                     </PrimaryButton>
 
                     <SecondaryButton
-  href="https://wa.me/56940588585"
-  className="
-    px-6 py-3 text-base
-    border-gray-900
-    text-gray-900
-    hover:bg-gray-900
-    hover:text-white
-  "
->
-  WhatsApp
-</SecondaryButton>
+                      href="https://wa.me/56940588585"
+                      className="
+                        px-6 py-3 text-base
+                        border-gray-900
+                        text-gray-900
+                        hover:bg-gray-900
+                        hover:text-white
+                      "
+                    >
+                      WhatsApp
+                    </SecondaryButton>
                   </div>
                 </div>
 
@@ -150,7 +164,9 @@ export default function ContactSection() {
               key={index}
               onClick={() => setCurrent(index)}
               className={`w-3 h-3 rounded-full cursor-pointer transition ${
-                current === index ? 'bg-black scale-125' : 'bg-gray-300'
+                current === index
+                  ? 'bg-black scale-125'
+                  : 'bg-gray-300'
               }`}
             />
           ))}

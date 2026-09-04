@@ -51,7 +51,7 @@ export default function Footer() {
               <li><Link href="/matrimonios" className="hover:text-white transition">Matrimonios</Link></li>
               <li><Link href="/colegios" className="hover:text-white transition">Colegios</Link></li>
               <li><Link href="/empresas" className="hover:text-white transition">Empresas</Link></li>
-              <li><Link href="/tour-operadores" className="hover:text-white transition">Tour Operadores</Link></li>
+              <li><Link href="/touroperadores" className="hover:text-white transition">Tour Operadores</Link></li>
               <li><Link href="/nosotros" className="hover:text-white transition">Nosotros</Link></li>
             </ul>
           </div>

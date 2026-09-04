@@ -84,7 +84,7 @@ const heroScale = useTransform(
       src="/images/galeria/letrero4.jpg"
       alt="Valle del Sol"
       fill
-      className="object-cover"
+      className="object-cover object-[center_35%]"
       priority
     />
   </motion.div>
@@ -289,7 +289,7 @@ const heroScale = useTransform(
               <TeamMemberCard
                 name="Felipe Vargas"
                 role="Socio · Estrategia"
-                description="Ingeniero Civil Industrial, encargado de relaciones comerciales y desarrollo estratégico."
+                description="Encargado de relaciones comerciales y desarrollo estratégico."
                 imageUrl="/images/galeria/Nosotros-Felipe.webp"
               />
 

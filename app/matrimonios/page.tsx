@@ -1,14 +1,14 @@
 'use client';
 
-import Header from '../../components/Header';
-import Footer from '../../components/Footer';
-import EventFeatureCard from '../../components/EventFeatureCard';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import EventFeatureCard from '../components/EventFeatureCard';
 import Image from 'next/image';
 import Link from 'next/link';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import PrimaryButton from '../../components/PrimaryButton';
-import SecondaryButton from '../../components/SecondaryButton';
+import PrimaryButton from '../components/PrimaryButton';
+import SecondaryButton from '../components/SecondaryButton';
 
 const backgroundIncludes = '/images/matrimonio/matri.jpg';
 
